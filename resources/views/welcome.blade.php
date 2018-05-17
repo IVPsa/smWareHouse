@@ -79,7 +79,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    SM Ware House
+                </div>
+                <div class="title m-b-md">
+                    <h4>Developed by Ivan Vilugron</h4>
                 </div>
 
                 <div class="links">
