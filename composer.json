@@ -51,7 +51,7 @@
         ],
         "compile" : [
           "php artisan migrate:fresh --force",
-          "php artisan db:seed ",
+          "php artisan db:seed "
       ]
     },
     "config": {
