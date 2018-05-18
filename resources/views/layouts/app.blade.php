@@ -95,22 +95,34 @@
 
         <div id="mySidenav" class="sidenav ">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="">HOME</a>
-          <a href="">PERFIL</a>
+          <a href="{{ url('/home') }}">HOME</a>
+
           <a href="">CATALOGO</a>
           <a href="">BODEGA</a>
           <a href="">CIRUGIAS</a>
         </div>
       </div>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+<br>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-12 col-xs-12 col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <main class="py-4">
+                        @yield('content')
+                      </main>
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@coreui/coreui@2.0.0-rc.1/dist/js/coreui.min.js"></script>
+
 </body>
 </html>

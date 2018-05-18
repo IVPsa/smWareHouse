@@ -19,23 +19,40 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'CATALOGO'], function () {
+Route::prefix('CATALOGO')->group(function () {
 
-  Route::view('/eliminarProducto/{id}', 'CATALOGO.eliminarProducto', ['name' => 'eliminarProducto']);
-  Route::view('/ModificarProducto/{id}', 'CATALOGO.modificarProducto', ['name' => 'modificarProducto']);
-  Route::view('/ListadoDeProductos/{id}', 'CATALOGO.listaProductos', ['name' => 'listaProductos']);
-  Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto', ['name' => 'nuevoProducto']);
-  Route::view('/indexCatalogo', 'CATALOGO.indexCatalogo', ['name' => 'indexCatalogo']);
+  Route::view('/eliminarProducto/{id}', 'CATALOGO.eliminarProducto')->name('eliminarProducto');
+  Route::view('/ModificarProducto/{id}', 'CATALOGO.modificarProducto')->name('modificarProducto');
+
+
+  // Route::view('/ListadoDeProductos', 'CATALOGO.listaProductos')->name('listaProductos');
+
+  Route::get('/ListadoDeProductos', [
+    'uses' => 'CatalogoProductosController@listaProductos',
+  ])->name('listaProductos');
+
+  // Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto')->name('nuevoProducto');
+
+  Route::get('/nuevoProducto', [
+    'uses' => 'CatalogoProductosController@showCrearProducto',
+  ])->name('nuevoProducto');
+
+  Route::post('/nuevoProducto', [
+    'uses' => 'CatalogoProductosController@createProducto',
+    'as' => 'createProducto',
+  ])->name('nuevoProducto');
+
+  Route::view('/index', 'CATALOGO.indexCatalogo')->name('catalogo');
 
  });
 
 Route::group(['prefix' => 'CIRUGIAS'], function () {
 
-  Route::view('/fichaCirugia/{id}', 'CIRUGIAS.fichaCirugia', ['name' => 'fichaCirugia']);
-  Route::view('/listaDeCirugias', 'CIRUGIAS.listaCirugia', ['name' => 'listaDeCirugias']);
-  Route::view('/registrarCirugia', 'CIRUGIAS.registrarCirugia', ['name' => 'registrarCirugia']);
-  Route::view('/modificarCirugia', 'CIRUGIAS.modificarCirugia', ['name' => 'modificarCirugia']);
-  Route::view('/indexCirugias', 'CIRUGIAS.indexCirugias', ['name' => 'indexCirugias']);
+  Route::view('/fichaCirugia/{id}', 'CIRUGIAS.fichaCirugia')->name('fichaCirugia');
+  Route::view('/listaDeCirugias', 'CIRUGIAS.listaCirugia')->name('listaDeCirugias');
+  Route::view('/registrarCirugia', 'CIRUGIAS.registrarCirugia')->name('registrarCirugia');
+  Route::view('/modificarCirugia', 'CIRUGIAS.modificarCirugia')->name('modificarCirugia');
+  Route::view('/index', 'CIRUGIAS.indexCirugias')->name('Cirugias');
 
 });
 
@@ -43,18 +60,18 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
 
  Route::group(['prefix' => 'BODEGA'], function () {
 
-    Route::view('/indexBodega', 'BODEGA.indexBodega', ['name' => 'indexBodega']);
+    Route::view('/index', 'BODEGA.indexBodega')->name('indexBodega');
 
     Route::group(['prefix' => 'MERMAS'], function () {
-      Route::view('/ingresoDeProductos', 'BODEGA.ingresoDeProductos', ['name' => 'ingresoDeProductos']);
+      Route::view('/ingresoDeProductos', 'BODEGA.ingresoDeProductos')->name('ingresoDeProductos');
     });
 
     Route::group(['prefix' => 'INGRESOS'], function () {
-      Route::view('/registroDeMermas', 'BODEGA.registroDeMermas', ['name' => 'registroDeMermas']);
+      Route::view('/registroDeMermas', 'BODEGA.registroDeMermas')->name('registroDeMermas');
     });
 
-    Route::group(['prefix' => 'PRESTAMO'], function () {
-      Route::view('/modificarCirugia', 'BODEGA.modificarCirugia', ['name' => 'modificarCirugia']);
-    });
+    // Route::group(['prefix' => 'PRESTAMO'], function () {
+    //   Route::view('/modificarCirugia', 'BODEGA.modificarCirugia')->name('modificarCirugia');
+    // });
 
   });
