@@ -11,11 +11,13 @@
         <thead class="thead-dark">
             <tr>
               <th>ID</th>
+              <th>NOMBRE</th>
               <th>DESCRIPCION</th>
-              <th>ESTADO</th>
-              <th width="100px">FECHA INICIO</th>
-              <th width="100px">FECHA TERMINO</th>
-              <th width="100px" colspan="2">ACCION</th>
+              <th>Nº Art.</th>
+              <th width="100px">LONGITUD</th>
+              <th width="100px">DIAMETRO</th>
+              <!-- <th width="100px">CLC</th> -->
+              <th width="100px" colspan="3">ACCION</th>
             </tr>
         </thead>
         @foreach($listaDeProductos as $lista)
@@ -25,7 +27,10 @@
           <td>{{ $lista->PROD_DESCRIPCION }}</td>
           <td>{{ $lista->PROD_N_ARTICULO }}</td>
           <td>{{ $lista->PROD_LONGITUD }}</td>
-          <td width="15px" ><button class="btn btn-lg btn-success"> <i class="fa fa-play"></i></button></td>
+          <td>{{ $lista->PROD_DIAMETRO   }}</td>
+          <td>{{ $lista->PROD_UDI_01    }}</td>
+          <!-- <td>{{ $lista->PROD_CLC_COD    }}</td> -->
+          <td width="15px" > <a href="{{route('fichaDeProducto', $lista->PROD_COD)}}"><button class="btn btn-lg btn-success"> <i class="fa fa-play"></i></button></a></td>
           <td width="15px" >
 
               <button type="button"  class="btn btn-lg btn-danger"><i class="fa fa-remove"></i></button>

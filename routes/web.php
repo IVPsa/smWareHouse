@@ -27,9 +27,14 @@ Route::prefix('CATALOGO')->group(function () {
 
   // Route::view('/ListadoDeProductos', 'CATALOGO.listaProductos')->name('listaProductos');
 
-  Route::get('/ListadoDeProductos', [
-    'uses' => 'CatalogoProductosController@listaProductos',
-  ])->name('listaProductos');
+
+    Route::get('/ListadoDeProductos', [
+      'uses' => 'CatalogoProductosController@listaProductos',
+    ])->name('listaProductos');
+
+  Route::get('/fichaDeProducto/{id}', [
+    'uses' => 'CatalogoProductosController@fichaDeProducto',
+  ])->name('fichaDeProducto');
 
   // Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto')->name('nuevoProducto');
 

@@ -18,6 +18,7 @@ class PRO_PRODUCTOS extends Model
       'PROD_N_ARTICULO',
       'PROD_DIAMETRO',
       'PROD_LONGITUD',
+      'PROD_UDI_01',  
       'PROD_USU_COD',
       'PROD_CLC_COD',
       'PROD_TC_COD',
