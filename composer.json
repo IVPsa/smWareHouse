@@ -50,7 +50,7 @@
             "@php artisan package:discover"
         ],
         "compile" : [
-          
+
           "php artisan db:seed "
       ]
     },
@@ -59,6 +59,4 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
-}
+  
