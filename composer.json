@@ -38,12 +38,6 @@
             ]
         }
     },
-
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true
-    },
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -56,9 +50,15 @@
             "@php artisan package:discover"
         ],
         "compile" : [
-
+          "php artisan migrate:fresh --force",
           "php artisan db:seed "
       ]
-    }
-
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
