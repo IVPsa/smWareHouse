@@ -19,8 +19,9 @@ class PROPRODUCTOS extends Migration
           $table->string('PROD_NOMBRE', 45);
           $table->text('PROD_DESCRIPCION');
           $table->text('PROD_N_ARTICULO');
-          $table->double('PROD_DIAMETRO');
-          $table->double('PROD_LONGITUD');
+          $table->string('PROD_DIAMETRO', 10);
+          $table->string('PROD_LONGITUD', 10);
+          $table->string('PROD_UDI_01', 16);
 
           //FK
           $table->integer('PROD_USU_COD')->unsigned();

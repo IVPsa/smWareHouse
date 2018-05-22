@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TI_TIPO_IMPLANTE::class);
         $this->call(CLC_COLOR_CODING::class);
         $this->call(TC_TIPO_CONEXION::class);
+        $this->call(PRO_PRODUCTOS::class);
     }
 }
