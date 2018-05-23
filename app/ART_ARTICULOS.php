@@ -4,17 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ART_ARTICULO extends Model
+class ART_ARTICULOS extends Model
 {
     //
-        protected $table ="ART_ARTICULO";
+        protected $table ="ART_ARTICULOS";
 
         protected $primaryKey = "ART_COD";
 
         protected $fillable = [
 
         'ART_UDI',
-        'ART_PROD_COD'
+        'ART_PROD_COD',
+        'ART_FECHA_EXP',
+        'ART_LOTE',
+        'ART_CANT'
         ];
 
         public function PRO_PRODUCTOS()

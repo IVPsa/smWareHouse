@@ -68,13 +68,33 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
     Route::view('/index', 'BODEGA.indexBodega')->name('indexBodega');
 
     Route::group(['prefix' => 'MERMAS'], function () {
-      Route::view('/ingresoDeProductos', 'BODEGA.ingresoDeProductos')->name('ingresoDeProductos');
+
+      Route::view('/registroDeMermas', 'BODEGA.registroDeMermas')->name('registroDeMermas');
+
     });
 
     Route::group(['prefix' => 'INGRESOS'], function () {
-      Route::view('/registroDeMermas', 'BODEGA.registroDeMermas')->name('registroDeMermas');
+
+      Route::get('/ingresoDeArticulos',[
+        'uses' => 'bodegaController@ShowFormularioArticulo',
+        ])->name('ingresoDeArticulos');
+      //
+      // Route::post('/',[
+      //   'uses' => 'bodegaController@buscarProducto',
+      //   ])->name('buscarProducto');
+
+
+      Route::post('/ingresoDeProductos',[
+        'uses' => 'bodegaController@ingresarArticulo',
+        ])->name('ingresarArticulo');
+
     });
 
+    Route::group(['prefix' => 'INVENTARIO'], function () {
+      Route::get('/ListadoDeArticulos',[
+        'uses' => 'bodegaController@ListadoDeArticulos',
+        ])->name('ListadoDeArticulos');
+    });
     // Route::group(['prefix' => 'PRESTAMO'], function () {
     //   Route::view('/modificarCirugia', 'BODEGA.modificarCirugia')->name('modificarCirugia');
     // });

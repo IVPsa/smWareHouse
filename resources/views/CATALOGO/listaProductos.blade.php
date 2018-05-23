@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-12 col-xs-12">
     <div class="table-responsive" >
-      <table class="table table-bordered table-hover table-dark table-striped" align="center"  id="table">
+      <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
 
         <thead class="thead-dark">
             <tr>

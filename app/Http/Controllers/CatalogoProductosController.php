@@ -34,6 +34,7 @@ class CatalogoProductosController extends Controller
 
     public function createProducto(Request $request)
     {
+
       $id = Auth::id();
       $crearProducto= PRO_PRODUCTOS::create([
         'PROD_NOMBRE'=>$request->input('nompreProducto'),
@@ -51,10 +52,10 @@ class CatalogoProductosController extends Controller
       ]);
 
       if (! $crearProducto) {
-        return redirect()->route('catalogo')->with('error', "Hubo un problema al crear el producto.");
-    }
+        return redirect()->route('indexBodega')->with('error', "Hubo un problema al crear ingresado el articulo.");
+      }
 
-    return redirect()->route('catalogo')->with('success', "El producto ha sido creado exitosamente.");
+        return redirect()->route('indexBodega')->with('success', "Se ha ingresado el articulo exitosamente.");
 
     }
 
