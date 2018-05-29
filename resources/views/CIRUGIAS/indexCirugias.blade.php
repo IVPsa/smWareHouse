@@ -7,12 +7,12 @@
 
 
       <div class="col-md-6 col-sm-12" align="center">
-        <button type="button" class="btn btn-success btn-lg">Lista De cirugias</button>
+        <a href="{{route('listaDeCirugias')}}"><button type="button" class="btn btn-success btn-lg">Lista De cirugias</button></a>
         <br>
       </div>
 
       <div class="col-md-6 col-sm-12" align="center">
-        <button type="button" class="btn btn-success btn-lg ">Registrar Cirugia</button>
+        <a href="{{route('ShowRegistrarCirugia')}}"><button type="button" class="btn btn-success btn-lg ">Registrar Cirugia</button></a>
         <br>
       </div>
 

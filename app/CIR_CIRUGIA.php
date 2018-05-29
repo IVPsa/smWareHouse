@@ -16,9 +16,6 @@ class CIR_CIRUGIA extends Model
 
     'CIR_NOMBRE_PACIENTE',
     'CIR_RUT_PACIENTE',
-    'CIR_FECHA',
-    'CIR_NOMBRE_PACIENTE',
-    'CIR_RUT_PACIENTE',
     'CIR_FECHA'
     ];
 }

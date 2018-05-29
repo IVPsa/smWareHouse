@@ -2,6 +2,12 @@
 
 @section('content')
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $('#Eliminar').tooltip();
+});
+</script>
 <h3 class="text-center">Lista De Productos</h3>
 <div class="row">
   <div class="col-md-12 col-xs-12">
@@ -16,7 +22,7 @@
               <th>Nº Art.</th>
               <th width="100px">LONGITUD</th>
               <th width="100px">DIAMETRO</th>
-              <!-- <th width="100px">CLC</th> -->
+              <th width="100px">UDI(01)</th>
               <th width="100px" colspan="3">ACCION</th>
             </tr>
         </thead>
@@ -30,11 +36,23 @@
           <td>{{ $lista->PROD_DIAMETRO   }}</td>
           <td>{{ $lista->PROD_UDI_01    }}</td>
           <!-- <td>{{ $lista->PROD_CLC_COD    }}</td> -->
-          <td width="15px" > <a href="{{route('fichaDeProducto', $lista->PROD_COD)}}"><button class="btn btn-lg btn-success"> <i class="fa fa-play"></i></button></a></td>
           <td width="15px" >
+            <a href="{{route('fichaDeProducto', $lista->PROD_COD)}}">
+              <button class="btn btn-lg btn-success" data-toggle="tooltip" data-Placement="top" title="Ver Ficha De Producto" >
+                <i class="fa fa-play"></i>
+              </button>
+            </a>
+          </td>
 
-              <button type="button"  class="btn btn-lg btn-danger"><i class="fa fa-remove"></i></button>
 
+          <td width="15px" >
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eliminarProductoModal">
+              <i class="fa fa-remove"></i>
+            </button> -->
+            @include('modals.eliminarProducto')
+              <a href="{{ route('borrarPoducto', $lista->PROD_COD) }}">
+                <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title="Eliminar Producto" id="Eliminar"><i class="fa fa-remove"></i></button>
+              </a>
           </td>
         </tr>
        @endforeach
