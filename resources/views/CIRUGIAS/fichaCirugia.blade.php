@@ -4,10 +4,11 @@
 <h3 class="text-center">CIRUGIA ID: {{$fichaCirugia->CIR_COD}}</h3>
 
 
-    <form action="{{route('ingresarArticulo')}}" method="post"   class="form-group row">
+    <form action="{{route('actualizarCirugia', $fichaCirugia->CIR_COD )}}" method="post"   class="form-group row">
 
       <div class="container"  >
         @csrf
+        @method('patch')
           <div class="form-group row">
               <label for="last_name" class=" col-3 col-form-label text-right">NOMBRE DEL PACIENTE:</label>
               <div class="col-9">
@@ -38,6 +39,13 @@
             <div class="col-9 " >
               <textarea name="name" class="form-control"></textarea>
             </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="offset-6 col-6">
+              <button type="submit" class="btn btn-success btn-lg">ACTUALIZAR</button>
+            </div>
+
           </div>
 
       </div>

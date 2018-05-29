@@ -37,7 +37,8 @@ class cirugiasController extends Controller
 
       $fichaCirugia = CIR_CIRUGIA::find($id);
 
-      return route('listaDeCirugias', compact('fichaCirugia'));
+      return view('CIRUGIAS.fichaCirugia', compact('fichaCirugia'));
+
 
     }
 
@@ -62,8 +63,19 @@ class cirugiasController extends Controller
     }
 
 
-    public function  modificarCirugia($id){
+    public function  actualizarCirugia( Request $request, $id){
 
+      $actualizarCirugia = CIR_CIRUGIA::where('CIR_COD',$id)->update([
+        'CIR_NOMBRE_PACIENTE'=>$request->input('nombrePaciente'),
+        'CIR_RUT_PACIENTE'=>$request->input('rut'),
+        'CIR_FECHA'=>$request->input('fecha')
+      ]);
+
+      if (!$actualizarCirugia) {
+        return redirect()->route('Cirugias')->with('error', "Hubo un problema al registar la cirugia.");
+      }
+
+        return redirect()->route('Cirugias')->with('success', "Se ha registrado la cirugia exitosamente.");
 
     }
 
