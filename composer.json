@@ -50,7 +50,7 @@
             "@php artisan package:discover"
         ],
         "compile" : [
-          "compooser require",
+          "composer require",
           "php artisan migrate:fresh --force",
           "php artisan db:seed --force"
       ]
