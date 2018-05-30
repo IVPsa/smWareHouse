@@ -13,13 +13,13 @@ class DatabaseSeeder extends Seeder
     {
         //
         // factory(App\ART_ARTICULOS::class, 1)->create();
-        // factory(App\User::class, 1)->create();
-        factory(App\CIR_CIRUGIA::class, 100)->create();
-        // $this->call(TI_TIPO_IMPLANTE::class);
-        // $this->call(CLC_COLOR_CODING::class);
-        // $this->call(TC_TIPO_CONEXION::class);
-        // $this->call(PRO_PRODUCTOS::class);
-        // $this->call(PD_PIEZAS_DENTALES::class);
+        factory(App\User::class, 1)->create();
+        // factory(App\CIR_CIRUGIA::class, 100)->create();
+        $this->call(TI_TIPO_IMPLANTE::class);
+        $this->call(CLC_COLOR_CODING::class);
+        $this->call(TC_TIPO_CONEXION::class);
+        $this->call(PRO_PRODUCTOS::class);
+        $this->call(PD_PIEZAS_DENTALES::class);
 
     }
 }
