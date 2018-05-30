@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<form action="{{route('registrarCirugia')}}" method="post"   class="form-group row"> 
+<h3 class="text-center">REGISTAR CIRUGIA</h3>
+<form action="{{route('registrarCirugia')}}" method="post"   class="form-group row">
 
   <div class="container"  >
     @csrf

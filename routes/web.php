@@ -70,8 +70,14 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
     'uses' => 'cirugiasController@actualizarCirugia',
     ])->name('actualizarCirugia');
 
+  Route::get('/implementosUsados/{id}',[
+    'uses' => 'cirugiasController@showRegistarImplementos',
+    ])->name('showRegistarImplementos');
 
-  Route::view('/modificarCirugia', 'CIRUGIAS.modificarCirugia')->name('modificarCirugia');
+  Route::post('/implementosUsados/{id}',[
+    'uses' => 'cirugiasController@registarrImplementosAusar',
+    ])->name('registarrImplementosAusar');
+
 
   Route::view('/index', 'CIRUGIAS.indexCirugias')->name('Cirugias');
 });

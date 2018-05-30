@@ -30,7 +30,7 @@ $(document).ready(function(){
                 <th>RUT</th>
                 <th width="200px" >FECHA DE LA CIRUGIA</th>
 
-                <th width="100px" colspan="2" >ACCION</th>
+                <th width="100px" colspan="3" >ACCION</th>
               </tr>
           </thead>
         @foreach($listadoDeCirugias as $lista)
@@ -50,13 +50,18 @@ $(document).ready(function(){
 
                 </td>
 
-                <td width="15px" >
+                <td width="15px">
+                  <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title="cirugia" id="Eliminar"><i class="fa fa-remove"></i></button>
+                </td>
 
+                <td width="15px" >
+                  <a href="{{route('showRegistarImplementos',$lista->CIR_COD)}}">
                     <button class="btn btn-lg btn-info" data-toggle="tooltip"  data-placement="top" title="Ver articulos usados" >
                       <i class="fa fa-clipboard" ></i>
                      </button>
-
+                  </a>
                 </td>
+
 
               </tr>
           @endforeach
