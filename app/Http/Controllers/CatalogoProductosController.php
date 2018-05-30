@@ -34,6 +34,7 @@ class CatalogoProductosController extends Controller
 
     public function createProducto(Request $request)
     {
+
       $id = Auth::id();
       $crearProducto= PRO_PRODUCTOS::create([
         'PROD_NOMBRE'=>$request->input('nompreProducto'),
@@ -51,10 +52,10 @@ class CatalogoProductosController extends Controller
       ]);
 
       if (! $crearProducto) {
-        return redirect()->route('catalogo')->with('error', "Hubo un problema al crear el producto.");
-    }
+        return redirect()->route('indexBodega')->with('error', "Hubo un problema al crear ingresado el articulo.");
+      }
 
-    return redirect()->route('catalogo')->with('success', "El producto ha sido creado exitosamente.");
+        return redirect()->route('indexBodega')->with('success', "Se ha ingresado el articulo exitosamente.");
 
     }
 
@@ -77,6 +78,19 @@ class CatalogoProductosController extends Controller
 
     }
 
+    public function borrarPoducto( $id){
+
+      $eliminar= PRO_PRODUCTOS::where('PROD_COD',$id)->delete();
+
+      dd($eliminar);
+      if (!$eliminar) {
+        return redirect()->route('indexBodega')->with('error', "Hubo un problema al crear ingresado el articulo.");
+      }
+
+        return redirect()->route('indexBodega')->with('success', "Se ha eliminado el articulo exitosamente.");
+
+    }
+
     public function fichaDeProducto($id){
 
 
@@ -91,10 +105,32 @@ class CatalogoProductosController extends Controller
       $tpcId= PRO_PRODUCTOS::where('PROD_COD',$id)->value('PROD_TC_COD');
       $tipoConexion=TC_TIPO_CONEXION::where('TC_COD',$tpcId)->value('TC_DES');
       $tipoConexionDiametro=TC_TIPO_CONEXION::where('TC_COD',$tpcId)->value('TC_DIAMETRO');
+      //
+      // $datosDelImplante = DB::table('PRO_PRODUCTOS')
+      // ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PROD_PRODUCTOS.PROD_CLC_COD')
+      // ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PROD_PRODUCTOS.PROD_TI_COD')
+      // ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PROD_PRODUCTOS.PROD_TC_COD')
+      //
+      // ->select('CLC_COLOR_CODING.CLC_COLOR',
+      // 'TI_TIPO_IMPLANTE.TI_DES',
+      // 'TI_TIPO_IMPLANTE.TI_CLASE',
+      // 'TC_TIPO_CONEXION.TC_DES',
+      // 'TC_TIPO_CONEXION.TC_DIAMETRO',
+      // 'PROD_PRODUCTOS.PROD_COD',
+      // 'PROD_PRODUCTOS.PROD_UDI_01',
+      // 'PROD_PRODUCTOS.PROD_N_ARTICULO',
+      // 'PROD_PRODUCTOS.PROD_NOMBRE',
+      // 'PROD_PRODUCTOS.PROD_DIAMETRO',
+      // 'PROD_PRODUCTOS.PROD_LONGITUD',
+      // 'PROD_PRODUCTOS.PROD_DESCRIPCION'
+      // )->where('PRO_PRODUCTOS.PROD_COD', $id)->value('PROD_PRODUCTOS.PROD_DESCRIPCION');
+      // dd($datosDelImplante);
 
 
 
-      return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro'));
+
+
+      return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro','datosDelImplante'));
 
     }
 }

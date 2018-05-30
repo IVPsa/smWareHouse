@@ -16,6 +16,9 @@ class ARTARTICULOS   extends Migration
         Schema::create('ART_ARTICULOS', function (Blueprint $table) {
             $table->increments('ART_COD');
             $table->string('ART_UDI',45);
+            $table->date('ART_FECHA_EXP');
+            $table->string('ART_LOTE',10);
+            $table->integer('ART_CANT');
 
             //FK
             $table->integer('ART_PROD_COD')->unsigned();
