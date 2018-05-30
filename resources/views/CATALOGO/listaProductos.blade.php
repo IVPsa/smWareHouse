@@ -46,13 +46,11 @@ $(document).ready(function(){
 
 
           <td width="15px" >
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eliminarProductoModal">
-              <i class="fa fa-remove"></i>
-            </button> -->
-            @include('modals.eliminarProducto')
-              <a href="{{ route('borrarPoducto', $lista->PROD_COD) }}">
+
+
+
                 <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title="Eliminar Producto" id="Eliminar"><i class="fa fa-remove"></i></button>
-              </a>
+          
           </td>
         </tr>
        @endforeach

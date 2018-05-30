@@ -111,52 +111,68 @@ class cirugiasController extends Controller
           'CLC_COLOR_CODING.CLC_COLOR'
           )->get();
 
-          // $listaImplementos = IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::WHERE($id);  
+
+          $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
+          ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')
+          ->Join('ART_ARTICULOS', 'ART_ARTICULOS.ART_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_ART_COD')
+          ->Join('PD_PIEZAS_DENTALES', 'PD_PIEZAS_DENTALES.PD_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.UIC_PD_COD')
+          ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+          ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+          ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+          ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+
+          ->select(
+          'PD_PIEZAS_DENTALES.PD_N_DIENTE',
+          'PD_PIEZAS_DENTALES.PD_NOMBRE',
+          'PRO_PRODUCTOS.PROD_NOMBRE',
+          'PRO_PRODUCTOS.PROD_DIAMETRO',
+          'PRO_PRODUCTOS.PROD_LONGITUD',
+          'ART_ARTICULOS.ART_UDI',
+          'ART_ARTICULOS.ART_LOTE',
+          'ART_ARTICULOS.ART_FECHA_EXP',
+          'ART_ARTICULOS.ART_CANT',
+          'TC_TIPO_CONEXION.TC_DES',
+          'TI_TIPO_IMPLANTE.TI_CLASE',
+          'CLC_COLOR_CODING.CLC_COLOR'
+
+          )->where('IUC_CIR_COD', '=', $id)->get();
 
 
-        // $datosDelImplante = DB::table('ART_ARTICULOS')
-        // ->Join('PRO_PRODUCTOS', 'PROD_PRODUCTOS.PROD_COD', '=', 'PROD_PRODUCTOS.PROD_COD')
-        //
-        // ->select(
-        //
-        // 'ART_ARTICULOS.ART_COD',
-        // 'ART_ARTICULOS.ART_UDI',
-        // 'ART_ARTICULOS.ART_FECHA_EXP',
-        // 'ART_ARTICULOS.ART_LOTE',
-        // 'PROD_PRODUCTOS.PROD_NOMBRE',
-        // 'PROD_PRODUCTOS.PROD_DIAMETRO',
-        // 'PROD_PRODUCTOS.PROD_LONGITUD',
-        // 'PROD_PRODUCTOS.PROD_DESCRIPCION'
-        // )->where('ART_ARTICULOS.ART_COD', 4);
-        // dd($datosDelImplante);
 
-        // $encargadoDelReporte = DB::table('REP_REPORTE')
-        // ->Join('users', 'users.id', '=', 'users.id')
-        //
-        // ->select('users.USER_NOMBRE','REP_REPORTE.REP_COD','REP_REPORTE.REP_USER_ID')
-        // ->where('REP_COD',$id )
-        // ->value('USER_NOMBRE');
 
         return view('CIRUGIAS.registroDeImplementos',compact('piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
 
     }
 
-      public function registarrImplementosAusar(Request $request, $id){
+      public function registrarImplementosAusar(Request $request, $id){
 
+        $idArt=$request->input('implante');
         $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
-          'IUC_ART_COD'=>$request->input('implante'),
-          'IUC_CIR_COD'=>$request->input('$id'),
+          'IUC_ART_COD'=>$idArt,
+          'IUC_CIR_COD'=>$id,
           'UIC_PD_COD'=>$request->input('piezaDental'),
           'updated_at'=> Carbon::now(),
           'created_at'=> Carbon::now()
         ]);
+
+        
+
+        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
+
+        $valorFinal=$valorActual-1;
+
+
+        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+
+          'ART_CANT'=>$valorFinal
+        ]);
         //nota falta aun modificar esta funcion para que se reste una existencia del implante seleccionado
 
-        if (!$registarImplementoUsado) {
-          return redirect()->route('Cirugias')->with('error', "Hubo un problema al registar la cirugia.");
+        if (!$registarImplementoUsado && !$actualizarRegistroEnBodega) {
+          return redirect()->route('showRegistarImplementos',$id)->with('error', "Hubo un problema al registar el implemento.");
         }
 
-          return redirect()->route('Cirugias')->with('success', "Se ha registrado la cirugia exitosamente.");
+          return redirect()->route('showRegistarImplementos',$id)->with('success', "Se ha registrado el implemento correctamente.");
 
 
       }

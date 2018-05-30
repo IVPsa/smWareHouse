@@ -75,7 +75,7 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
     ])->name('showRegistarImplementos');
 
   Route::post('/implementosUsados/{id}',[
-    'uses' => 'cirugiasController@registarrImplementosAusar',
+    'uses' => 'cirugiasController@registrarImplementosAusar',
     ])->name('registarrImplementosAusar');
 
 
@@ -112,9 +112,18 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
      });
 
      Route::group(['prefix' => 'INVENTARIO'], function () {
-       Route::get('/ListadoDeArticulos',[
-         'uses' => 'bodegaController@ListadoDeArticulos',
-         ])->name('ListadoDeArticulos');
+
+           Route::get('/ListadoDeArticulos',[
+             'uses' => 'bodegaController@ListadoDeArticulos',
+             ])->name('ListadoDeArticulos');
+
+           Route::get('/actualizarExistencias/{$id}',[
+             'uses' => 'bodegaController@actualizarExistencias',
+             ])->name('actualizarExistencias');
+
+           Route::patch('/agrearExistencias/{$id}',[
+             'uses' => 'bodegaController@agrearExistencias',
+             ])->name('agrearExistencias');
      });
      // Route::group(['prefix' => 'PRESTAMO'], function () {
      //   Route::view('/modificarCirugia', 'BODEGA.modificarCirugia')->name('modificarCirugia');    // });

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('layouts.messages')
 <h3 class="text-center">CIRUGIAS</h3>
 <div class="row">
   <div class="col-md-12">

@@ -64,18 +64,36 @@
       <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
           <thead class="thead-dark">
               <tr>
-                <th>PIEZA</th>
-                <th>ARTICULO</th>
+                <th>DIENTE</th>
                 <th>NOMBRE</th>
                 <th>LONGITUD</th>
                 <th>DIAMETRO</th>
+                <th>TIPO CONEXION.</th>
+                <th>TIPO IMPLANTE.</th>
+                <th>COLOR CODING.</th>
+                <th>UDI</th>
                 <th>LOTE</th>
-                <th>FECHA DE EXP.</th>
+                <th width="130">FECHA DE EXP.</th>
 
 
 
               </tr>
           </thead>
+          @foreach ($listaImplementos as $listaImplementos)
+              <tr>
+
+                <td> {{$listaImplementos->PD_N_DIENTE}} {{$listaImplementos->PD_NOMBRE}}</td>
+                <td>{{$listaImplementos->PROD_NOMBRE}}</td>
+                <td>{{$listaImplementos->PROD_LONGITUD}}</td>
+                <td>{{$listaImplementos->PROD_DIAMETRO}}</td>
+                <td>{{$listaImplementos->TC_DES}}</td>
+                <td>{{$listaImplementos->TI_CLASE}}</td>
+                <td>{{$listaImplementos->CLC_COLOR}}</td>
+                <td>{{$listaImplementos->ART_UDI}}</td>
+                <td>{{$listaImplementos->ART_LOTE}}</td>
+                <td>{{$listaImplementos->ART_FECHA_EXP}}</td>
+              </tr>
+          @endforeach
 
 
 
