@@ -11,7 +11,7 @@
 -|
 -*/
 
-Route::get('/', function () { 
+Route::get('/', function () {
    return view('welcome');
 });
 
@@ -78,10 +78,9 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
     'uses' => 'cirugiasController@registrarImplementosAusar',
     ])->name('registrarImplementosAusar');
 
-    Route::post('/implementosUsados/{id}',[
-      'uses' => 'cirugiasController@quitarImplemento',
-      ])->name('quitarImplemento');
-
+  Route::get('/eliminar/{id}',[
+    'uses' => 'cirugiasController@quitarImplemento',
+    ])->name('quitarImplemento');
 
 
   Route::get('/eliminarCirugia/{id}',[

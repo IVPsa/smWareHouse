@@ -2,9 +2,15 @@
 @section('content')
 @include('layouts.messages')
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
 <h3 class="text-center">Implemenentos Usados Para la cirugia</h3>
 
-<form action="{{route('registarrImplementosAusar' ,$fichaCirugia->CIR_COD)}}" method="post"   class="form-group row">
+<form action="{{route('registrarImplementosAusar' ,$fichaCirugia->CIR_COD)}}" method="post"   class="form-group row">
 
 
       <div class="container"  >
@@ -86,7 +92,7 @@
                 <th>UDI</th>
                 <th>LOTE</th>
                 <th width="130">FECHA DE EXP.</th>
-
+                <th>ACCION</th>
 
 
               </tr>
@@ -104,6 +110,12 @@
                 <td>{{$listaImplementos->ART_UDI}}</td>
                 <td>{{$listaImplementos->ART_LOTE}}</td>
                 <td>{{$listaImplementos->ART_FECHA_EXP}}</td>
+                <td>
+                    <a href="{{route('quitarImplemento' , $listaImplementos->ART_COD)}}">
+                      <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>
+                    </a>
+
+                </td>
               </tr>
           @endforeach
 

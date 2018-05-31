@@ -128,6 +128,7 @@ class cirugiasController extends Controller
           'PRO_PRODUCTOS.PROD_NOMBRE',
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
+          'ART_ARTICULOS.ART_COD',
           'ART_ARTICULOS.ART_UDI',
           'ART_ARTICULOS.ART_LOTE',
           'ART_ARTICULOS.ART_FECHA_EXP',
@@ -174,7 +175,8 @@ class cirugiasController extends Controller
           ]);
           //nota falta aun modificar esta funcion para que se reste una existencia del implante seleccionado
 
-          if (!$registarImplementoUsado && !$actualizarRegistroEnBodega && $valorActual==0) {
+
+          if (!$registarImplementoUsado ) {
             return redirect()->route('showRegistarImplementos',$id)->with('error', "Hubo un problema al registar el implemento.");
           }
 
@@ -182,27 +184,37 @@ class cirugiasController extends Controller
 
 
       }
-      public function quitarImplemento($id ){
 
-        $idArt= CIR_CIRUGIA::where('CIR_COD',$id)->value('CIR_ART_COD');
+      public function quitarImplemento( Request $request, $id ){
 
-        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
+        // $idArt= CIR_CIRUGIA::where('CIR_COD',$id)->value('CIR_ART_COD');
+
+        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $id)->value('ART_CANT');
 
         $valorFinal=$valorActual+1;
 
-        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$id)->update([
 
           'ART_CANT'=>$valorFinal
         ]);
 
-        $eliminarCirugia= CIR_CIRUGIA::where('CIR_COD',$id)->delete();
+        $quitarImplemento= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_ART_COD',$id)->delete();
 
+        $listaImplementosId=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
+        ->select('UIC_COD')
+        ->where('IUC_ART_COD',$id)
+        ->value('UIC_COD');
 
-        if (!$eliminarCirugia) {
-          return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
+        if($listaImplementosId==null){
+            return redirect()->route('listaDeCirugias')->with('success', "Se elimino correctamente.");
         }
-
-          return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
+        else{
+          if (!$quitarImplemento) {
+            return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
+          }
+          return redirect()->route('showRegistarImplementos',$listaImplementosId)->with('success', "Se ha eliminado correctamente.");
+          // return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
+        }
 
       }
 
