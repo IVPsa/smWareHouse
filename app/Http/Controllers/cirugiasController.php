@@ -142,7 +142,7 @@ class cirugiasController extends Controller
 
 
 
-        return view('CIRUGIAS.registroDeImplementos',compact('piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
+        return view('CIRUGIAS.RegistroDeImplementos',compact('piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
 
     }
 
