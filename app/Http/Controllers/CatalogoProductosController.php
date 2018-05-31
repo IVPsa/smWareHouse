@@ -82,12 +82,12 @@ class CatalogoProductosController extends Controller
 
       $eliminar= PRO_PRODUCTOS::where('PROD_COD',$id)->delete();
 
-      dd($eliminar);
+
       if (!$eliminar) {
-        return redirect()->route('indexBodega')->with('error', "Hubo un problema al crear ingresado el articulo.");
+        return redirect()->route('listaProductos')->with('error', "Hubo un problema al crear borrar el articulo.");
       }
 
-        return redirect()->route('indexBodega')->with('success', "Se ha eliminado el articulo exitosamente.");
+        return redirect()->route('listaProductos')->with('success', "Se ha eliminado el articulo exitosamente.");
 
     }
 

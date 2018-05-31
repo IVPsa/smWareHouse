@@ -1,7 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
-
+@include('layouts.messages')
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
@@ -44,14 +43,12 @@ $(document).ready(function(){
             </a>
           </td>
 
-
           <td width="15px" >
-
-
-
+            <a href="{{route('borrarPoducto', $lista->PROD_COD)}}">
                 <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title="Eliminar Producto" id="Eliminar"><i class="fa fa-remove"></i></button>
-          
+            </a>
           </td>
+
         </tr>
        @endforeach
 

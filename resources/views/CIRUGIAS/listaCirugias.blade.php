@@ -51,7 +51,7 @@ $(document).ready(function(){
                 </td>
 
                 <td width="15px">
-                  <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar cirugia" id="Eliminar"><i class="fa fa-remove"></i></button>
+                  <a href="{{route('eliminarCirugia' , $lista->CIR_COD)}}"><button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar cirugia" id="Eliminar"><i class="fa fa-remove"></i></button></a>
                 </td>
 
                 <td width="15px" >

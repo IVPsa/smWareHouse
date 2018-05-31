@@ -2,9 +2,15 @@
 @section('content')
 @include('layouts.messages')
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
 <h3 class="text-center">Implemenentos Usados Para la cirugia</h3>
 
-<form action="{{route('registarrImplementosAusar' ,$fichaCirugia->CIR_COD)}}" method="post"   class="form-group row">
+<form action="{{route('registrarImplementosAusar' ,$fichaCirugia->CIR_COD)}}" method="post"   class="form-group row">
 
 
       <div class="container"  >
@@ -13,6 +19,7 @@
             <label for="last_name" class=" col-12 col-form-label ">DIENTE:</label>
             <div class="col-12">
               <select class="form-control" name="piezaDental">
+
                 @foreach ( $piezasDentales as $piezasDentales)
                   <option value="{{$piezasDentales->PD_COD}}"> {{$piezasDentales->PD_SECTOR}} - {{$piezasDentales->PD_N_DIENTE}} - {{$piezasDentales->PD_NOMBRE}} </option>
                 @endforeach
@@ -26,31 +33,42 @@
 
 
         <div class="form-group row">
-          <label for="last_name" class=" col-12 col-form-label ">ARTICULO A EMPLEAR EN EL DIENTE:</label>
+          <label for="last_name" class=" col-12 col-form-label ">IMPLANTE A USAR EN EL DIENTE:</label>
           <div class="col-12">
             <select class="form-control" name="implante">
-              @foreach ( $articulos as $articulos)
-                <option value="{{$articulos->ART_COD}}">
-                  {{$articulos->PROD_UDI_01}} -
-                  LOTE: {{$articulos->ART_LOTE}} -
-                  FV: {{$articulos->ART_FECHA_EXP}} -
-                  {{$articulos->PROD_NOMBRE}} -
-                  {{$articulos->PROD_N_ARTICULO}} -
-                  {{$articulos->PROD_DIAMETRO}}∅ -
-                  {{$articulos->TC_DES}}-
-                  {{$articulos->TI_DES}}-
-                  {{$articulos->CLC_COLOR}}
-                </option>
-              @endforeach
+              @if ($articulos == "[]")
+                <option>No hay stock</option>
+              @else
+                @foreach ( $articulos as $articulos)
+                  <option value="{{$articulos->ART_COD}}">
+                    {{$articulos->PROD_UDI_01}} -
+                    LOTE: {{$articulos->ART_LOTE}} -
+                    FV: {{$articulos->ART_FECHA_EXP}} -
+                    {{$articulos->PROD_NOMBRE}} -
+                    {{$articulos->PROD_N_ARTICULO}} -
+                    {{$articulos->PROD_DIAMETRO}}∅ -
+                    {{$articulos->PROD_LONGITUD}}∅ -
+                    {{$articulos->TC_DES}}-
+                    {{$articulos->TI_DES}}-
+                    {{$articulos->CLC_COLOR}}
+                  </option>
+                @endforeach
+              @endif
             </select>
           </div>
 
         </div>
 
         <div class="form-group row">
-          <div class="offset-5 col-7">
-            <button type="submit" class="btn btn-success btn-lg">INGRESAR</button>
-          </div>
+          @if ($articulos == "[]")
+            <div class=" col-12">
+              <h4 class="text-center">Debe ingresar implantes a bodega para poder continuar</h4>
+            </div>
+            @else
+            <div class="offset-5 col-7">
+                <button type="submit" class="btn btn-success btn-lg">INGRESAR</button>
+            </div>
+            @endif
 
         </div>
 
@@ -74,7 +92,7 @@
                 <th>UDI</th>
                 <th>LOTE</th>
                 <th width="130">FECHA DE EXP.</th>
-
+                <th>ACCION</th>
 
 
               </tr>
@@ -92,6 +110,12 @@
                 <td>{{$listaImplementos->ART_UDI}}</td>
                 <td>{{$listaImplementos->ART_LOTE}}</td>
                 <td>{{$listaImplementos->ART_FECHA_EXP}}</td>
+                <td>
+                    <a href="{{route('quitarImplemento' , $listaImplementos->ART_COD)}}">
+                      <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>
+                    </a>
+
+                </td>
               </tr>
           @endforeach
 

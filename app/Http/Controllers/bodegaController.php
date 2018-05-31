@@ -84,13 +84,14 @@ class bodegaController extends Controller
       return view('BODEGA.listadoDeArticulos',compact('listadoDeArticulos') );
     }
 
-    public function actualizarExistencias($id){
+    public function showActualizarExistencias($id){
 
       $Articulo = ART_ARTICULOS::find($id);
       $prodCod = ART_ARTICULOS::where('ART_COD',$id)->value('ART_PROD_COD');
       $udiProd=PRO_PRODUCTOS::where('PROD_COD',$prodCod)->value('PROD_UDI_01');
 
-      return view('BODEGA.actualizarExistencias',compact('Articulo', 'udiProd') );
+
+      return view('BODEGA.actualizarExistencias',compact('Articulo', 'udiProd', 'prodCod') );
     }
 
     public function agrearExistencias(Request $request, $id){
@@ -107,6 +108,8 @@ class bodegaController extends Controller
         return redirect()->route('ListadoDeArticulos')->with('success', "Stock actualizado correctamente.");
 
     }
+
+
     //
     // public function buscarProducto(Request $request){
     //   $id=$request->input('udi01');

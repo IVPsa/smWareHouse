@@ -30,9 +30,13 @@ Route::prefix('CATALOGO')->group(function () {
      'uses' => 'CatalogoProductosController@listaProductos',
    ])->name('listaProductos');
 
- Route::get('/fichaDeProducto/{id}', [
-   'uses' => 'CatalogoProductosController@fichaDeProducto',
- ])->name('fichaDeProducto');
+   Route::get('/fichaDeProducto/{id}', [
+     'uses' => 'CatalogoProductosController@fichaDeProducto',
+   ])->name('fichaDeProducto');
+
+   Route::get('/borrarPoducto/{id}', [
+     'uses' => 'CatalogoProductosController@borrarPoducto',
+   ])->name('borrarPoducto');
 
  // Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto')->name('nuevoProducto');
 
@@ -76,8 +80,16 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
 
   Route::post('/implementosUsados/{id}',[
     'uses' => 'cirugiasController@registrarImplementosAusar',
-    ])->name('registarrImplementosAusar');
+    ])->name('registrarImplementosAusar');
 
+  Route::get('/eliminar/{id}',[
+    'uses' => 'cirugiasController@quitarImplemento',
+    ])->name('quitarImplemento');
+
+
+  Route::get('/eliminarCirugia/{id}',[
+    'uses' => 'cirugiasController@eliminarCirugia',
+    ])->name('eliminarCirugia');
 
   Route::view('/index', 'CIRUGIAS.indexCirugias')->name('Cirugias');
 });
@@ -117,11 +129,11 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@ListadoDeArticulos',
              ])->name('ListadoDeArticulos');
 
-           Route::get('/actualizarExistencias/{$id}',[
-             'uses' => 'bodegaController@actualizarExistencias',
-             ])->name('actualizarExistencias');
+           Route::get('/actualizarExistencias/{id}',[
+             'uses' => 'bodegaController@showActualizarExistencias',
+             ])->name('showActualizarExistencias');
 
-           Route::patch('/agrearExistencias/{$id}',[
+           Route::patch('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@agrearExistencias',
              ])->name('agrearExistencias');
      });

@@ -93,7 +93,7 @@ class cirugiasController extends Controller
           ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
           ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
           ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
-          ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COLOR', '=', 'CLC_COLOR_CODING.CLC_COLOR')
+          ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
           ->select('PRO_PRODUCTOS.PROD_UDI_01',
 
           'PRO_PRODUCTOS.PROD_NOMBRE',
@@ -109,7 +109,8 @@ class cirugiasController extends Controller
           'TC_TIPO_CONEXION.TC_DES',
           'TI_TIPO_IMPLANTE.TI_DES',
           'CLC_COLOR_CODING.CLC_COLOR'
-          )->get();
+          )->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
+
 
 
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
@@ -127,6 +128,7 @@ class cirugiasController extends Controller
           'PRO_PRODUCTOS.PROD_NOMBRE',
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
+          'ART_ARTICULOS.ART_COD',
           'ART_ARTICULOS.ART_UDI',
           'ART_ARTICULOS.ART_LOTE',
           'ART_ARTICULOS.ART_FECHA_EXP',
@@ -155,25 +157,79 @@ class cirugiasController extends Controller
           'created_at'=> Carbon::now()
         ]);
 
-        
-
-        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
-
-        $valorFinal=$valorActual-1;
 
 
-        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+          $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
+
+          if ($valorActual==0){
+            return redirect()->route('showRegistarImplementos',$id)->with('error', "implemento sin stock.");
+          }
+
+
+          $valorFinal=$valorActual-1;
+
+
+          $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+
+            'ART_CANT'=>$valorFinal
+          ]);
+          //nota falta aun modificar esta funcion para que se reste una existencia del implante seleccionado
+
+
+          if (!$registarImplementoUsado ) {
+            return redirect()->route('showRegistarImplementos',$id)->with('error', "Hubo un problema al registar el implemento.");
+          }
+
+            return redirect()->route('showRegistarImplementos',$id)->with('success', "Se ha registrado el implemento correctamente.");
+
+
+      }
+
+      public function quitarImplemento( Request $request, $id ){
+
+        // $idArt= CIR_CIRUGIA::where('CIR_COD',$id)->value('CIR_ART_COD');
+
+        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $id)->value('ART_CANT');
+
+        $valorFinal=$valorActual+1;
+
+        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$id)->update([
 
           'ART_CANT'=>$valorFinal
         ]);
-        //nota falta aun modificar esta funcion para que se reste una existencia del implante seleccionado
 
-        if (!$registarImplementoUsado && !$actualizarRegistroEnBodega) {
-          return redirect()->route('showRegistarImplementos',$id)->with('error', "Hubo un problema al registar el implemento.");
+        $quitarImplemento= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_ART_COD',$id)->delete();
+
+        $listaImplementosId=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
+        ->select('UIC_COD')
+        ->where('IUC_ART_COD',$id)
+        ->value('UIC_COD');
+
+        if($listaImplementosId==null){
+            return redirect()->route('listaDeCirugias')->with('success', "Se elimino correctamente.");
+        }
+        else{
+          if (!$quitarImplemento) {
+            return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
+          }
+          return redirect()->route('showRegistarImplementos',$listaImplementosId)->with('success', "Se ha eliminado correctamente.");
+          // return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
         }
 
-          return redirect()->route('showRegistarImplementos',$id)->with('success', "Se ha registrado el implemento correctamente.");
+      }
 
+      public function eliminarCirugia($id ){
+
+
+        $eliminarCirugia= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_ART_COD',$id)->delete();
+
+
+
+        if (!$eliminarCirugia) {
+          return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
+        }
+
+          return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
 
       }
 
