@@ -11,7 +11,7 @@
 -|
 -*/
 
-Route::get('/', function () {
+Route::get('/', function () { 
    return view('welcome');
 });
 
@@ -76,8 +76,17 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
 
   Route::post('/implementosUsados/{id}',[
     'uses' => 'cirugiasController@registrarImplementosAusar',
-    ])->name('registarrImplementosAusar');
+    ])->name('registrarImplementosAusar');
 
+    Route::post('/implementosUsados/{id}',[
+      'uses' => 'cirugiasController@quitarImplemento',
+      ])->name('quitarImplemento');
+
+
+
+  Route::get('/eliminarCirugia/{id}',[
+    'uses' => 'cirugiasController@eliminarCirugia',
+    ])->name('eliminarCirugia');
 
   Route::view('/index', 'CIRUGIAS.indexCirugias')->name('Cirugias');
 });
@@ -121,7 +130,7 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@showActualizarExistencias',
              ])->name('showActualizarExistencias');
 
-           Route::patch('/actualizarExistencias/{$id}',[
+           Route::patch('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@agrearExistencias',
              ])->name('agrearExistencias');
      });

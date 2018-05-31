@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('layouts.messages')
-<h3 class="text-center">Ingresar existencia</h3>
+<h3 class="text-center">Ingresar Articulo</h3>
 
 
     <form action="{{route('ingresarArticulo')}}" method="post"   class="form-group row">

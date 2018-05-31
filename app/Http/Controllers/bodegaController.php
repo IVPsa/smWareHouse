@@ -108,6 +108,8 @@ class bodegaController extends Controller
         return redirect()->route('ListadoDeArticulos')->with('success', "Stock actualizado correctamente.");
 
     }
+
+
     //
     // public function buscarProducto(Request $request){
     //   $id=$request->input('udi01');

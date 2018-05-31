@@ -111,7 +111,7 @@ class cirugiasController extends Controller
           'CLC_COLOR_CODING.CLC_COLOR'
           )->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
 
-          
+
 
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
           ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')
@@ -180,6 +180,44 @@ class cirugiasController extends Controller
 
             return redirect()->route('showRegistarImplementos',$id)->with('success', "Se ha registrado el implemento correctamente.");
 
+
+      }
+      public function quitarImplemento($id ){
+
+        $idArt= CIR_CIRUGIA::where('CIR_COD',$id)->value('CIR_ART_COD');
+
+        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
+
+        $valorFinal=$valorActual+1;
+
+        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+
+          'ART_CANT'=>$valorFinal
+        ]);
+
+        $eliminarCirugia= CIR_CIRUGIA::where('CIR_COD',$id)->delete();
+
+
+        if (!$eliminarCirugia) {
+          return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
+        }
+
+          return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
+
+      }
+
+      public function eliminarCirugia($id ){
+
+
+        $eliminarCirugia= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_ART_COD',$id)->delete();
+
+
+
+        if (!$eliminarCirugia) {
+          return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
+        }
+
+          return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
 
       }
 
