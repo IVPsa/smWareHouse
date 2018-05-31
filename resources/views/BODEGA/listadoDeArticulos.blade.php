@@ -21,7 +21,7 @@ $(document).ready(function(){
                 <th>LOTE</th>
                 <th>FECHA EXP</th>
                 <th>CANT</th>
-                <!-- <th width="100px">CLC</th> -->
+
                 <th width="100px" colspan="2" >ACCION</th>
               </tr>
           </thead>
@@ -37,23 +37,19 @@ $(document).ready(function(){
 
             <td width="15px" >
                <a href="{{route('actualizarExistencias', $lista->ART_COD)}}" >
-                  <button class="btn btn-lg btn-success" data-toggle="tooltip"p data-lacement="top" title="Agregar Existencias" id="agregar">
+                  <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
                      <i class="fa fa-play"></i>
                   </button>
                </a>
             </td>
             <td width="15px" >
               <a href="{{route('fichaDeProducto', $lista->ART_PROD_COD)}}">
-                <button class="btn btn-lg btn-info" data-toggle="tooltip"p data-lacement="top" title="Ver Ficha De Producto" id="agregar">
+                <button class="btn btn-lg btn-info" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
                   <i class="fa fa-clipboard" ></i>
                  </button>
               </a>
             </td>
-            <!-- <td width="15px" >
-                <button type="button"  class="btn btn-lg btn-danger" id="eliminar">
-                  <i class="fa fa-remove"></i>
-                </button>
-            </td> -->
+
           </tr>
           @endforeach
 

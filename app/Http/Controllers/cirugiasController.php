@@ -93,7 +93,7 @@ class cirugiasController extends Controller
           ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
           ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
           ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
-          ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COLOR', '=', 'CLC_COLOR_CODING.CLC_COLOR')
+          ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
           ->select('PRO_PRODUCTOS.PROD_UDI_01',
 
           'PRO_PRODUCTOS.PROD_NOMBRE',
@@ -109,8 +109,9 @@ class cirugiasController extends Controller
           'TC_TIPO_CONEXION.TC_DES',
           'TI_TIPO_IMPLANTE.TI_DES',
           'CLC_COLOR_CODING.CLC_COLOR'
-          )->get();
+          )->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
 
+          
 
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
           ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')

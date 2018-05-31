@@ -90,7 +90,8 @@ class bodegaController extends Controller
       $prodCod = ART_ARTICULOS::where('ART_COD',$id)->value('ART_PROD_COD');
       $udiProd=PRO_PRODUCTOS::where('PROD_COD',$prodCod)->value('PROD_UDI_01');
 
-      return view('BODEGA.actualizarExistencias',compact('Articulo', 'udiProd') );
+
+      return route('BODEGA.actualizarExistencias',compact('Articulo', 'udiProd') );
     }
 
     public function agrearExistencias(Request $request, $id){
