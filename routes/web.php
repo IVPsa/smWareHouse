@@ -30,9 +30,13 @@ Route::prefix('CATALOGO')->group(function () {
      'uses' => 'CatalogoProductosController@listaProductos',
    ])->name('listaProductos');
 
- Route::get('/fichaDeProducto/{id}', [
-   'uses' => 'CatalogoProductosController@fichaDeProducto',
- ])->name('fichaDeProducto');
+   Route::get('/fichaDeProducto/{id}', [
+     'uses' => 'CatalogoProductosController@fichaDeProducto',
+   ])->name('fichaDeProducto');
+
+   Route::get('/borrarPoducto/{id}', [
+     'uses' => 'CatalogoProductosController@borrarPoducto',
+   ])->name('borrarPoducto');
 
  // Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto')->name('nuevoProducto');
 
