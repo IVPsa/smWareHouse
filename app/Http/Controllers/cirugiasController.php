@@ -155,24 +155,29 @@ class cirugiasController extends Controller
           'created_at'=> Carbon::now()
         ]);
 
-        
-
-        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
-
-        $valorFinal=$valorActual-1;
 
 
-        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+          $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $idArt)->value('ART_CANT');
 
-          'ART_CANT'=>$valorFinal
-        ]);
-        //nota falta aun modificar esta funcion para que se reste una existencia del implante seleccionado
+          if ($valorActual==0){
+            return redirect()->route('showRegistarImplementos',$id)->with('error', "implemento sin stock.");
+          }
 
-        if (!$registarImplementoUsado && !$actualizarRegistroEnBodega) {
-          return redirect()->route('showRegistarImplementos',$id)->with('error', "Hubo un problema al registar el implemento.");
-        }
 
-          return redirect()->route('showRegistarImplementos',$id)->with('success', "Se ha registrado el implemento correctamente.");
+          $valorFinal=$valorActual-1;
+
+
+          $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$idArt)->update([
+
+            'ART_CANT'=>$valorFinal
+          ]);
+          //nota falta aun modificar esta funcion para que se reste una existencia del implante seleccionado
+
+          if (!$registarImplementoUsado && !$actualizarRegistroEnBodega && $valorActual==0) {
+            return redirect()->route('showRegistarImplementos',$id)->with('error', "Hubo un problema al registar el implemento.");
+          }
+
+            return redirect()->route('showRegistarImplementos',$id)->with('success', "Se ha registrado el implemento correctamente.");
 
 
       }
