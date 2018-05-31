@@ -117,9 +117,9 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@ListadoDeArticulos',
              ])->name('ListadoDeArticulos');
 
-           Route::get('/actualizarExistencias/{$id}',[
-             'uses' => 'bodegaController@actualizarExistencias',
-             ])->name('actualizarExistencias');
+           Route::get('/actualizarExistencias/{id}',[
+             'uses' => 'bodegaController@showActualizarExistencias',
+             ])->name('showActualizarExistencias');
 
            Route::patch('/actualizarExistencias/{$id}',[
              'uses' => 'bodegaController@agrearExistencias',

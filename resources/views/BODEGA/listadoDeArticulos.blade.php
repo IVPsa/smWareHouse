@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 
             <td width="15px" >
-               <a href="{{route('actualizarExistencias', $lista->ART_COD)}}" >
+               <a href="{{route('showActualizarExistencias',$lista->ART_COD)}}" >
                   <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
                      <i class="fa fa-play"></i>
                   </button>
