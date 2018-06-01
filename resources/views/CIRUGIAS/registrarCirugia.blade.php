@@ -34,7 +34,7 @@
       <div class="form-group row">
         <label  for="lote" class="col-3 col-form-label text-right">DESCRIPCION  :</label>
         <div class="col-9 " >
-          <textarea name="name" class="form-control"></textarea>
+          <textarea name="descripcionCirugia" class="form-control"></textarea>
         </div>
       </div>
 

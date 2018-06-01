@@ -52,6 +52,7 @@ class cirugiasController extends Controller
         'CIR_NOMBRE_PACIENTE'=>$request->input('nombrePaciente'),
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
         'CIR_FECHA'=>$request->input('fecha'),
+        'CIR_DESCRIPCION'=>$request->input('descripcionCirugia'),
         'updated_at'=> Carbon::now(),
         'created_at'=> Carbon::now()
       ]);

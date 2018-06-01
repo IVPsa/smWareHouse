@@ -18,6 +18,7 @@ class CIRCIRUGIA extends Migration
           $table->increments('CIR_COD');
           $table->string('CIR_NOMBRE_PACIENTE', 45);
           $table->string('CIR_RUT_PACIENTE', 45);
+          $table->string('CIR_DESCRIPCION');
           $table->date('CIR_FECHA');
           $table->timestamps();
         });
