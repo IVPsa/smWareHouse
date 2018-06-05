@@ -1,0 +1,59 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>addPages Method - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>addPages Method</h1>
+        <h3>Description</h3>
+        <p>Adds page indices of a file (.tiff) to the selection for the barcode search.</p>
+        <h3>Syntax</h3>
+        <pre><code>.addPages(int[] indices);</code></pre>
+    
+        <h3>Parameters</h3>
+        <dl>
+            <dt>
+                <code class="type">indices</code>
+            </dt>
+            <dd>
+                Specifies the indices of images in buffer. The index is 0-based. 
+            </dd>
+        </dl>
+
+
+        <h3>Remarks</h3>
+        <p>It works for TIFF  files only.</p>
+        <p>
+            By default, it will search for barcodes in all pages of a file.
+            You can speed up the recognition process by specifying page number(s) if you know barcodes are in which page(s).
+        </p>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p><code>true</code> indicates success. <code>false</code> indicates failure.</p>
+        <p>When <code>false</code> is returned, check <code><a href="methodgetErrorCode.html">getErrorCode</a></code> or <code><a href="methodgetErrorString.html">getErrorString</a></code> for error information.</p>
+
+        <h3>Example</h3>
+        <pre class="language-clike line-numbers">
+<code class="language-csharp">var dbrObject;
+dynamsoft.dbrEnv.init(function () { dbrObject = new dynamsoft.dbrEnv.BarcodeReader(); }, function (errCode, errMsg) { alert(errMsg); });
+
+dbrObject.clearAllPages();
+dbrObject.addPages([0,2,3]);</code></pre>
+
+        <h3>See Also</h3>
+        <p>
+            JavaScript &gt; Class &gt; <a href="classBarcodeReader.html">BarcodeReader</a> &gt; <a href="methodClearAllPages.html">clearAllPages</a><br />
+            
+        </p>
+        <br /><br />
+    </div>
+</body>
+</html>

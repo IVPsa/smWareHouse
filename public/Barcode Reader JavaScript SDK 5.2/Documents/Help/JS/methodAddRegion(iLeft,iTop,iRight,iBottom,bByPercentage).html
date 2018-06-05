@@ -1,0 +1,91 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>addRegion Method - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>addRegion Method</h1>
+        <h3>Description</h3>
+        <p>Adds an area of the image to the selection for barcode recognition.</p>
+
+        <h3>Syntax</h3>
+        <pre style="max-width:850px;width:850px;"><code>.addRegion(int iLeft, int iTop, int iRight, int iBottom, Boolean bByPercentage);</code></pre>
+
+        <h3>Parameters</h3>
+
+        <dl>
+            <dt>
+                <code class="type">iLeft</code>
+            </dt>
+            <dd>
+                The left-most coordinate of the area.
+            </dd>
+            <dt>
+                <code class="type">iTop</code>
+            </dt>
+            <dd>
+                The top-most coordinate of the area.
+            </dd>
+            <dt>
+                <code class="type">iRight</code>
+            </dt>
+            <dd>
+                The right-most coordinate of the area.
+            </dd>
+            <dt>
+                <code class="type">iBottom</code>
+            </dt>
+            <dd>
+                The bottom-most coordinate of the area.
+            </dd>
+            <dt>
+                <code class="type">bByPercentage</code>
+            </dt>
+            <dd>
+                Indicates whether the coordinate is measured by percentage or not.
+            </dd>
+        </dl>
+
+        <h3>Remarks</h3>
+        <p>
+            By default, the barcode reader will search the whole image. You can speed up the recognition process by specifying a search area.
+        </p>
+        <p>
+            If <code class="type">bByPercentage</code> is set to true, the allowed values for <code class="type">iLeft</code>, <code class="type">iTop</code>,
+            <code class="type">iRight</code>, <code class="type">iBottom</code> range from 0 to 100. If it is set to false, the coordinates are measured in pixels.
+        </p>
+        <p>
+            If <code class="type">iRight</code> &lt;= <code class="type">iLeft</code> or <code class="type">iBottom</code> &lt;= <code class="type">iTop</code> or
+            any of them &lt; 0, it will return CustomedRegionInvalid.
+        </p>
+        <h3>Return value</h3>
+        <p><code class="type">bool</code></p>
+        <p><code>true</code> indicates success. <code>false</code> indicates failure.</p>
+        <p>When <code>false</code> is returned, check <code><a href="methodgetErrorCode.html">getErrorCode</a></code> or <code><a href="methodgetErrorString.html">getErrorString</a></code> for error information.</p>
+        <h3>Example</h3>
+        <pre class="language-clike line-numbers">
+<code class="language-csharp">var dbrObject;
+dynamsoft.dbrEnv.init(function () { dbrObject = new dynamsoft.dbrEnv.BarcodeReader(); }, function (errCode, errMsg) { alert(errMsg); });
+
+dbrObject.clearAllRegions();
+dbrObject.addRegion(0, 100, 100, 120, false);
+dbrObject.addRegion(200, 100, 300, 120, false);</code></pre>
+        <h3>See Also</h3>
+        <p>
+            JavaScript &gt; Class &gt; <a href="classBarcodeReader.html">BarcodeReader</a> &gt; <a href="methodAddRegion(ScanRegionSide,iPercentage).html">addRegion (ScanRegionSide,iPercentage)</a><br />
+            JavaScript &gt; Class &gt; <a href="classBarcodeReader.html">BarcodeReader</a> &gt; <a href="methodClearAllRegions.html">clearAllRegions</a><br />
+        </p>
+        <br />
+        <br />
+    </div>
+
+</body>
+</html>

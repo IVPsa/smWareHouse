@@ -21,6 +21,21 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@2.0.0-rc.1/dist/css/coreui.min.css">
+
+    <script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.config.js"> </script>
+    <script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.initiate.js"> </script>
+    <script type="text/javascript">
+        var dbrObject;
+        function onDBRInitSuccess() {
+            dbrObject = new dynamsoft.dbrEnv.BarcodeReader();
+        }
+
+        function onDBRInitFailure(errorCode, errorString) {
+            alert('Init failed: ' + errorString);
+        }
+
+        dynamsoft.dbrEnv.init(onDBRInitSuccess, onDBRInitFailure);
+    </script>
     <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";

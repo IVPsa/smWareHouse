@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>dynamsoft.dbrEnv.versionInfo Property - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>dynamsoft.dbrEnv.versionInfo Property</h1>
+        <h3>Description</h3>
+        <p>Returns the version number of the Dynamsoft Barcode Reader JavaScript file and the module dll. This is a read-only property.</p>
+        <h3>Syntax</h3>
+        <pre><code>dynamsoft.dbrEnv.versionInfo;</code></pre>
+        <h3>Return value</h3>
+        <p><code class="type">String</code>: <code>"JS version: 5.2.0.0829, Dll version: 5.2.0.0829"</code></p>
+
+        <h3>Remarks</h3>
+        <p>"JS version" returns the version number of DBR JavaScript file (dynamsoft.barcodereader.initiate.js). </p>
+        <p>"Dll version" returns the version number of the Dynamsoft Barcode Reader module dll (dbr_{version number}.dll which is under <i>C:\Windows\SysWOW64\Dynamsoft\DynamsoftService</i> or <i>C:\Windows\System32\Dynamsoft\DynamsoftService</i>).</p>
+        <p>
+            If you haven't installed Dynamsoft Barcode Reader module or the object is not initialized, "Dll version" will return an empty string.
+        </p>
+		
+        <br /><br />
+    </div>
+
+</body>
+</html>

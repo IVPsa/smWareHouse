@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::view('/lector', 'pruebaLector')->name('pruebaLector');
+
 Route::prefix('CATALOGO')->group(function () {
 
  Route::view('/eliminarProducto/{id}', 'CATALOGO.eliminarProducto')->name('eliminarProducto');
@@ -132,6 +134,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
            Route::get('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@showActualizarExistencias',
              ])->name('showActualizarExistencias');
+
+           Route::patch('/actualizarExistencias/{id}',[
+             'uses' => 'bodegaController@agrearExistencias',
+             ])->name('agrearExistencias');
 
            Route::patch('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@agrearExistencias',

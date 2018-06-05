@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>dynamsoft.dbrEnv.init Method - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>dynamsoft.dbrEnv.init Method</h1>
+        <h3>Description</h3>
+        <p>Initializes Dynamsoft Barcode Reader object.</p>
+        <h3>Syntax</h3>
+        <pre><code>dynamsoft.dbrEnv.init(onInitSuccess, onInitFailure);</code></pre>
+		<h3>Data type</h3>
+        <code class="type">Void</code>
+		<h3>Parameters</h3>
+
+        <dl>
+			<dt>
+                <code class="type">function <a href="functionPrototypes.html#OnInitSuccess">OnInitSuccess</a></code>
+            </dt>
+            <dd>
+                Callback function triggered when the initialization succeeds.
+            </dd>
+			<dt>
+                <code class="type">function <a href="functionPrototypes.html#OnInitFailure">OnInitFailure</a></code>
+            </dt>
+            <dd>
+                Callback function triggered if the initialization fails.
+            </dd>
+		</dl>
+		
+		<h3>Remarks</h3>
+		<p>If it is initialized successfully, you can call dynamsoft.dcsEnv.BarcodeReader() to get the Object in the onSuccess function.
+Otherwise, please check error code and error string in the onFailure function.</p>
+		
+		<h3>Example</h3>
+		<pre class=" line-numbers language-javascript"><code class=" language-javascript">var dbrObject; 
+function onInitSuccess(){
+    dynamsoft.dbrEnv.productKey = "***"; // Please replace "***" with your own product key.
+    dbrObject = new dynamsoft.dbrEnv.BarcodeReader();
+}
+
+function onInitFailure(errorCode, errorString){
+    alert("Init failed: " + errorCode + "; " + errorString);
+}
+
+dynamsoft.dbrEnv.init(onInitSuccess,onInitFailure);</code></pre>
+		
+        <br /><br />
+    </div>
+
+</body>
+</html>

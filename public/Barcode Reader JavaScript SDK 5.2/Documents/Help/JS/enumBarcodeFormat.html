@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>EnumBarcodeFormat Enumeration - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>EnumBarcodeFormat Enumeration</h1>
+        <h3>Description</h3>
+        <p>An enumeration that describes all supported barcode formats.</p>
+        <ul>
+            <li>
+                <table>
+                    <tr>
+                        <th>Member</th>
+                        <th>Value</th>
+                        <th>Barcode Type</th>
+                    </tr>
+                    <tr>
+                        <td>EBF_All</td>
+                        <td>0</td>
+                        <td>All supported formats</td>
+                    </tr>
+					<tr>
+                        <td>EBF_OneD</td>
+                        <td>1023</td>
+                        <td>One-D barcode</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_CODE_39</td>
+                        <td>1</td>
+                        <td>Code 39</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_CODE_128</td>
+                        <td>2</td>
+                        <td>Code 128</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_CODE_93</td>
+                        <td>4</td>
+                        <td>Code 93</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_CODABAR</td>
+                        <td>8</td>
+                        <td>Codabar</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_ITF</td>
+                        <td>16</td>
+                        <td>Interleaved 2 of 5</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_EAN_13</td>
+                        <td>32</td>
+                        <td>EAN-13</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_EAN_8</td>
+                        <td>64</td>
+                        <td>EAN-8</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_UPC_A</td>
+                        <td>128</td>
+                        <td>UPC-A</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_UPC_E</td>
+                        <td>256</td>
+                        <td>UPC-E</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_INDUSTRIAL_25</td>
+                        <td>512</td>
+                        <td>Industrial 2 of 5</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_PDF417</td>
+                        <td>33554432</td>
+                        <td>PDF417</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_QR_CODE</td>
+                        <td>67108864</td>
+                        <td>QRCode</td>
+                    </tr>
+                    <tr>
+                        <td>EBF_DATAMATRIX</td>
+                        <td>134217728</td>
+                        <td>DATAMATRIX</td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+        <h3>Remarks</h3>
+        <p>
+            Barcode formats can be combined like this: <br/>
+            <code>dynamsoft.dbrEnv.EnumBarcodeFormat.EBF_CODE_39 | dynamsoft.dbrEnv.EnumBarcodeFormat.EBF_CODE_93</code>
+            
+        </p>
+
+        <h3>See Also</h3>
+        <p>
+           JavaScript &gt; Class &gt; <a href="classBarcodeReader.html">BarcodeReader</a> &gt; <a href="propbarcodeFormats.html">barcodeFormats</a><br />
+        </p>
+        <br /><br />
+    </div>
+
+</body>
+</html>

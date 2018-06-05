@@ -1,0 +1,39 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>barcodeColorMode Property - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>barcodeColorMode Property</h1>
+        <h3>Description</h3>
+        <p>Gets or sets the ink color for barcodes search.</p>
+        <h3>Syntax</h3>
+        <pre><code>.barcodeColorMode = ...;</code></pre>
+        <h3>Data type</h3>
+        <code class="type"><a href="enumBarcodeColorMode.html">EnumBarcodeColorMode</a></code>
+        <h3>Default Value</h3>
+        <code class="type">dynamsoft.dbrEnv.EnumBarcodeColorMode.EBCM_DarkOnLight</code>
+        <h3>Example</h3>
+        <pre class="language-clike line-numbers">
+<code class="language-csharp">var dbrObject;
+dynamsoft.dbrEnv.init(function () { dbrObject = new dynamsoft.dbrEnv.BarcodeReader(); }, function (errCode, errMsg) { alert(errMsg); });
+
+dbrObject.barcodeColorMode = dynamsoft.dbrEnv.EnumBarcodeColorMode.EBCM_DarkAndLight;</code></pre>
+
+        <h3>See Also</h3>
+        <p>
+            JavaScript &gt; Enumeration &gt; <a href="enumBarcodeColorMode.html">EnumBarcodeColorMode</a><br />
+        </p>
+        <br /><br />
+    </div>
+
+</body>
+</html>

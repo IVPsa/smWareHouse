@@ -1,0 +1,378 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Dynamsoft Barcode Reader JavaScript SDK</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link href="Documents/res/Styles/default.css" type="text/css" rel="stylesheet" />
+    <link href="Documents/res/Styles/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="Documents/res/Scripts/jquery.js"></script>
+    <!--<script type="text/javascript" src="Documents/res/Scripts/jquery-sample.js"></script>-->
+    <script type="text/javascript" src="Documents/res/Scripts/prettify.js"></script>
+</head>
+<body>
+    <div class="body_Broad_width">
+        <div class=" DWTPage">
+            <div class="DWTHeader">
+                <div class="header-top">
+                    <div class="ds-logo">
+                        <a href="http://www.dynamsoft.com/" target="_blank">
+                            <img alt="Dynamsoft logo" src="Documents/res/Images/Dynamsoft-log.png">
+                        </a>
+                    </div>
+                    <div class="tagline">
+                        10+ Years of Experience in TWAIN SDKs and Version Control Solutions
+                    </div>
+                    <div class="tel">
+                        Tel: 1-877-605-5491
+                    </div>
+                </div>
+                <div id="header-left">
+                    <a class="logo-dwt" href="http://www.dynamsoft.com/products/dynamic-barcode-reader.aspx" target="_blank">
+                        <img class="logo-dwt" alt="Dynamsoft Barcode Reader logo" src="Documents/res/Images/DBR-logo.png">
+                    </a>
+                </div>
+                <div class="dcs-logo-info">
+                    Dynamsoft Barcode Reader JavaScript SDK 5.2
+                </div>
+            </div>
+            <div id="main_content">
+                <div id="tabs" class="pr">
+                    <ul class="tab-nav fb">
+                        <li><a id="showHelloWorld" href="#HelloWorld">Hello World</a></li>
+                        <li><a id="showSamplesTab" href="#Samples">Code Samples</a></li>                        
+                    </ul>
+                    
+                    <!-- anchor anchor 
+                    <div style="cursor:pointer; position:absolute; z-index:9; top:120px; left:664px; width:180px; height:45px; display:none" id="anchor-go"></div>
+                    <div style="position:absolute; cursor:pointer; top:4680px; left:644px; z-index:9; height:45px; width:200px; display:none" id="anchor-back"></div>-->
+
+                    <div>
+                        <a class="btnGuidePDF" href="Documents/Help/index.html" target="_blank">API Reference</a>
+                    </div>
+                    <div id="HelloWorld" class="tabcontent">
+                        <!--<img src="Documentation/res/Images/Hello World Image.png" width="366" height="404" />-->
+                        <h1>
+                            Build a barcode scanning page in five minutes
+                        </h1>
+                        <p>
+                            <br />
+                            The following 3 steps will show you how to quickly create your first web-based barcode scanning application.
+                        </p>
+                        <div class="fx">
+                            <div class="icnOrder-Group">
+                                <a class="icnOrder-link" style="display: none;"><i class="icn-Order">1</i></a> <a class="icnOrder-link" style="display: none;"><i class="icn-Order">2</i></a>
+                                <a class="icnOrder-link" style="display: none;"><i class="icn-Order">3</i></a>
+                            </div>
+                        </div>
+                        <ol class="step">
+                            <li class="list-item list-item-1">
+                                <div class="w40-holder">
+                                    <i class="icn-Order">1</i>
+                                </div>
+                                <h2 class="fl">
+                                    <!--Create an empty HTML page and use the Dynamsoft's Resources folder-->
+                                    Start a Web Application
+                                    <br />
+                                    <!--<img src="Documentation/res/Images/StepOne.png" width="239" height="84" alt="" />-->
+                                </h2>
+                                <div class="cl">
+                                </div>
+                                <ol class="subStep">
+                                    <li>
+                                        <h3>
+                                            1.1 Copy the Dynamsoft's DBRResources folder to your project
+                                        </h3>
+                                        <p>
+                                            <!--You can use any IDE of your choice.-->
+                                            The DBRResources folder can normally be copied from
+                                            <!--<br />-->
+                                            <!--<em class="folder">-->
+                                            C:\Program Files (x86)\Dynamsoft\Barcode Reader JavaScript SDK {Version Number}\<!--</em>--><br />
+                                            <img src="Documents/res/Images/ResourcesFolder.png" alt="" />
+                                        </p>
+                                        <!--<h4>
+                                            Code
+                                        </h4>-->
+                                        <!--<pre class="prettyprint linenums">
+                                        &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;title&gt;Hello World&lt;/title&gt;
+                                        &lt;/head&gt;
+
+                                        &lt;body&gt;
+                                        &lt;/body&gt;
+                                        &lt;/html&gt;</pre>-->
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            <!--1.2 Copy the Resources folder to the same location of the page.-->
+                                            1.2 Create an empty HTML page
+                                        </h3>
+                                        <p>
+
+                                            <!--<img src="Documentation/res/Images/ResourcesFolder.png" width="738" height="309" />-->
+                                        </p>
+                                        <p>
+                                            Please put the empty html page under the same folder level as the DBRResources folder, as shown below:
+                                            <img src="Documents/res/Images/ResourcesAndHTML.png" />
+                                            <!--After copying the above folder to the same place with the html page,
+                                            your project structure will be like this:-->
+                                            <!--<img src="Documentation/res/Images/stepThree.png" width="211" height="90" /><br />-->
+                                        </p>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="list-item list-item-2">
+                                <div class="w40-holder">
+                                    <i class="icn-Order">2</i>
+                                </div>
+                                <h2 class="fl">
+                                    Add Dynamsoft Barcode Reader JavaScript SDK to the HTML Page
+                                </h2>
+                                <div class="cl">
+                                </div>
+                                <ol class="subStep">
+                                    <li>
+                                        <h3>
+                                            2.1 Include the two Dynamsoft's JS files in the &lt;head&gt; tag.
+                                        </h3>
+                                        <?prettify linenums="4" ?>
+                                        <pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.config.js"&gt; &lt;/script&gt;
+&lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.initiate.js"&gt; &lt;/script&gt;</pre>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="list-item list-item-3">
+                                <div class="w40-holder">
+                                    <i class="icn-Order">3</i>
+                                </div>
+                                <h2 class="fl">
+                                    Use Dynamsoft Barcode Reader SDK
+                                </h2>
+                                <div class="cl">
+                                </div>
+                                <ol class="subStep">
+                                    <li>
+                                        <h3>
+                                            3.1 Initiate dbrObject
+                                        </h3>
+                                        <?prettify linenums="10" ?>
+                                        <pre class="prettyprint linenums">
+&lt;script type="text/javascript"&gt; 
+    var dbrObject;
+    function onDBRInitSuccess() {
+        dbrObject = new dynamsoft.dbrEnv.BarcodeReader();
+    }
+
+    function onDBRInitFailure(errorCode, errorString) {
+        alert('Init failed: ' + errorString);
+    }
+
+    dynamsoft.dbrEnv.init(onDBRInitSuccess, onDBRInitFailure);
+&lt;/script&gt;</pre>
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            3.2 Add a barcode image, a Read Barcode button and the minimum scripts to scan barcode
+                                        </h3>
+                                        <?prettify linenums="10" ?>
+                                        <pre class="prettyprint linenums">
+&lt;img id="barcode" src="data:image/gif;base64,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" /&gt;
+&lt;br/&gt;
+&lt;input type="button" value="Read Barcode" onclick="ReadBarcode();" /&gt;
+&lt;script type="text/javascript"&gt; 
+    function ReadBarcode(){
+        if (!dbrObject) return;
+                                           
+        var base64img = document.getElementById("barcode").src.split(',')[1];
+ 
+        var result = dbrObject.readBase64(base64img);
+        if(result.getCount() > 0) {            
+            var strMsg = "Barcode Type: " + result.get(0).formatString + "\n";
+            strMsg += "Barcode Value: " + result.get(0).text;
+            alert(strMsg);
+        } else {
+            alert("No barcode(s) found.");
+        }
+    }
+&lt;/script&gt;</pre>
+                                    </li>
+                                    <li>
+                                        <h3>
+                                            3.3 Review and complete code.
+                                        </h3>
+                                        <pre class="prettyprint linenums">&lt;html&gt;  
+    &lt;head&gt;    
+        &lt;title&gt;Hello World&lt;/title&gt;
+        &lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.config.js"&gt; &lt;/script&gt;
+        &lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.initiate.js"&gt; &lt;/script&gt;
+    &lt;/head&gt;
+  
+    &lt;body&gt;
+        &lt;img id="barcode" src="data:image/gif;base64,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" /&gt;
+        &lt;br/&gt;
+        &lt;input id="btn-readBarcode" type="button" value="Read Barcode" onclick="ReadBarcode();" /&gt;
+        &lt;script type="text/javascript"&gt; 
+            var dbrObject;
+            function onDBRInitSuccess() {
+                dbrObject = new dynamsoft.dbrEnv.BarcodeReader();
+            }
+            function onDBRInitFailure(errorCode, errorString) {
+                alert('Init failed: ' + errorString);
+            }
+            dynamsoft.dbrEnv.init(onDBRInitSuccess, onDBRInitFailure);
+            
+            function ReadBarcode(){
+                if (!dbrObject) return;
+ 
+                var base64img = document.getElementById("barcode").src.split(',')[1];
+ 
+                var result = dbrObject.readBase64(base64img);
+                if(result.getCount() > 0) {
+                    var strMsg = "Barcode Type: " + result.get(0).formatString + "\n";
+                    strMsg += "Barcode Value: " + result.get(0).text;
+                    alert(strMsg);
+                } else {
+                    alert("No barcode(s) found.");
+                }
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;  
+&lt;/html&gt;</pre>
+                                        <h3>
+                                            <a id="RunHelloWorld" class="btn fl">RUN it now</a>
+                                        </h3>
+                                        <br />
+                                        <br />
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="Samples" class="tabcontent">
+                        <div class="sample-link threeLineText" onclick='window.open("Samples/AdvancedSample/AdvancedSample.html")'>                        
+                            <h1 class="title">Read Barcode from Images</h1>
+                            <span class="description">The sample demonstrates how to read barcodes from local images with advanced settings by a few lines of JavaScript code.</span>
+                        </div>
+                        <div class="sample-link threeLineText" onclick='window.open("https://www.dynamsoft.com/Demo/JSDemo/online_demo_scan_Barcode.aspx?product=dbr")'>                        
+                            <h1 class="title">Read Barcode from Scanners  <img src='Documents/res/Images/icn-external-link.png'></h1>
+                            <span class="description">The sample demonstrates how to read barcodes from scanned documents.</span>
+                        </div>
+                        <div class="sample-link threeLineText" onclick='window.open("https://www.dynamsoft.com/Demo/JSDemo/online_barcode_reader_webcam.aspx?product=dbr")'>                        
+                            <h1 class="title">Read Barcode from Cameras <img src='Documents/res/Images/icn-external-link.png'></h1>
+                            <span class="description">The sample demonstrates how to read barcodes from live video captured by cameras.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                Copyright © Dynamsoft. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.hasLoadHelloWorldDemo = false;
+        //ducument.getElementById
+        $(document).ready(function () {
+            prettyPrint();
+                   
+            // tabs
+            $('ul.tab-nav a:lt(3)').click(function () {
+                var tabContainers = $('#tabs  .tabcontent');
+                if ($(this).parent().attr('id') == 'selected') {
+                    return false;
+                }
+                //tabContainers.hide().filter(this.hash).fadeIn();
+                tabContainers.attr('style', 'position:absolute;left:-5000px;top:-5000px');
+                $(this.hash).attr('style', 'position:relative;');
+                
+                
+                    
+                if (this.hash == "#Samples") {
+                    if (hasLoadHelloWorldDemo == false) {
+                        //document.getElementById("frmDemo").src = "Samples/Getting Started/HelloWorld.html";
+                        hasLoadHelloWorldDemo = true;
+                        $("li.demo:eq(0) a").click();
+                    }
+                    
+                }
+                if (this.hash == "#HelloWorld") {
+                    $(".icnOrder-Group").show();
+                    
+                }
+                else {
+                    $(".icnOrder-Group").hide();
+                }
+
+                $('ul.tab-nav a').parent().attr('id', '');
+                $(this).parent().attr('id', 'selected');
+                $(window).scrollTop(0);
+
+
+                return false;
+            })/*.filter(':first').click();*/
+
+            $(function () {
+                $(window).scroll(function () {
+                    var s = $(window).scrollTop();
+                    $(".icnOrder-link").removeClass("icnOrder-link-current");
+                    for (var i = 0; i < 3; i++) {
+                        if ($(".list-item:eq(" + i + ")").offset().top < (s + 34 * i + 10)) {
+                            if ($(".icnOrder-link:eq(" + i + ")").is(":hidden")) {
+                                $(".icnOrder-link:eq(" + i + ")").show();
+                                $(".icnOrder-link").removeClass("icnOrder-link-current");
+                                $(".icnOrder-link:eq(" + i + ")").addClass("icnOrder-link-current");
+                            }
+                            $(".list-item:eq(" + i + ") .icn-Order").hide();
+                        }
+                        else if ($(".list-item:eq(" + i + ")").offset().top > s + i * 34) {
+                            $(".icnOrder-link:eq(" + i + ")").hide();
+                            if ($(".list-item:eq(" + i + ") .icn-Order").is(":hidden")) {
+                                $(".list-item:eq(" + i + ") .icn-Order").show();
+                                $(".icnOrder-link:eq(" + i + ")").addClass("icnOrder-link-current");
+                            }
+                        }
+                    }
+                });
+
+                $(".icnOrder-link").click(function () {
+                    var iListIndex = $(this).find(".icn-Order").html();
+                    var s = $(".list-item:eq(" + (iListIndex - 1) + ")").offset().top - 10;
+                    $(window).scrollTop(s);
+                })
+                $("#showHelloWorld").click(function () {
+                    $(".icnOrder-link").removeClass("icnOrder-link-current");
+                    $(".icnOrder-link").hide();
+                    $(".list-item .icn-Order").show();
+                })
+
+$('.tab-nav a:first').click();
+//                // Go to next Tab
+//                hash = window.location.hash;
+//                target = $('.tab-nav a[href="' + hash + '"]');
+//
+//                if (target.length == 0) {
+//                    $('.tab-nav a:first').click();
+//                } else {
+//                    if (hash == "#Samples") {
+//                        $("#demoCat li:eq(1) a").click();
+//                    }
+//                    target.click();
+//                }
+//                
+//                // Clear hash value
+//                if (!($.browser.msie && ($.browser.version == 6.0) && !$.support.style)) {
+//                    window.location.hash = '';
+//                }
+            });
+
+        });
+        
+        $("#RunHelloWorld").click(function(){
+            window.open('Documents/res/HelloWorld.html');
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>EnumImageCaptureDevice Enumeration - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Script/prism.js"></script>
+    <link rel="stylesheet" href="../Styles/prism.css">
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h1>EnumImageCaptureDevice Enumeration</h1>
+        <h3>Description</h3>
+        <p>An enumeration that represents the type of devices you used to capture barcode images.</p>
+        <ul>
+            <li>
+                <table>
+                    <tr>
+						<th>Member</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>EICD_Unknown (Default)</td>
+                        <td>The image capture device type is unknown, try EICD_Scanner first and if no barcodes were found, try EICD_Fax and then EICD_Camera.</td>
+                    </tr>
+					<tr>
+                        <td>EICD_Scanner</td>
+                        <td>Barcode images are captured by scanners. </td>
+                    </tr>
+					<tr>
+                        <td>EICD_Camera</td>
+                        <td>Barcode images are captured from cameras or video devices. </td>
+                    </tr>
+					<tr>
+                        <td>EICD_Fax</td>
+                        <td>Barcode images are captured from faxes.</td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+        <h3>Remarks</h3>
+        <p>This ImageCaptureDevice enumeration is used as the type for the <a href="propimageCaptureDevice.html">BarcodeReader.imageCaptureDevice</a> property and is used to determine the type of devices when reading barcodes.</p>
+		<p>Barcode images captured by <b>scanners</b> may have salt-and-pepper noise. They are usually in grayscale or B&W. </p> 
+		<p>Barcode images captured by <b>cameras</b> may suffer problems different than the ones captured by scanners, e.g., shadows, flash reflection, have poor perspective. They are usually in color. </p>
+		<p>Barcode images captured by <b>faxes</b> are usually in B&W. </p>
+		<p><b>EICD_Unknown</b> will try <b>EICD_Scanner</b> type first and then if no barcodes were found, it will try <b>EICD_Fax</b> and then <b>EICD_Camera</b>. 
+		Therefore, using Unknown may naturally result in slower recognition speed. If you are not sure about the type of devices, please use <b>EICD_Unknown</b>.
+		</p>
+        
+        <h3>See Also</h3>
+        <p>
+           JavaScript &gt; Class &gt; <a href="classBarcodeReader.html">BarcodeReader</a> &gt; <a href="propimageCaptureDevice.html">imageCaptureDevice</a><br />
+           
+        </p>
+        <br /><br />
+    </div>
+
+</body>
+</html>

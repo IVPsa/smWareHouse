@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+    <title>HelloWorld Guide - Dynamsoft Barcode Reader</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link href="../Styles/docs.css" type="text/css" rel="stylesheet" />
+    <script src="../Script/jquery.js" type="text/javascript"></script>
+    <script src="../Script/ds-api-jquery.js" type="text/javascript"></script>
+    <!--sample code make up-->
+    <link rel="stylesheet" href="../Styles/prism.css" />
+    <script src="../Script/prism.js" type="text/javascript"></script>
+</head>
+<body id="docs-page">
+    <div class='content' id='content'>
+        <h2>Build a barcode scanning page in five minutes</h2>
+        <p>The following 3 steps will show you how to quickly create your first web-based barcode scanning application.</p>
+        <ul>
+            <li>
+                <h3>1. Start a Web Application</h3>
+                <p><b>1.1 Copy the Dynamsoft's DBRResources folder to your project</b></p>
+                <p>The DBRResources folder can normally be copied from <i>C:\Program Files (x86)\Dynamsoft\Barcode Reader JavaScript SDK {Version Number}\</i></p>
+                <img src="../images/ResourcesFolder.png" title="Resources Folder" alt="Resources Folder" style="border:1px" />
+                <p><b>1.2 Create an empty HTML page</b></p>
+                <p>Please put the empty html page under the same folder level as the DBRResources folder, as shown below:</p>
+                <img src="../images/ResourcesAndHTML.png" title="Resources and HTML" alt="Resources and HTML" style="border:1px" />
+            </li>
+            <li>
+                <h3>2. Add Dynamsoft Barcode Reader JavaScript SDK to the HTML Page</h3>
+                
+                <p>Include the two Dynamsoft's JS files in the &lt;head&gt; tag.</p>
+                <pre class="language-javascript line-numbers">
+<code class="language-csharp">&lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.config.js"&gt; &lt;/script&gt;
+&lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.initiate.js"&gt; &lt;/script&gt;</code></pre> 
+            </li>
+            <li>
+                <h3>3. Use Dynamsoft Barcode Reader SDK</h3>
+                <p><b>3.1 Initiate dbrObject</b></p>
+                <pre class="language-javascript line-numbers">
+<code class="language-csharp">&lt;script type="text/javascript"&gt; 
+    var dbrObject;
+    function onDBRInitSuccess() {
+        dbrObject = new dynamsoft.dbrEnv.BarcodeReader();
+    }
+    function onDBRInitFailure(errorCode, errorString) {
+        alert('Init failed: ' + errorString);
+    }
+    dynamsoft.dbrEnv.init(onDBRInitSuccess, onDBRInitFailure);
+&lt;/script&gt;</code></pre>
+                <p><b>3.2 Add a barcode image, a Read Barcode button and the minimum scripts to scan barcode</b></p>
+                <pre class="language-javascript line-numbers">
+<code class="language-csharp">&lt;img id="barcode" src="data:image/jpg;base64,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" /&gt;
+&lt;br/&gt;
+&lt;input type="button" value="Read Barcode" onclick="ReadBarcode();" /&gt;
+&lt;script type="text/javascript"&gt; 
+    function ReadBarcode(){
+        if (!dbrObject) return;
+                                           
+        var base64img = document.getElementById("barcode").src.split(',')[1];
+        var result = dbrObject.readBase64(base64img);
+        if(result.getCount() > 0) {            
+            var strMsg = "Barcode Type: " + result.get(0).formatString + "\n";
+            strMsg += "Barcode Value: " + result.get(0).text;
+            alert(strMsg);
+        } else {
+            alert("No barcode(s) found.");
+        }
+    }
+&lt;/script&gt;</code></pre>
+                <p><b>3.3 Review the complete code</b></p>
+                <pre class="language-javascript line-numbers">
+<code class="language-csharp">&lt;html&gt;  
+    &lt;head&gt;    
+        &lt;title&gt;Hello World&lt;/title&gt;
+        &lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.config.js"&gt; &lt;/script&gt;
+        &lt;script type="text/javascript" src="DBRResources/dynamsoft.barcodereader.initiate.js"&gt; &lt;/script&gt;
+    &lt;/head&gt;
+  
+    &lt;body&gt;
+        &lt;img id="barcode" src="data:image/jpg;base64,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" /&gt;
+        &lt;br/&gt;
+        &lt;input type="button" value="Read Barcode" onclick="ReadBarcode();" /&gt;
+        &lt;script type="text/javascript"&gt; 
+            var dbrObject;
+            function onDBRInitSuccess() {
+                dbrObject = new dynamsoft.dbrEnv.BarcodeReader();
+            }
+            function onDBRInitFailure(errorCode, errorString) {
+                alert('Init failed: ' + errorString);
+            }
+            dynamsoft.dbrEnv.init(onDBRInitSuccess, onDBRInitFailure);
+            
+            function ReadBarcode(){
+                if (!dbrObject) return;
+                var base64img = document.getElementById("barcode").src.split(',')[1];
+                var result = dbrObject.readBase64(base64img);
+                if(result.getCount() > 0) {
+                    var strMsg = "Barcode Type: " + result.get(0).formatString + "\n";
+                    strMsg += "Barcode Value: " + result.get(0).text;
+                    alert(strMsg);
+                } else {
+                    alert("No barcode(s) found.");
+                }
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;  
+&lt;/html&gt;</code></pre>
+            </li>
+        </ul>
+
+        <!--<h2>More Samples</h2>
+        <ul>
+            <li><a href="#">Scan and read barcode on the server side.</a></li>
+            <li><a href="#">Webcam and read barcode on the server side.</a></li>
+        </ul>-->
+    </div>
+    <div><br /><br /><br /></div>
+
+</body>
+</html>
