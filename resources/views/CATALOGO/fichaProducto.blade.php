@@ -72,6 +72,14 @@
           </div>
         </div>
 
+        <div class="form-group row">
+          <label for="last_name" class="col-3 col-form-label text-right">EXISTENCIAS TOTALES EN BODEGA:</label>
+          <div class="col-9">
+              <input type="text" class="form-control" id="udi01" name="udi01" value="{{$conteoGeneral}}">
+          </div>
+        </div>
+
+
 
 
       </div>

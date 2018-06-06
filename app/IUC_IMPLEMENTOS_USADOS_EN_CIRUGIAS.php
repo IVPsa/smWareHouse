@@ -15,7 +15,8 @@ class IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS extends Model
     protected $fillable = [
       'IUC_ART_COD',
       'IUC_CIR_COD',
-      'UIC_PD_COD'
+      'IUC_PD_COD',
+      'IUC_FECHA_DE_USO'
     ];
 
     public function TC_TIPO_CONEXION()

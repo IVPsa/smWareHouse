@@ -61,6 +61,7 @@ class bodegaController extends Controller
 
 
     }
+
     public function ListadoDeArticulos(){
 
       // $listadoDeArticulos=DB::table('ART_ARTICULOS')->paginate();
@@ -76,7 +77,6 @@ class bodegaController extends Controller
       'ART_ARTICULOS.ART_CANT',
       'ART_ARTICULOS.ART_PROD_COD'
       )->paginate();
-
 
 
 
@@ -109,16 +109,53 @@ class bodegaController extends Controller
 
     }
 
+    public function listadoDeImplementosUsados(){
 
-    //
-    // public function buscarProducto(Request $request){
-    //   $id=$request->input('udi01');
-    //
-    //   $udiRerefencia=PRO_PRODUCTOS::where('PROD_UDI_01',$id)->value('PROD_COD')
-    //   // dd($udiRerefencia);
-    //
-    //   return view('BODEGA.ingresoDeProductos', compact('udiRerefencia') );
-    //
-    // }
+
+      $listaDeUsados = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
+      ->Join('ART_ARTICULOS', 'ART_ARTICULOS.ART_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_ART_COD')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+
+
+      ->select(
+        'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_FECHA_DE_USO',
+        'ART_ARTICULOS.ART_LOTE',
+        'ART_ARTICULOS.ART_FECHA_EXP',
+        'ART_ARTICULOS.ART_CANT',
+        'PRO_PRODUCTOS.PROD_NOMBRE',
+        'PRO_PRODUCTOS.PROD_DESCRIPCION',
+        'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD'
+
+        )->paginate();
+
+
+        return view('BODEGA.listadoDeImplementosUsados', compact('listaDeUsados'));
+    }
+
+    public function IndexBodega(){
+
+          $condicional= DB::table('ART_ARTICULOS')
+          ->select('ART_CANT')->where('ART_CANT', '<=', '5')->value('ART_CANT');
+
+
+            $stockCritico=DB::table('ART_ARTICULOS')
+
+            ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+
+            ->select('PRO_PRODUCTOS.PROD_UDI_01',
+            'ART_ARTICULOS.ART_COD',
+            'ART_ARTICULOS.ART_UDI',
+            'ART_ARTICULOS.ART_LOTE',
+            'ART_ARTICULOS.ART_FECHA_EXP',
+            'ART_ARTICULOS.ART_CANT',
+            'ART_ARTICULOS.ART_PROD_COD'
+            )->where('ART_CANT', '<=', '5')->paginate();
+            // dd($stockCritico);
+
+            return view('BODEGA.indexBodega', compact('stockCritico', 'condicional'));
+    }
+
+
+
 
 }

@@ -117,7 +117,7 @@ class cirugiasController extends Controller
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
           ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')
           ->Join('ART_ARTICULOS', 'ART_ARTICULOS.ART_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_ART_COD')
-          ->Join('PD_PIEZAS_DENTALES', 'PD_PIEZAS_DENTALES.PD_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.UIC_PD_COD')
+          ->Join('PD_PIEZAS_DENTALES', 'PD_PIEZAS_DENTALES.PD_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_PD_COD')
           ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
           ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
           ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
@@ -149,11 +149,14 @@ class cirugiasController extends Controller
 
       public function registrarImplementosAusar(Request $request, $id){
 
+          $fechaCirugia=DB::table('CIR_CIRUGIA')->select('CIR_FECHA')->where('CIR_COD',$id)->value('CIR_FECHA');
+
         $idArt=$request->input('implante');
         $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
           'IUC_ART_COD'=>$idArt,
           'IUC_CIR_COD'=>$id,
-          'UIC_PD_COD'=>$request->input('piezaDental'),
+          'IUC_PD_COD'=>$request->input('piezaDental'),
+          'IUC_FECHA_DE_USO'=> $fechaCirugia,
           'updated_at'=> Carbon::now(),
           'created_at'=> Carbon::now()
         ]);
