@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h3 class="text-center">Crear Nuevo Producto</h3>
+<h1 class="text-center display-3">Crear Nuevo Producto</h1>
     <form action="{{route('nuevoProducto')}}" method="post"   class="form-group row">
 
       <div class="container"  >

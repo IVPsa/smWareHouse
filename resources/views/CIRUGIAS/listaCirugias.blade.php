@@ -6,18 +6,21 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-<h3 class="text-center">Listado de cirugias</h3>
+<h3 class="text-center display-3">Listado de cirugias</h3>
 
-<div class="form-group row">
+<form class="" action="{{route('buscador')}}" method="get">
 
-  <label  for="first_name" class="col-3 col-form-label text-right" >Buscar:</label>
-  <div class="col-8">
-    <input type="text" class="form-control" id="nompreProducto" name="nompreProducto"  >
+  <div class="form-group row">
+
+      <label  for="first_name" class="col-3 col-form-label text-right" >Buscar Por Nombre:</label>
+      <div class="col-8">
+        <input type="text" class="form-control"  name="datoAbuscar"  >
+      </div>
+      <div class="col-1">
+        <button type="submit" class="btn btn-lg  btn-success"> <i class="fa fa-search"></i></button>
+      </div>
   </div>
-  <div class="col-1">
-    <button class="btn btn-lg  btn-success"> <i class="fa fa-search"></i></button>
-  </div>
-</div>
+</form>
 
 <div class="row">
   <div class="col-md-12 col-xs-12">

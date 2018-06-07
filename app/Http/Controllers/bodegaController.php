@@ -122,6 +122,7 @@ class bodegaController extends Controller
         'ART_ARTICULOS.ART_LOTE',
         'ART_ARTICULOS.ART_FECHA_EXP',
         'ART_ARTICULOS.ART_CANT',
+        'ART_ARTICULOS.ART_PROD_COD',
         'PRO_PRODUCTOS.PROD_NOMBRE',
         'PRO_PRODUCTOS.PROD_DESCRIPCION',
         'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD'
@@ -154,6 +155,34 @@ class bodegaController extends Controller
 
             return view('BODEGA.indexBodega', compact('stockCritico', 'condicional'));
     }
+
+    public function buscarImplementos(Request $request){
+
+      $desde=$request->input('fechaDesde');
+      $hasta=$request->input('fechaHasta');
+
+
+      $listaDeUsados=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
+              ->Join('ART_ARTICULOS', 'ART_ARTICULOS.ART_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_ART_COD')
+              ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+
+
+              ->select(
+                'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_FECHA_DE_USO',
+                'ART_ARTICULOS.ART_LOTE',
+                'ART_ARTICULOS.ART_FECHA_EXP',
+                'ART_ARTICULOS.ART_CANT',
+                'ART_ARTICULOS.ART_PROD_COD',
+                'PRO_PRODUCTOS.PROD_NOMBRE',
+                'PRO_PRODUCTOS.PROD_DESCRIPCION',
+                'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD'
+
+                )->where('IUC_FECHA_DE_USO', [$desde, $hasta] )->paginate();
+
+                return view('BODEGA.listadoDeImplementosUsados', compact('listaDeUsados'));
+
+    }
+
 
 
 

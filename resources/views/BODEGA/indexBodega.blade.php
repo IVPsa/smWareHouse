@@ -8,23 +8,48 @@ $(document).ready(function(){
 });
 </script>
 
-<h3 class="text-center">BODEGA</h3>
+<h1 class="display-3 text-center">BODEGA</h1>
 
 <div class="row">
   <div class="col-md-12">
       <div class="row">
-        <div class="col-md-4 col-xs-12" align="center">
-          <a href="{{route('ingresoDeArticulos')}}"><button type="button" class="btn btn-success btn-lg"> Ingreso De Articulos</button></a>
+        <div class="col-md-3 col-xs-12" align="center">
+          <a href="{{route('ingresoDeArticulos')}}">
+            <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
+              <i class="material-icons" style="font-size:145px; width:202px;">playlist_add</i>
+              <br />
+              Ingreso De Articulos
+            </button>
+          </a>
         </div>
 
-        <div class="col-md-4 col-xs-12" align="center">
-          <a href="{{route('ListadoDeArticulos')}}"><button type="button" class="btn btn-success btn-lg">Inventario de Articulos</button></a>
+        <div class="col-md-3 col-xs-12" align="center">
+          <a href="{{route('ListadoDeArticulos')}}">
+            <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
+              <i class="fa fa-list-ul" style="font-size:150px; width:202px;"></i>
+              <br />
+              Inventario de Articulos
+            </button>
+          </a>
         </div>
 
-        <div class="col-md-4 col-xs-12" align="center">
-          <a href="{{route('ImplementosUtilizados')}}"><button type="button" class="btn btn-success btn-lg">Implementos Usados</button></a>
+        <div class="col-md-3 col-xs-12" align="center">
+          <a href="{{route('ImplementosUtilizados')}}">
+            <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
+              <i class="material-icons" style="font-size:150px; width:202px;">folder_open</i>
+              <br />
+              Implementos Usados
+            </button>
+            </a>
         </div>
 
+        <div class="col-md-3 col-xs-12" align="center">
+          <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
+            <i class="material-icons" style="font-size:150px; width:202px;">shopping_cart</i>
+            <br />
+            Ordenes De Compra
+          </button>
+        </div>
 
       </div>
 
@@ -73,14 +98,14 @@ $(document).ready(function(){
 
                   <td width="15px" >
                      <a href="{{route('showActualizarExistencias',$lista->ART_COD)}}" >
-                        <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
-                           <i class="fa fa-play"></i>
+                        <button class="btn btn-lg btn-success" style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
+                          <i class="material-icons">library_add</i>
                         </button>
                      </a>
                   </td>
                   <td width="15px" >
                     <a href="{{route('fichaDeProducto', $lista->ART_PROD_COD)}}">
-                      <button class="btn btn-lg btn-info" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
+                      <button class="btn btn-lg btn-info" style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
                         <i class="fa fa-clipboard" ></i>
                        </button>
                     </a>

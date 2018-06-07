@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('#Eliminar').tooltip();
 });
 </script>
-<h3 class="text-center">Lista De Productos</h3>
+<h3 class="text-center display-3">Lista De Productos</h3>
 <div class="row">
   <div class="col-md-12 col-xs-12">
     <div class="table-responsive" >

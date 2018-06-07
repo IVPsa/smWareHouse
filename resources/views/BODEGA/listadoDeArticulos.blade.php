@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 </script>
 
-<h3 class="text-center">Lista De articulos en bodega</h3>
+<h3 class="text-center display-3">Lista De articulos en bodega</h3>
 <div class="row">
   <div class="col-md-12 col-xs-12">
     <div class="table-responsive" >
@@ -37,14 +37,14 @@ $(document).ready(function(){
 
             <td width="15px" >
                <a href="{{route('showActualizarExistencias',$lista->ART_COD)}}" >
-                  <button class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
-                     <i class="fa fa-play"></i>
+                  <button class="btn btn-lg btn-success"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
+                    <i class="material-icons" >library_add</i>
                   </button>
                </a>
             </td>
             <td width="15px" >
               <a href="{{route('fichaDeProducto', $lista->ART_PROD_COD)}}">
-                <button class="btn btn-lg btn-info" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
+                <button class="btn btn-lg btn-info"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
                   <i class="fa fa-clipboard" ></i>
                  </button>
               </a>

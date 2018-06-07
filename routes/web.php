@@ -68,6 +68,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
     'uses' => 'cirugiasController@listaDeCirugias',
   ])->name('listaDeCirugias');
 
+  Route::get('/buscador', [
+    'uses' => 'cirugiasController@BuscadorDeCirugias',
+  ])->name('buscador');
+
   Route::get('/fichaCirugia/{id}',[
     'uses' => 'cirugiasController@fichaCirugia',
     ])->name('fichaCirugia');
@@ -145,6 +149,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
            Route::get('/ImplementosUtilizados',[
              'uses' => 'bodegaController@listadoDeImplementosUsados',
              ])->name('ImplementosUtilizados');
+
+             Route::get('/BuscarImplementosUtilizados',[
+               'uses' => 'bodegaController@buscarImplementos',
+               ])->name('buscarImplementos');
 
 
      });

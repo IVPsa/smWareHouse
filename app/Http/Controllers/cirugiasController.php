@@ -237,4 +237,14 @@ class cirugiasController extends Controller
 
       }
 
+      public function BuscadorDeCirugias(Request $request){
+
+        $datoBuscar=$request->input('datoAbuscar');
+
+        $listadoDeCirugias=DB::table('CIR_CIRUGIA')
+                ->where( 'CIR_NOMBRE_PACIENTE','like', '%'. $datoBuscar .'%' )
+                ->paginate();
+        return view('CIRUGIAS.listaCirugias',compact('listadoDeCirugias'));
+      }
+
 }

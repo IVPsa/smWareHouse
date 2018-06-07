@@ -7,7 +7,30 @@ $(document).ready(function(){
 });
 </script>
 
-<h3 class="text-center">Lista De articulos Usados</h3>
+<h3 class="text-center display-3">Lista De Implantes Usados</h3>
+
+
+<form  action="{{route('buscarImplementos')}}" method="get">
+
+  <div class="form-group row">
+
+      <label  for="first_name" class="col-3 col-form-label text-right" >Buscar Desde:</label>
+      <div class="col-8">
+        <input type="date" class="form-control"  name="fechaDesde"    required>
+
+      </div>
+      <label  for="first_name" class="col-3 col-form-label text-right" >Buscar Hasta:</label>
+      <div class="col-8">
+        <input type="date" class="form-control"  name="fechaHasta"  required>
+      </div>
+
+      <div class=" offset-6 col-6">
+        <button type="submit" class="btn btn-lg  btn-success"> <i class="fa fa-search"></i></button>
+      </div>
+  </div>
+</form>
+
+
 <div class="row">
   <div class="col-md-12 col-xs-12">
     <div class="table-responsive" >
@@ -40,9 +63,14 @@ $(document).ready(function(){
                   </button>
                 </a>
               </td>
-              <td>
-
+              <td width="15px" >
+                <a href="{{route('fichaDeProducto', $lista->ART_PROD_COD)}}">
+                  <button class="btn btn-lg btn-info" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
+                    <i class="fa fa-clipboard" ></i>
+                   </button>
+                </a>
               </td>
+
           </tr>
           @endforeach
 

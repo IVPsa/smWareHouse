@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h3 class="text-center">CIRUGIA ID: {{$fichaCirugia->CIR_COD}}</h3>
+<h3 class="text-center display-3">CIRUGIA ID: {{$fichaCirugia->CIR_COD}}</h3>
 
 
     <form action="{{route('actualizarCirugia', $fichaCirugia->CIR_COD )}}" method="post"   class="form-group row">
