@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-<h3 class="text-center display-3">Listado de cirugias</h3>
+<h3 class="text-center display-3">Listado De Cirugias</h3>
 
 <form class="" action="{{route('buscador')}}" method="get">
 
@@ -60,7 +60,7 @@ $(document).ready(function(){
                 <td width="15px" >
                   <a href="{{route('showRegistarImplementos',$lista->CIR_COD)}}">
                     <button class="btn btn-lg btn-info" data-toggle="tooltip"  data-placement="top" title="Ver articulos usados" >
-                      <i class="fa fa-clipboard" ></i>
+                      <i class="material-icons">content_paste</i>
                      </button>
                   </a>
                 </td>

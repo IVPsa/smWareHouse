@@ -175,6 +175,7 @@ class bodegaController extends Controller
                 'ART_ARTICULOS.ART_PROD_COD',
                 'PRO_PRODUCTOS.PROD_NOMBRE',
                 'PRO_PRODUCTOS.PROD_DESCRIPCION',
+                'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD',
                 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD'
 
                 )->where('IUC_FECHA_DE_USO', [$desde, $hasta] )->paginate();

@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 
 
-                <th width="100px" colspan="2" >ACCION</th>
+                <th width="100px" colspan="3" >ACCION</th>
 
               </tr>
           </thead>
@@ -67,6 +67,13 @@ $(document).ready(function(){
                 <a href="{{route('fichaDeProducto', $lista->ART_PROD_COD)}}">
                   <button class="btn btn-lg btn-info" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
                     <i class="fa fa-clipboard" ></i>
+                   </button>
+                </a>
+              </td>
+              <td width="15px" >
+                <a href="{{route('showRegistarImplementos',$lista->IUC_CIR_COD)}}">
+                  <button class="btn btn-lg btn-info" style="width:51.4px; height:45px;" data-toggle="tooltip"  data-placement="top" title="Ver articulos usados" >
+                      <i class="material-icons">content_paste</i>
                    </button>
                 </a>
               </td>

@@ -12,7 +12,7 @@
           <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
             <i class="fa fa-medkit" style="font-size:150px; width:202px;"></i>
             <br>
-            Lista De cirugias
+            Lista De Cirugias
           </button>
         </a>
         <br>
@@ -21,7 +21,8 @@
       <div class="col-md-6 col-sm-12" align="center">
         <a href="{{route('ShowRegistrarCirugia')}}">
           <button type="button" class="btn btn-success btn-lg ">
-            <i class="fa fa-stethoscope" style="font-size:150px; width:202px;"></i>
+            <i class="fa fa-calendar" style="font-size:150px; width:202px;"></i>
+
             <br />
             Registrar Cirugia
           </button>

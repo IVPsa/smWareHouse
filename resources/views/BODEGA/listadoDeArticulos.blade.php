@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 </script>
 
-<h3 class="text-center display-3">Lista De articulos en bodega</h3>
+<h3 class="text-center display-3">Lista de Articulos En Bodega</h3>
 <div class="row">
   <div class="col-md-12 col-xs-12">
     <div class="table-responsive" >

@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 </script>
 
-<h3 class="text-center display-3">Implemenentos Usados Para la cirugia</h3>
+<h3 class="text-center display-3">Implementos Usados Para la cirugia</h3>
 
 <form action="{{route('registrarImplementosAusar' ,$fichaCirugia->CIR_COD)}}" method="post"   class="form-group row">
 

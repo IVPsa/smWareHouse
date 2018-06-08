@@ -67,7 +67,7 @@ $(document).ready(function(){
 
       <h3 class="text-center">
         <i class="fa fa-warning" style="font-size:48px;color:red"></i>
-          <b>ARICULOS BAJOS DE STOCK</b>
+          <b>ARTICULOS BAJOS DE STOCK</b>
         <i class="fa fa-warning" style="font-size:48px;color:red"></i>
       </h3>
       <div class="row">

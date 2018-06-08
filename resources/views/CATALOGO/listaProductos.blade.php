@@ -37,8 +37,8 @@ $(document).ready(function(){
           <!-- <td>{{ $lista->PROD_CLC_COD    }}</td> -->
           <td width="15px" >
             <a href="{{route('fichaDeProducto', $lista->PROD_COD)}}">
-              <button class="btn btn-lg btn-success" data-toggle="tooltip" data-Placement="top" title="Ver Ficha De Producto" >
-                <i class="fa fa-play"></i>
+              <button class="btn btn-lg btn-info" data-toggle="tooltip" data-Placement="top" title="Ver Ficha De Producto" >
+                <i class="fa fa-clipboard" ></i>
               </button>
             </a>
           </td>
