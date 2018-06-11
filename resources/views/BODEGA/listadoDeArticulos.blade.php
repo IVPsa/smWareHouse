@@ -16,10 +16,13 @@ $(document).ready(function(){
           <thead class="thead-dark">
               <tr>
                 <th>ID</th>
-                <th>UDI COMPLETO</th>
-                <th>UDI (01)</th>
-                <th>LOTE</th>
+                <th>NOMBRE</th>
+                <th>LONGITUD</th>
+                <th>DIAMETRO</th>
                 <th>FECHA EXP</th>
+                <th>TIPO CONEXION</th>
+                <th>TIPO DE IMPLANTE</th>
+                <th>COLOR</th>
                 <th>CANT</th>
 
                 <th width="100px" colspan="2" >ACCION</th>
@@ -28,10 +31,14 @@ $(document).ready(function(){
         @foreach($listadoDeArticulos as $lista)
           <tr>
             <td>{{ $lista->ART_COD }}</td>
-            <td>{{ $lista->ART_UDI }}</td>
-            <td>{{ $lista->PROD_UDI_01 }}</td>
-            <td>{{ $lista->ART_LOTE }}</td>
+            <td>{{ $lista->PROD_NOMBRE }}</td>
+
+            <td>{{ $lista->PROD_LONGITUD }}</td>
+            <td>{{ $lista->PROD_DIAMETRO }}∅</td>
             <td>{{ $lista->ART_FECHA_EXP }}</td>
+            <td> {{ $lista->TC_DES}}</td>
+            <td> {{ $lista->TI_CLASE}}</td>
+            <td> {{ $lista->CLC_COLOR}}</td>
             <td>{{ $lista->ART_CANT }}</td>
 
 

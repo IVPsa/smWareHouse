@@ -41,17 +41,14 @@ $(document).ready(function(){
               @else
                 @foreach ( $articulos as $articulos)
                   <option value="{{$articulos->ART_COD}}">
-                    {{$articulos->PROD_UDI_01}} -
-                    LOTE: {{$articulos->ART_LOTE}} -
-                    FV: {{$articulos->ART_FECHA_EXP}} -
                     {{$articulos->PROD_NOMBRE}} -
-                    {{$articulos->PROD_N_ARTICULO}} -
                     {{$articulos->PROD_DIAMETRO}}∅ -
-                    {{$articulos->PROD_LONGITUD}}∅ -
-                    {{$articulos->TC_DES}}-
-                    {{$articulos->TI_DES}}-
+                    {{$articulos->PROD_LONGITUD}} L -
+                    {{$articulos->TC_DES}} -
+
                     {{$articulos->CLC_COLOR}}
                   </option>
+
                 @endforeach
               @endif
             </select>
@@ -89,9 +86,7 @@ $(document).ready(function(){
                 <th>TIPO CONEXION.</th>
                 <th>TIPO IMPLANTE.</th>
                 <th>COLOR CODING.</th>
-                <th>UDI</th>
-                <th>LOTE</th>
-                <th width="130">FECHA DE EXP.</th>
+
                 <th>ACCION</th>
 
 
@@ -107,9 +102,7 @@ $(document).ready(function(){
                 <td>{{$listaImplementos->TC_DES}}</td>
                 <td>{{$listaImplementos->TI_CLASE}}</td>
                 <td>{{$listaImplementos->CLC_COLOR}}</td>
-                <td>{{$listaImplementos->ART_UDI}}</td>
-                <td>{{$listaImplementos->ART_LOTE}}</td>
-                <td>{{$listaImplementos->ART_FECHA_EXP}}</td>
+
                 <td>
                     <a href="{{route('quitarImplemento' , $listaImplementos->ART_COD)}}">
                       <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>

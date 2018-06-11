@@ -52,10 +52,10 @@ class CatalogoProductosController extends Controller
       ]);
 
       if (! $crearProducto) {
-        return redirect()->route('indexBodega')->with('error', "Hubo un problema al crear ingresado el articulo.");
+        return redirect()->route('catalogo')->with('error', "Hubo un problema al crear ingresado el articulo.");
       }
 
-        return redirect()->route('indexBodega')->with('success', "Se ha ingresado el articulo exitosamente.");
+        return redirect()->route('catalogo')->with('success', "Se ha ingresado el articulo exitosamente.");
 
     }
 
@@ -149,5 +149,5 @@ class CatalogoProductosController extends Controller
 
     }
 
-  
+
 }

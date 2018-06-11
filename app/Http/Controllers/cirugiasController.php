@@ -53,6 +53,7 @@ class cirugiasController extends Controller
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
         'CIR_FECHA'=>$request->input('fecha'),
         'CIR_DESCRIPCION'=>$request->input('descripcionCirugia'),
+        'CIR_ESTADO' =>'creada',
         'updated_at'=> Carbon::now(),
         'created_at'=> Carbon::now()
       ]);
@@ -95,22 +96,23 @@ class cirugiasController extends Controller
           ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
           ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
           ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
-          ->select('PRO_PRODUCTOS.PROD_UDI_01',
-
+          ->select(
+          'PRO_PRODUCTOS.PROD_UDI_01',
           'PRO_PRODUCTOS.PROD_NOMBRE',
-          'PRO_PRODUCTOS.PROD_N_ARTICULO',
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
           'ART_ARTICULOS.ART_COD',
-          'ART_ARTICULOS.ART_UDI',
-          'ART_ARTICULOS.ART_LOTE',
-          'ART_ARTICULOS.ART_FECHA_EXP',
-          'ART_ARTICULOS.ART_CANT',
-          'ART_ARTICULOS.ART_PROD_COD',
           'TC_TIPO_CONEXION.TC_DES',
           'TI_TIPO_IMPLANTE.TI_DES',
           'CLC_COLOR_CODING.CLC_COLOR'
-          )->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
+          )
+          ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+          ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+          ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+          ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+
+
+          ->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
 
 
 

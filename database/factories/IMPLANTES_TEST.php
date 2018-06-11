@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\ART_ARTICULOS::class, function (Faker $faker) {
     return [
-      'ART_UDI' => ('0107630031730374'. $faker->date($format = 'Y-m-d', $max = 'now').'456789') ,
+      'ART_UDI' => ('0107630031730374'. '2020-6-11'.'456789') ,
       'ART_PROD_COD' => 3,
       'ART_FECHA_EXP' =>  $faker->date($format = 'Y-m-d', $max = 'now'),
       'ART_LOTE' => '456789',
