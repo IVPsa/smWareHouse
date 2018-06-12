@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h3 class="text-center">REGISTAR CIRUGIA</h3>
+<h3 class="text-center  display-3">Registrar Cirugia</h3>
 <form action="{{route('registrarCirugia')}}" method="post"   class="form-group row">
 
   <div class="container"  >
@@ -34,7 +34,7 @@
       <div class="form-group row">
         <label  for="lote" class="col-3 col-form-label text-right">DESCRIPCION  :</label>
         <div class="col-9 " >
-          <textarea name="name" class="form-control"></textarea>
+          <textarea name="descripcionCirugia" class="form-control"></textarea>
         </div>
       </div>
 

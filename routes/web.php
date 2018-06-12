@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::view('/lector', 'pruebaLector')->name('pruebaLector');
+
 Route::prefix('CATALOGO')->group(function () {
 
  Route::view('/eliminarProducto/{id}', 'CATALOGO.eliminarProducto')->name('eliminarProducto');
@@ -66,6 +68,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
     'uses' => 'cirugiasController@listaDeCirugias',
   ])->name('listaDeCirugias');
 
+  Route::get('/buscador', [
+    'uses' => 'cirugiasController@BuscadorDeCirugias',
+  ])->name('buscador');
+
   Route::get('/fichaCirugia/{id}',[
     'uses' => 'cirugiasController@fichaCirugia',
     ])->name('fichaCirugia');
@@ -98,7 +104,9 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
 
   Route::group(['prefix' => 'BODEGA'], function () {
 
-     Route::view('/index', 'BODEGA.indexBodega')->name('indexBodega');
+    Route::get('/index',[
+      'uses' => 'bodegaController@IndexBodega',
+      ])->name('indexBodega');
 
      Route::group(['prefix' => 'MERMAS'], function () {
 
@@ -129,6 +137,7 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@ListadoDeArticulos',
              ])->name('ListadoDeArticulos');
 
+
            Route::get('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@showActualizarExistencias',
              ])->name('showActualizarExistencias');
@@ -136,6 +145,16 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
            Route::patch('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@agrearExistencias',
              ])->name('agrearExistencias');
+
+           Route::get('/ImplementosUtilizados',[
+             'uses' => 'bodegaController@listadoDeImplementosUsados',
+             ])->name('ImplementosUtilizados');
+
+             Route::get('/BuscarImplementosUtilizados',[
+               'uses' => 'bodegaController@buscarImplementos',
+               ])->name('buscarImplementos');
+
+
      });
      // Route::group(['prefix' => 'PRESTAMO'], function () {
      //   Route::view('/modificarCirugia', 'BODEGA.modificarCirugia')->name('modificarCirugia');    // });

@@ -40,8 +40,9 @@ class cirugiasController extends Controller
 
       $fichaCirugia = CIR_CIRUGIA::find($id);
 
-      return view('CIRUGIAS.fichaCirugia', compact('fichaCirugia'));
+      $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->value('CIR_ESTADO');
 
+      return view('CIRUGIAS.fichaCirugia', compact('fichaCirugia','comprobacionDeEstado'));
 
     }
 
@@ -52,6 +53,8 @@ class cirugiasController extends Controller
         'CIR_NOMBRE_PACIENTE'=>$request->input('nombrePaciente'),
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
         'CIR_FECHA'=>$request->input('fecha'),
+        'CIR_DESCRIPCION'=>$request->input('descripcionCirugia'),
+        'CIR_ESTADO' =>'EN ESPERA',
         'updated_at'=> Carbon::now(),
         'created_at'=> Carbon::now()
       ]);
@@ -71,8 +74,10 @@ class cirugiasController extends Controller
       $actualizarCirugia = CIR_CIRUGIA::where('CIR_COD',$id)->update([
         'CIR_NOMBRE_PACIENTE'=>$request->input('nombrePaciente'),
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
-        'CIR_FECHA'=>$request->input('fecha')
+        'CIR_FECHA'=>$request->input('fecha'),
+        'CIR_ESTADO'=>$request->input('estado')
       ]);
+
 
       if (!$actualizarCirugia) {
         return redirect()->route('Cirugias')->with('error', "Hubo un problema al registar la cirugia.");
@@ -94,29 +99,30 @@ class cirugiasController extends Controller
           ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
           ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
           ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
-          ->select('PRO_PRODUCTOS.PROD_UDI_01',
-
+          ->select(
+          'PRO_PRODUCTOS.PROD_UDI_01',
           'PRO_PRODUCTOS.PROD_NOMBRE',
-          'PRO_PRODUCTOS.PROD_N_ARTICULO',
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
           'ART_ARTICULOS.ART_COD',
-          'ART_ARTICULOS.ART_UDI',
-          'ART_ARTICULOS.ART_LOTE',
-          'ART_ARTICULOS.ART_FECHA_EXP',
-          'ART_ARTICULOS.ART_CANT',
-          'ART_ARTICULOS.ART_PROD_COD',
           'TC_TIPO_CONEXION.TC_DES',
           'TI_TIPO_IMPLANTE.TI_DES',
           'CLC_COLOR_CODING.CLC_COLOR'
-          )->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
+          )
+          ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+          ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+          ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+          ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
 
 
+          ->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
+
+          $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->value('CIR_ESTADO');
 
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
           ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')
           ->Join('ART_ARTICULOS', 'ART_ARTICULOS.ART_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_ART_COD')
-          ->Join('PD_PIEZAS_DENTALES', 'PD_PIEZAS_DENTALES.PD_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.UIC_PD_COD')
+          ->Join('PD_PIEZAS_DENTALES', 'PD_PIEZAS_DENTALES.PD_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_PD_COD')
           ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
           ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
           ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
@@ -142,17 +148,20 @@ class cirugiasController extends Controller
 
 
 
-        return view('CIRUGIAS.RegistroDeImplementos',compact('piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
+        return view('CIRUGIAS.RegistroDeImplementos',compact('comprobacionDeEstado','piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
 
     }
 
       public function registrarImplementosAusar(Request $request, $id){
 
+          $fechaCirugia=DB::table('CIR_CIRUGIA')->select('CIR_FECHA')->where('CIR_COD',$id)->value('CIR_FECHA');
+
         $idArt=$request->input('implante');
         $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
           'IUC_ART_COD'=>$idArt,
           'IUC_CIR_COD'=>$id,
-          'UIC_PD_COD'=>$request->input('piezaDental'),
+          'IUC_PD_COD'=>$request->input('piezaDental'),
+          'IUC_FECHA_DE_USO'=> $fechaCirugia,
           'updated_at'=> Carbon::now(),
           'created_at'=> Carbon::now()
         ]);
@@ -231,6 +240,16 @@ class cirugiasController extends Controller
 
           return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
 
+      }
+
+      public function BuscadorDeCirugias(Request $request){
+
+        $datoBuscar=$request->input('datoAbuscar');
+
+        $listadoDeCirugias=DB::table('CIR_CIRUGIA')
+                ->where( 'CIR_NOMBRE_PACIENTE','like', '%'. $datoBuscar .'%' )
+                ->paginate();
+        return view('CIRUGIAS.listaCirugias',compact('listadoDeCirugias'));
       }
 
 }

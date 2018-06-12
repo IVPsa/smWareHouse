@@ -18,11 +18,13 @@ class IUCIMPLEMENTOSUSADOSENCIRUGIAS extends Migration
         Schema::create('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS', function (Blueprint $table) {
             $table->increments('UIC_COD');
 
+            $table->date('IUC_FECHA_DE_USO');
+
             //fk
 
 
-            $table->integer('UIC_PD_COD')->unsigned();
-            $table->foreign('UIC_PD_COD')->references('PD_COD')->on('PD_PIEZAS_DENTALES');
+            $table->integer('IUC_PD_COD')->unsigned();
+            $table->foreign('IUC_PD_COD')->references('PD_COD')->on('PD_PIEZAS_DENTALES');
 
             $table->integer('IUC_CIR_COD')->unsigned();
             $table->foreign('IUC_CIR_COD')->references('CIR_COD')->on('CIR_CIRUGIA');

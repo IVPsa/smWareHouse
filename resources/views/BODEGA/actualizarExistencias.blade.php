@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h3 class="text-center">Actualizar existencias</h3>
+<h3 class="text-center">Actualizar Existencias</h3>
     <form action="{{route('agrearExistencias', $Articulo->ART_COD)}}" method="post"   class="form-group row">
 
       @method('PATCH')

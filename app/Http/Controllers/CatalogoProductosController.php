@@ -52,10 +52,10 @@ class CatalogoProductosController extends Controller
       ]);
 
       if (! $crearProducto) {
-        return redirect()->route('indexBodega')->with('error', "Hubo un problema al crear ingresado el articulo.");
+        return redirect()->route('catalogo')->with('error', "Hubo un problema al crear ingresado el articulo.");
       }
 
-        return redirect()->route('indexBodega')->with('success', "Se ha ingresado el articulo exitosamente.");
+        return redirect()->route('catalogo')->with('success', "Se ha ingresado el articulo exitosamente.");
 
     }
 
@@ -105,7 +105,22 @@ class CatalogoProductosController extends Controller
       $tpcId= PRO_PRODUCTOS::where('PROD_COD',$id)->value('PROD_TC_COD');
       $tipoConexion=TC_TIPO_CONEXION::where('TC_COD',$tpcId)->value('TC_DES');
       $tipoConexionDiametro=TC_TIPO_CONEXION::where('TC_COD',$tpcId)->value('TC_DIAMETRO');
-      //
+
+      // $conteoGeneral=DB::table('PRO_PRODUCTOS')->select('PROD_COD')->count();
+
+      $conteoGeneral = DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+
+      ->select('PRO_PRODUCTOS.PROD_UDI_01',
+      'ART_ARTICULOS.ART_COD',
+      'ART_ARTICULOS.ART_UDI',
+      'ART_ARTICULOS.ART_LOTE',
+      'ART_ARTICULOS.ART_FECHA_EXP',
+      'ART_ARTICULOS.ART_CANT',
+      'ART_ARTICULOS.ART_PROD_COD'
+      )->where('ART_ARTICULOS.ART_PROD_COD',$id)->sum('ART_ARTICULOS.ART_CANT');
+
+      //  $cantProd= DB::table('PRO_PRODUCTOS')->select('PROD_COD')->count()  ;
       // $datosDelImplante = DB::table('PRO_PRODUCTOS')
       // ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PROD_PRODUCTOS.PROD_CLC_COD')
       // ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PROD_PRODUCTOS.PROD_TI_COD')
@@ -130,7 +145,9 @@ class CatalogoProductosController extends Controller
 
 
 
-      return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro','datosDelImplante'));
+      return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro','datosDelImplante','conteoGeneral'));
 
     }
+
+
 }
