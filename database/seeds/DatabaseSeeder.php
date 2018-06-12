@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TC_TIPO_CONEXION::class);
         $this->call(PRO_PRODUCTOS::class);
         $this->call(PD_PIEZAS_DENTALES::class);
+        $this->call(ARTICULOS::class);
+
         // factory(App\ART_ARTICULOS::class, 1)->create();
         // factory(App\CIR_CIRUGIA::class, 1)->create();
 
