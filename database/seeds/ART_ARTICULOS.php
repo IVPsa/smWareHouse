@@ -12,7 +12,7 @@ class ART_ARTICULOS extends Seeder
     public function run()
     {
         //
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>12,
         'ART_UDI'=>'01076300317071231723021910PV062',
         'ART_FECHA_EXP'=>'2023-02-19',
@@ -25,7 +25,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>13,
         'ART_UDI'=>'01076300317067201723030410PW458',
         'ART_FECHA_EXP'=>'2023-03-04',
@@ -38,7 +38,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>15,
         'ART_UDI'=>'01076300317071301723011210PN950',
         'ART_FECHA_EXP'=>'2023-01-12',
@@ -51,7 +51,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>16,
         'ART_UDI'=>'01076300317071301723020610PV579',
         'ART_FECHA_EXP'=>'2023-02-06',
@@ -64,7 +64,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>17,
         'ART_UDI'=>'01076300317067371723041710RC575',
         'ART_FECHA_EXP'=>'2023-04-17',
@@ -77,7 +77,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>18,
         'ART_UDI'=>'01076300317067201723040510RA921',
         'ART_FECHA_EXP'=>'2023-04-05',
@@ -90,7 +90,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>20,
         'ART_UDI'=>'01076300317075431723021110PV582',
         'ART_FECHA_EXP'=>'2023-02-11',
@@ -103,7 +103,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>21,
         'ART_UDI'=>'01076300317075361723030810PW492',
         'ART_FECHA_EXP'=>'2023-03-08',
@@ -116,7 +116,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>22,
         'ART_UDI'=>'01076300317067201722100210PA523',
         'ART_FECHA_EXP'=>'2022-10-02',
@@ -129,7 +129,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>23,
         'ART_UDI'=>'01076300317075431722080610NX019',
         'ART_FECHA_EXP'=>'2022-08-06',
@@ -142,7 +142,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>25,
         'ART_UDI'=>'01076300317071471723031810RA506',
         'ART_FECHA_EXP'=>'2023-03-18',
@@ -155,7 +155,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>26,
         'ART_UDI'=>'01076300317071231722092610PA520',
         'ART_FECHA_EXP'=>'2022-09-26',
@@ -168,7 +168,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>27,
         'ART_UDI'=>'01076300317075431722052210NL218',
         'ART_FECHA_EXP'=>'2022-05-22',
@@ -181,7 +181,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>28,
         'ART_UDI'=>'01076300317075501723012410PP856',
         'ART_FECHA_EXP'=>'2023-01-24',
@@ -194,7 +194,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>29,
         'ART_UDI'=>'01076300317075501722030510MZ103',
         'ART_FECHA_EXP'=>'2022-03-05',
@@ -207,7 +207,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>34,
         'ART_UDI'=>'01076300317075361722080710NW378',
         'ART_FECHA_EXP'=>'2022-08-07',
@@ -220,7 +220,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>35,
         'ART_UDI'=>'01076300317067371723030410PW460',
         'ART_FECHA_EXP'=>'2023-03-04',
@@ -233,7 +233,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>36,
         'ART_UDI'=>'01076300317067371722103110PG786',
         'ART_FECHA_EXP'=>'2022-10-31',
@@ -246,7 +246,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>37,
         'ART_UDI'=>'01076300317280121722110510PH887',
         'ART_FECHA_EXP'=>'2022-11-05',
@@ -259,7 +259,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>38,
         'ART_UDI'=>'01076300317280051722091110NP100',
         'ART_FECHA_EXP'=>'2022-09-11',
@@ -272,7 +272,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>39,
         'ART_UDI'=>'01076300317304111721062010LN132',
         'ART_FECHA_EXP'=>'2021-06-20',
@@ -285,7 +285,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>40,
         'ART_UDI'=>'01076300317304041721121110MP528',
         'ART_FECHA_EXP'=>'2021-12-11',
@@ -298,7 +298,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>41,
         'ART_UDI'=>'01076300317303981721112910MN963',
         'ART_FECHA_EXP'=>'2021-11-29',
@@ -311,7 +311,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>42,
         'ART_UDI'=>'01076300317303741722061910NL590',
         'ART_FECHA_EXP'=>'2022-06-19',
@@ -324,7 +324,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>43,
         'ART_UDI'=>'01076300317303811722062910NM926',
         'ART_FECHA_EXP'=>'2022-06-29',
@@ -337,7 +337,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>44,
         'ART_UDI'=>'01076300317303501721121110MN943',
         'ART_FECHA_EXP'=>'2021-12-11',
@@ -350,7 +350,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
-        ART_ARTICULOS::create( [
+        App\ART_ARTICULOS::create( [
         'ART_COD'=>45,
         'ART_UDI'=>'01076300317303671721121110MP525',
         'ART_FECHA_EXP'=>'2021-12-11',
