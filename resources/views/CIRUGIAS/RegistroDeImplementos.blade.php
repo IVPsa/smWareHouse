@@ -62,9 +62,52 @@ $(document).ready(function(){
               <h4 class="text-center">Debe ingresar implantes a bodega para poder continuar</h4>
             </div>
             @else
-            <div class="offset-5 col-7">
-                <button type="submit" class="btn btn-success btn-lg">INGRESAR</button>
-            </div>
+              @if ($comprobacionDeEstado== "REALIZADA")
+        
+                <div class="col-md-12 col-xs-12">
+                  <div class="table-responsive" >
+                    <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
+                        <thead class="thead-dark">
+                            <tr>
+                              <th>DIENTE</th>
+                              <th>NOMBRE</th>
+                              <th>LONGITUD</th>
+                              <th>DIAMETRO</th>
+                              <th>TIPO CONEXION.</th>
+                              <th>TIPO IMPLANTE.</th>
+                              <th>COLOR CODING.</th>
+
+
+
+
+                            </tr>
+                        </thead>
+                        @foreach ($listaImplementos as $listaImplementos)
+                            <tr>
+
+                              <td> {{$listaImplementos->PD_N_DIENTE}} {{$listaImplementos->PD_NOMBRE}}</td>
+                              <td>{{$listaImplementos->PROD_NOMBRE}}</td>
+                              <td>{{$listaImplementos->PROD_LONGITUD}}</td>
+                              <td>{{$listaImplementos->PROD_DIAMETRO}}</td>
+                              <td>{{$listaImplementos->TC_DES}}</td>
+                              <td>{{$listaImplementos->TI_CLASE}}</td>
+                              <td>{{$listaImplementos->CLC_COLOR}}</td>
+                            </tr>
+                        @endforeach
+
+
+
+                    </table>
+                  </div>
+
+                </div>
+          
+
+              @else
+              <div class="offset-5 col-7">
+                  <button type="submit" class="btn btn-success btn-lg">INGRESAR</button>
+              </div>
+              @endif
             @endif
 
         </div>
@@ -72,8 +115,9 @@ $(document).ready(function(){
       </div>
 </form>
 
-
-<div class="row">
+    @if ($comprobacionDeEstado== "REALIZADA")
+    @else
+    <div class="row">
   <div class="col-md-12 col-xs-12">
     <div class="table-responsive" >
       <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
@@ -119,6 +163,6 @@ $(document).ready(function(){
 
   </div>
 </div>
-
+@endif
 
 @endsection

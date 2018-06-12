@@ -40,8 +40,9 @@ class cirugiasController extends Controller
 
       $fichaCirugia = CIR_CIRUGIA::find($id);
 
-      return view('CIRUGIAS.fichaCirugia', compact('fichaCirugia'));
+      $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->value('CIR_ESTADO');
 
+      return view('CIRUGIAS.fichaCirugia', compact('fichaCirugia','comprobacionDeEstado'));
 
     }
 
@@ -53,7 +54,7 @@ class cirugiasController extends Controller
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
         'CIR_FECHA'=>$request->input('fecha'),
         'CIR_DESCRIPCION'=>$request->input('descripcionCirugia'),
-        'CIR_ESTADO' =>'creada',
+        'CIR_ESTADO' =>'EN ESPERA',
         'updated_at'=> Carbon::now(),
         'created_at'=> Carbon::now()
       ]);
@@ -73,8 +74,10 @@ class cirugiasController extends Controller
       $actualizarCirugia = CIR_CIRUGIA::where('CIR_COD',$id)->update([
         'CIR_NOMBRE_PACIENTE'=>$request->input('nombrePaciente'),
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
-        'CIR_FECHA'=>$request->input('fecha')
+        'CIR_FECHA'=>$request->input('fecha'),
+        'CIR_ESTADO'=>$request->input('estado')
       ]);
+
 
       if (!$actualizarCirugia) {
         return redirect()->route('Cirugias')->with('error', "Hubo un problema al registar la cirugia.");
@@ -114,7 +117,7 @@ class cirugiasController extends Controller
 
           ->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
 
-
+          $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->value('CIR_ESTADO');
 
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
           ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')
@@ -145,7 +148,7 @@ class cirugiasController extends Controller
 
 
 
-        return view('CIRUGIAS.RegistroDeImplementos',compact('piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
+        return view('CIRUGIAS.RegistroDeImplementos',compact('comprobacionDeEstado','piezasDentales','articulos', 'fichaCirugia', 'listaImplementos'));
 
     }
 
