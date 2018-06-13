@@ -20,15 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PD_PIEZAS_DENTALES::class);
         $this->call(ART_ARTICULOS::class);
 
-        // factory(App\ART_ARTICULOS::class, 1)->create();
-        // factory(App\CIR_CIRUGIA::class, 1)->create();
-
-        // //SEEDERS TESTS
-        //
-        // // factory(App\User::class, 10)->create();
-        //
-        // factory(App\ART_ARTICULOS::class, 10)->create();
-        // factory(App\CIR_CIRUGIA::class, 10)->create();
 
     }
 }

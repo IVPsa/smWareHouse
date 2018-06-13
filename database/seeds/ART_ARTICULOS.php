@@ -324,6 +324,7 @@ class ART_ARTICULOS extends Seeder
 
 
 
+
         App\ART_ARTICULOS::create( [
         'ART_COD'=>43,
         'ART_UDI'=>'01076300317303811722062910NM926',
