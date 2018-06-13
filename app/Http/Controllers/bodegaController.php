@@ -235,8 +235,16 @@ class bodegaController extends Controller
 
     }
 
+    public function showFichaArticulo($id){
+
+        $Articulo = ART_ARTICULOS::find($id);
+        $prodCod = ART_ARTICULOS::where('ART_COD',$id)->value('ART_PROD_COD');
+        $udiProd=PRO_PRODUCTOS::where('PROD_COD',$prodCod)->value('PROD_UDI_01');
 
 
 
+        return view('BODEGA.fichaDeArticulo', compact('Articulo','prodCod','udiProd'));
+
+    }
 
 }

@@ -119,6 +119,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
        Route::get('/ingresoDeArticulos',[
          'uses' => 'bodegaController@ShowFormularioArticulo',
          ])->name('ingresoDeArticulos');
+
+       Route::get('/fichaDeArticulo/{id}',[
+         'uses' => 'bodegaController@showFichaArticulo',
+         ])->name('fichaDeArticulo');
        //
        // Route::post('/',[
        //   'uses' => 'bodegaController@buscarProducto',

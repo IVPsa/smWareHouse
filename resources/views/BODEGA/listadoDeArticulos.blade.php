@@ -25,7 +25,7 @@ $(document).ready(function(){
                 <th>COLOR</th>
                 <th>CANT</th>
 
-                <th width="100px" colspan="2" >ACCION</th>
+                <th width="100px" colspan="3" >ACCION</th>
               </tr>
           </thead>
         @foreach($listadoDeArticulos as $lista)
@@ -56,6 +56,15 @@ $(document).ready(function(){
                  </button>
               </a>
             </td>
+            <td width="15px" >
+              <a href="{{route('fichaDeArticulo', $lista->ART_COD)}}">
+                <button class="btn btn-lg btn-warning"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Articulo">
+                  <i class="material-icons">content_copy</i>
+                 </button>
+              </a>
+            </td>
+
+
 
           </tr>
           @endforeach

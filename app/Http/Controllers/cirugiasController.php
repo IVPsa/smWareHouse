@@ -88,7 +88,7 @@ class cirugiasController extends Controller
     }
 
     public function showRegistarImplementos($id){
-
+    
         $fichaCirugia = CIR_CIRUGIA::find($id);
         $piezasDentales= PD_PIEZAS_DENTALES::all();
         // $articulos= ART_ARTICULOS::all();
@@ -131,6 +131,7 @@ class cirugiasController extends Controller
           ->select(
           'PD_PIEZAS_DENTALES.PD_N_DIENTE',
           'PD_PIEZAS_DENTALES.PD_NOMBRE',
+          'PRO_PRODUCTOS.PROD_COD',
           'PRO_PRODUCTOS.PROD_NOMBRE',
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
