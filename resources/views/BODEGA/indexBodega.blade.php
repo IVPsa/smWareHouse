@@ -13,7 +13,7 @@ $(document).ready(function(){
 <div class="row">
   <div class="col-md-12">
       <div class="row">
-        <div class="col-md-4 col-xs-12" align="center">
+        <div class="col-md-4   col-xs-12" align="center">
           <a href="{{route('ingresoDeArticulos')}}">
             <button type="button" class="btn btn-success btn-lg" style="width:240px; height:200px;">
               <i class="material-icons" style="font-size:145px; width:202px;">playlist_add</i>

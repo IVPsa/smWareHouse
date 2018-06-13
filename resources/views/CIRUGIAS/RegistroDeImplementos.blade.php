@@ -178,7 +178,7 @@ $(document).ready(function(){
                       <th>TIPO IMPLANTE.</th>
                       <th>COLOR CODING.</th>
 
-                      <th>ACCION</th>
+                      <th colspan="3">ACCION</th>
 
 
                     </tr>
@@ -196,11 +196,27 @@ $(document).ready(function(){
 
                       <td>
                           <a href="{{route('quitarImplemento' , $listaImplementos->ART_COD)}}">
-                            <button type="button"  class="btn btn-lg btn-danger"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>
+                            <button type="button"  class="btn btn-lg btn-danger" style="width:50px; height:50px;"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>
                           </a>
 
 
 
+                      </td>
+
+                      <td  >
+                        <a href="{{route('fichaDeProducto', $listaImplementos->PROD_COD)}}">
+                          <button class="btn btn-lg btn-info"  style="width:50px; height:50px;" data-toggle="tooltip" data-Placement="top" title="Ver Ficha De Producto" >
+                            <i class="fa fa-clipboard" ></i>
+                          </button>
+                        </a>
+                      </td>
+
+                      <td >
+                        <a href="{{route('fichaDeArticulo', $listaImplementos->ART_COD)}}">
+                          <button class="btn btn-lg btn-warning"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Articulo">
+                            <i class="material-icons">content_copy</i>
+                           </button>
+                        </a>
                       </td>
                     </tr>
                 @endforeach
