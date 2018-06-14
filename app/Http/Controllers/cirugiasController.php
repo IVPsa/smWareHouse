@@ -88,7 +88,7 @@ class cirugiasController extends Controller
     }
 
     public function showRegistarImplementos($id){
-    
+
         $fichaCirugia = CIR_CIRUGIA::find($id);
         $piezasDentales= PD_PIEZAS_DENTALES::all();
         // $articulos= ART_ARTICULOS::all();
@@ -155,17 +155,29 @@ class cirugiasController extends Controller
 
       public function registrarImplementosAusar(Request $request, $id){
 
-          $fechaCirugia=DB::table('CIR_CIRUGIA')->select('CIR_FECHA')->where('CIR_COD',$id)->value('CIR_FECHA');
+        $fechaCirugia=DB::table('CIR_CIRUGIA')->select('CIR_FECHA')->where('CIR_COD',$id)->value('CIR_FECHA');
+
+        $diente=$request->input('piezaDental');
 
         $idArt=$request->input('implante');
-        $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
-          'IUC_ART_COD'=>$idArt,
-          'IUC_CIR_COD'=>$id,
-          'IUC_PD_COD'=>$request->input('piezaDental'),
-          'IUC_FECHA_DE_USO'=> $fechaCirugia,
-          'updated_at'=> Carbon::now(),
-          'created_at'=> Carbon::now()
-        ]);
+
+        $comprobarDienteRepetido=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->where('IUC_PD_COD', $diente)->count();
+
+        if ($comprobarDienteRepetido == 1){
+            return redirect()->route('showRegistarImplementos',$id)->with('error', "Ya hay un implante en el diente ingresado, por favor seleccione otro.");
+        }
+        else{
+
+          $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
+            'IUC_ART_COD'=>$idArt,
+            'IUC_CIR_COD'=>$id,
+            'IUC_PD_COD'=>$diente,
+            'IUC_FECHA_DE_USO'=> $fechaCirugia,
+            'updated_at'=> Carbon::now(),
+            'created_at'=> Carbon::now()
+          ]);
+        }
+
 
 
 
