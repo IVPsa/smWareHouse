@@ -18,6 +18,9 @@ use App\PD_PIEZAS_DENTALES;
 use App\ART_ARTICULOS;
 use App\IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS;
 use App\User;
+use App\http\Resources\ArticulosApi;
+
+use Illuminate\Http\Resources\Json\JsonResource;
 
 
 class SMapiController extends Controller
@@ -26,19 +29,37 @@ class SMapiController extends Controller
   //INICIO API ART_ARTICULOS
   public function ListadoDeArticulos(){
 
-  $listadoDeArticulos = DB::table('ART_ARTICULOS')
-    ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+  $listadoDeArticulos = ART_ARTICULOS::all();
 
-    ->select('PRO_PRODUCTOS.PROD_UDI_01',
-    'ART_ARTICULOS.ART_COD',
-    'ART_ARTICULOS.ART_UDI',
-    'ART_ARTICULOS.ART_LOTE',
-    'ART_ARTICULOS.ART_FECHA_EXP',
-    'ART_ARTICULOS.ART_CANT',
-    'ART_ARTICULOS.ART_PROD_COD'
-    )->paginate();
+    return ArticulosApi::collection($listadoDeArticulos);
 
-    return response()->json($listadoDeArticulos, 200);
+  }
+
+  public function FichaDeArticulo($id){
+
+    $Articulo = ART_ARTICULOS::find($id);
+        return response()->json($Articulo, 200);
+    // return ArticulosApi::collection($Articulo);
+  }
+
+  public function AgregarArticulo(Request $request){
+
+    $Articulo=ART_ARTICULOS::create($request->all());
+
+    return $Articulo;
+
+  }
+
+  public function ActualizarExistencias($id, Request $request){
+     $CANTIDAD=$request->input('ART_CANT');
+
+     $Articulo= ART_ARTICULOS::where('ART_COD',$id)->update([
+
+       'ART_CANT'=>$CANTIDAD
+     ]);
+
+
+    return $Articulo;
 
   }
 

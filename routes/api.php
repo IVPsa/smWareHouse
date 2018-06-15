@@ -20,29 +20,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //ARTICULOS
 
-Route::get('/ListaDeArticulos', 'SMapiController@ListaDeArticulos');
+Route::get('/ListaDeArticulos', 'SMapiController@ListadoDeArticulos');
 
 
-Route::get('FichaDeArticulo/{$id}', 'SMapiController@FichaDeArticulo');
+Route::get('/FichaDeArticulo/{id}', 'SMapiController@FichaDeArticulo');
 
 
-Route::post('CrearArticulo', 'SMapiController@CrearArticulo');
+Route::post('/AgregarArticulo', 'SMapiController@AgregarArticulo');
 
 
-Route::put('ActualizarExistencias', 'SMapiController@CrearArticulo');
+Route::post('/ActualizarExistencias/{id}', 'SMapiController@ActualizarExistencias');
 
-Route::get('ListaGeneralDeImplantesUsados/{$id}', 'SMapiController@ListaGeneralDeImplantesUsados');
+// Route::put('/ActualizarExistencias', 'SMapiController@CrearArticulo');
+
+Route::get('/ListaGeneralDeImplantesUsados/{$id}', 'SMapiController@ListaGeneralDeImplantesUsados');
 
 
 //PRODUCTOS
 
-Route::get('ListaDeProducto', 'SMapiController@ListaDeProductos');
+Route::get('/ListaDeProducto', 'SMapiController@ListaDeProductos');
 
 
-Route::get('FichaDeProducto/{$id}', 'SMapiController@FichaDeProducto');
+Route::get('/FichaDeProducto/{id}', 'SMapiController@FichaDeProducto');
 
 
-Route::post('CrearProducto', 'SMapiController@CrearProducto');
+Route::post('/CrearProducto', 'SMapiController@CrearProducto');
 
 //Cirugias
 
