@@ -59,7 +59,16 @@ class SMapiController extends Controller
      ]);
 
 
-    return $Articulo;
+    return response()->json ($Articulo,200);
+
+  }
+
+  public function eliminarArticulo($id){
+
+    $Articulo= ART_ARTICULOS::where('ART_COD',$id)->delete();
+
+    return response()->json ($Articulo,200);
+
 
   }
 

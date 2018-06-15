@@ -31,9 +31,10 @@ Route::post('/AgregarArticulo', 'SMapiController@AgregarArticulo');
 
 Route::post('/ActualizarExistencias/{id}', 'SMapiController@ActualizarExistencias');
 
-// Route::put('/ActualizarExistencias', 'SMapiController@CrearArticulo');
 
-Route::get('/ListaGeneralDeImplantesUsados/{$id}', 'SMapiController@ListaGeneralDeImplantesUsados');
+Route::get('/ListaGeneralDeImplantesUsados/{id}', 'SMapiController@ListaGeneralDeImplantesUsados');
+
+Route::delete('/eliminarArticulo/{id}', 'SMapiController@eliminarArticulo');
 
 
 //PRODUCTOS
