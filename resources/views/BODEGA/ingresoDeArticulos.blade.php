@@ -22,7 +22,7 @@
         <div class="form-group row">
             <label  for="first_name" class="col-3 col-form-label text-right">UDI COMPLETA:</label>
             <div class="col-9 " >
-              <input type="text" class="form-control" id="udi" name="udi"  required>
+              <input type="number"  maxlength="24" class="form-control" id="udi" name="udi"  required>
             </div>
 
         </div>
