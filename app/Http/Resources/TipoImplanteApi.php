@@ -16,8 +16,8 @@ class TipoImplanteApi extends JsonResource
     public function toArray($request)
     {
       return [
-        'TI_DES'  =>$this->$TI_DES,
-        'TI_CLASE' =>$this->$TI_CLASE,
+        'TI_DES'  =>$this->TI_DES,
+        'TI_CLASE' =>$this->TI_CLASE,
         'updated_at'=>$this->updated_at,
         'created_at'=>$this->created_at,
       ];

@@ -29,7 +29,7 @@ class SMapiController extends Controller
   //INICIO API ART_ARTICULOS
   public function ListadoDeArticulos(){
 
-  $listadoDeArticulos = ART_ARTICULOS::all();
+    $listadoDeArticulos = ART_ARTICULOS::all();
 
     return ArticulosApi::collection($listadoDeArticulos);
 
@@ -44,19 +44,17 @@ class SMapiController extends Controller
 
   public function AgregarArticulo(Request $request){
 
-    $udi01=$request->input('ART_PROD_COD');
+    $udi01=$request->input('PROD_UDI_01');
     //Conseguir este dato por alguna otra forma
-    $codReferencia=PRO_PRODUCTOS::where('PROD_COD',$udi01)->value('PROD_COD');
+    $codReferencia=PRO_PRODUCTOS::where('PROD_UDI_01',$udi01)->value('PROD_COD');
 
 
     if ($codReferencia==null){
+      return response()->json (422);
 
-        return redirect()->route('ingresoDeArticulos')->with('error', "El UDI01 no ha sido registrado, por favor registre el nuevo producto en catalogo para ingresar la existencia .");
     }
 
-
-      $udiArt=$request->input('ART_UDI');
-      $Revisarlote=ART_ARTICULOS::where('ART_UDI',$udiArt)->value('ART_LOTE');
+      $Revisarlote=ART_ARTICULOS::where('ART_UDI',$udi01)->value('ART_LOTE');
       $lote=$request->input('ART_LOTE');
 
       if($Revisarlote==$lote){
@@ -64,7 +62,7 @@ class SMapiController extends Controller
 
           $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_UDI', $udiArt)->value('ART_CANT');
 
-          $nuevasExistencias=$request->input('cantidad');
+          $nuevasExistencias=$request->input('ART_CANT');
 
           $valorFinal=$valorActual+$nuevasExistencias;
 
@@ -72,28 +70,28 @@ class SMapiController extends Controller
 
             'ART_CANT'=>$valorFinal
           ]);
+
+            return response()->json ($ingresarArticulo,200);
       }
+
       else{
 
+        $udi01=$request->input('ART_UDI');
+        //Conseguir este dato por alguna otra forma
+        $codReferencia=PRO_PRODUCTOS::where('PROD_UDI_01',$udi01)->value('PROD_COD');
+
           $ingresarArticulo= ART_ARTICULOS::create([
-            'ART_UDI'=>$request->input('udi'),
+            'ART_UDI'=>$request->input('ART_UDI'),
             'ART_PROD_COD'=>$codReferencia,
             'ART_FECHA_EXP'=>$request->input('ART_FECHA_EXP'),
-            'ART_LOTE'=>$lote,
+            'ART_LOTE'=>$request->input('ART_FECHA_EXP'),
             'ART_CANT'=>$request->input('ART_CANT'),
             'updated_at'=> Carbon::now(),
             'created_at'=> Carbon::now()
           ]);
 
-          if (!$ingresarArticulo) {
-            // return redirect()->route('indexBodega')->with('error', "Hubo un problema al ingresar la existencia.");
-          }
-
+            return response()->json ($ingresarArticulo,200);
       }
-
-    $Articulo=ART_ARTICULOS::create($request->all());
-
-    return $Articulo;
 
   }
 

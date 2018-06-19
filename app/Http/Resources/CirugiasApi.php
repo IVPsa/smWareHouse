@@ -15,11 +15,11 @@ class CirugiasApi extends JsonResource
     public function toArray($request)
     {
       return [
-        'CIR_NOMBRE_PACIENTE'=>$this->$CIR_NOMBRE_PACIENTE,
-        'CIR_RUT_PACIENTE'=>$this->$CIR_RUT_PACIENTE,
-        'CIR_FECHA'=>$this->$CIR_FECHA,
-        'CIR_DESCRIPCION'=>$this->$CIR_DESCRIPCION,
-        'CIR_ESTADO'=>$this->$CIR_ESTADO,
+        'CIR_NOMBRE_PACIENTE'=>$this->CIR_NOMBRE_PACIENTE,
+        'CIR_RUT_PACIENTE'=>$this->CIR_RUT_PACIENTE,
+        'CIR_FECHA'=>$this->CIR_FECHA,
+        'CIR_DESCRIPCION'=>$this->CIR_DESCRIPCION,
+        'CIR_ESTADO'=>$this->CIR_ESTADO,
       ];
     }
 }

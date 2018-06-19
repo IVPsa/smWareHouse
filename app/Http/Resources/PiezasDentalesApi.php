@@ -16,9 +16,9 @@ class PiezasDentalesApi extends JsonResource
     {
       return [
 
-        'PD_SECTOR'=>$this->$PD_SECTOR,
-        'PD_N_DIENTE'=>$this->$PD_N_DIENTE,
-        'PD_NOMBRE'=>$this->$PD_NOMBRE,
+        'PD_SECTOR'=>$this->PD_SECTOR,
+        'PD_N_DIENTE'=>$this->PD_N_DIENTE,
+        'PD_NOMBRE'=>$this->PD_NOMBRE,
         'updated_at'=>$this->updated_at,
         'created_at'=>$this->created_at,
 

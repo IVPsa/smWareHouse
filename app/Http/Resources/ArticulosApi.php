@@ -25,6 +25,8 @@ class ArticulosApi extends JsonResource
        'ART_CANT' => $this->ART_CANT,
        'updated_at'=>$this->updated_at,
        'created_at'=>$this->created_at,
+       //FK
+       'PROD_UDI_01'=>$this->PROD_UDI_01,
       ];
     }
 }

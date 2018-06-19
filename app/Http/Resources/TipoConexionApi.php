@@ -16,8 +16,8 @@ class TipoConexionApi extends JsonResource
     {
       return [
 
-        'TC_DES' =>$this->$TC_DES,
-        'TC_DIAMETRO'=>$this->$TC_DIAMETRO,
+        'TC_DES' =>$this->TC_DES,
+        'TC_DIAMETRO'=>$this->TC_DIAMETRO,
         'updated_at'=>$this->updated_at,
         'created_at'=>$this->created_at,
       ];
