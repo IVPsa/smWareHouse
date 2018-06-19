@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TipoImplanteApi extends JsonResource
 {
@@ -14,6 +15,11 @@ class TipoImplanteApi extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+      return [
+        'TI_DES'  =>$this->$TI_DES,
+        'TI_CLASE' =>$this->$TI_CLASE,
+        'updated_at'=>$this->updated_at,
+        'created_at'=>$this->created_at,
+      ];
     }
 }

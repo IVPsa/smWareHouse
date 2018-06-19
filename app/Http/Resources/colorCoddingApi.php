@@ -14,6 +14,9 @@ class colorCoddingApi extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+      return [
+        'CLC_COLOR'=>$this->$CLC_COLOR,
+        'CLC_DESC'=>$this->$CLC_DESC,
+      ];
     }
 }

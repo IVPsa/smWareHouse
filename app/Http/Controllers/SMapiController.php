@@ -39,10 +39,57 @@ class SMapiController extends Controller
 
     $Articulo = ART_ARTICULOS::find($id);
         return response()->json($Articulo, 200);
-    // return ArticulosApi::collection($Articulo);
+
   }
 
   public function AgregarArticulo(Request $request){
+
+    $udi01=$request->input('ART_PROD_COD');
+    //Conseguir este dato por alguna otra forma
+    $codReferencia=PRO_PRODUCTOS::where('PROD_COD',$udi01)->value('PROD_COD');
+
+
+    if ($codReferencia==null){
+
+        return redirect()->route('ingresoDeArticulos')->with('error', "El UDI01 no ha sido registrado, por favor registre el nuevo producto en catalogo para ingresar la existencia .");
+    }
+
+
+      $udiArt=$request->input('ART_UDI');
+      $Revisarlote=ART_ARTICULOS::where('ART_UDI',$udiArt)->value('ART_LOTE');
+      $lote=$request->input('ART_LOTE');
+
+      if($Revisarlote==$lote){
+
+
+          $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_UDI', $udiArt)->value('ART_CANT');
+
+          $nuevasExistencias=$request->input('cantidad');
+
+          $valorFinal=$valorActual+$nuevasExistencias;
+
+          $ingresarArticulo=ART_ARTICULOS::where('ART_LOTE',$lote)->update([
+
+            'ART_CANT'=>$valorFinal
+          ]);
+      }
+      else{
+
+          $ingresarArticulo= ART_ARTICULOS::create([
+            'ART_UDI'=>$request->input('udi'),
+            'ART_PROD_COD'=>$codReferencia,
+            'ART_FECHA_EXP'=>$request->input('ART_FECHA_EXP'),
+            'ART_LOTE'=>$lote,
+            'ART_CANT'=>$request->input('ART_CANT'),
+            'updated_at'=> Carbon::now(),
+            'created_at'=> Carbon::now()
+          ]);
+
+          if (!$ingresarArticulo) {
+            // return redirect()->route('indexBodega')->with('error', "Hubo un problema al ingresar la existencia.");
+          }
+
+      }
 
     $Articulo=ART_ARTICULOS::create($request->all());
 
