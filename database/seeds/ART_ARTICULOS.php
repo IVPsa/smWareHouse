@@ -19,11 +19,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PV062',
         'ART_CANT'=>10,
         'ART_PROD_COD'=>12,
-        'created_at'=>'2018-06-11 18:54:51',
-        'updated_at'=>'2018-06-11 18:54:51'
+        'created_at'=>'2018-06-11 22:54:51',
+        'updated_at'=>'2018-06-11 22:54:51'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>13,
@@ -32,11 +30,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PW458',
         'ART_CANT'=>14,
         'ART_PROD_COD'=>10,
-        'created_at'=>'2018-06-11 19:04:49',
-        'updated_at'=>'2018-06-11 19:04:49'
+        'created_at'=>'2018-06-11 23:04:49',
+        'updated_at'=>'2018-06-11 23:04:49'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>15,
@@ -45,11 +41,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PN950',
         'ART_CANT'=>15,
         'ART_PROD_COD'=>13,
-        'created_at'=>'2018-06-11 19:10:35',
-        'updated_at'=>'2018-06-11 19:10:35'
+        'created_at'=>'2018-06-11 23:10:35',
+        'updated_at'=>'2018-06-11 23:10:35'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>16,
@@ -58,24 +52,20 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PV579',
         'ART_CANT'=>15,
         'ART_PROD_COD'=>13,
-        'created_at'=>'2018-06-11 19:14:29',
-        'updated_at'=>'2018-06-11 19:14:29'
+        'created_at'=>'2018-06-11 23:14:29',
+        'updated_at'=>'2018-06-11 23:14:29'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>17,
         'ART_UDI'=>'01076300317067371723041710RC575',
         'ART_FECHA_EXP'=>'2023-04-17',
         'ART_LOTE'=>'RC575',
-        'ART_CANT'=>7,
+        'ART_CANT'=>9,
         'ART_PROD_COD'=>11,
-        'created_at'=>'2018-06-11 19:17:13',
-        'updated_at'=>'2018-06-11 19:52:24'
+        'created_at'=>'2018-06-11 23:17:13',
+        'updated_at'=>'2018-06-11 23:52:24'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>18,
@@ -84,11 +74,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'RA921',
         'ART_CANT'=>5,
         'ART_PROD_COD'=>10,
-        'created_at'=>'2018-06-11 19:18:31',
-        'updated_at'=>'2018-06-11 19:18:31'
+        'created_at'=>'2018-06-11 23:18:31',
+        'updated_at'=>'2018-06-11 23:18:31'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>20,
@@ -97,37 +85,31 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PV582',
         'ART_CANT'=>4,
         'ART_PROD_COD'=>16,
-        'created_at'=>'2018-06-11 19:26:42',
-        'updated_at'=>'2018-06-11 19:26:42'
+        'created_at'=>'2018-06-11 23:26:42',
+        'updated_at'=>'2018-06-11 23:26:42'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>21,
         'ART_UDI'=>'01076300317075361723030810PW492',
         'ART_FECHA_EXP'=>'2023-03-08',
         'ART_LOTE'=>'PW492',
-        'ART_CANT'=>15,
+        'ART_CANT'=>10,
         'ART_PROD_COD'=>17,
-        'created_at'=>'2018-06-11 19:28:59',
-        'updated_at'=>'2018-06-11 19:29:22'
+        'created_at'=>'2018-06-11 23:28:59',
+        'updated_at'=>'2018-06-14 20:59:11'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>22,
         'ART_UDI'=>'01076300317067201722100210PA523',
         'ART_FECHA_EXP'=>'2022-10-02',
         'ART_LOTE'=>'PA523',
-        'ART_CANT'=>14,
+        'ART_CANT'=>13,
         'ART_PROD_COD'=>10,
-        'created_at'=>'2018-06-11 19:34:33',
-        'updated_at'=>'2018-06-11 23:29:21'
+        'created_at'=>'2018-06-11 23:34:33',
+        'updated_at'=>'2018-06-12 03:29:21'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>23,
@@ -136,11 +118,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'NX019',
         'ART_CANT'=>8,
         'ART_PROD_COD'=>16,
-        'created_at'=>'2018-06-11 19:45:06',
-        'updated_at'=>'2018-06-11 23:10:14'
+        'created_at'=>'2018-06-11 23:45:06',
+        'updated_at'=>'2018-06-12 03:10:14'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>25,
@@ -149,11 +129,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'RA506',
         'ART_CANT'=>5,
         'ART_PROD_COD'=>7,
-        'created_at'=>'2018-06-11 19:58:13',
-        'updated_at'=>'2018-06-11 19:58:13'
+        'created_at'=>'2018-06-11 23:58:13',
+        'updated_at'=>'2018-06-11 23:58:13'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>26,
@@ -162,11 +140,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PA520',
         'ART_CANT'=>1,
         'ART_PROD_COD'=>12,
-        'created_at'=>'2018-06-11 20:00:15',
-        'updated_at'=>'2018-06-11 20:00:15'
+        'created_at'=>'2018-06-12 00:00:15',
+        'updated_at'=>'2018-06-12 00:00:15'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>27,
@@ -175,11 +151,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'NL218',
         'ART_CANT'=>1,
         'ART_PROD_COD'=>16,
-        'created_at'=>'2018-06-11 20:09:21',
-        'updated_at'=>'2018-06-11 20:09:21'
+        'created_at'=>'2018-06-12 00:09:21',
+        'updated_at'=>'2018-06-12 00:09:21'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>28,
@@ -188,11 +162,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PP856',
         'ART_CANT'=>5,
         'ART_PROD_COD'=>15,
-        'created_at'=>'2018-06-11 20:10:50',
-        'updated_at'=>'2018-06-11 23:03:55'
+        'created_at'=>'2018-06-12 00:10:50',
+        'updated_at'=>'2018-06-12 03:03:55'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>29,
@@ -201,11 +173,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'MZ103',
         'ART_CANT'=>2,
         'ART_PROD_COD'=>15,
-        'created_at'=>'2018-06-11 20:12:29',
-        'updated_at'=>'2018-06-11 20:58:38'
+        'created_at'=>'2018-06-12 00:12:29',
+        'updated_at'=>'2018-06-12 00:58:38'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>34,
@@ -214,11 +184,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'NW378',
         'ART_CANT'=>4,
         'ART_PROD_COD'=>17,
-        'created_at'=>'2018-06-11 23:13:31',
-        'updated_at'=>'2018-06-11 23:13:31'
+        'created_at'=>'2018-06-12 03:13:31',
+        'updated_at'=>'2018-06-12 03:13:31'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>35,
@@ -227,11 +195,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PW460',
         'ART_CANT'=>2,
         'ART_PROD_COD'=>11,
-        'created_at'=>'2018-06-11 23:22:56',
-        'updated_at'=>'2018-06-11 23:22:56'
+        'created_at'=>'2018-06-12 03:22:56',
+        'updated_at'=>'2018-06-12 03:22:56'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>36,
@@ -240,11 +206,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PG786',
         'ART_CANT'=>1,
         'ART_PROD_COD'=>11,
-        'created_at'=>'2018-06-11 23:25:57',
-        'updated_at'=>'2018-06-12 00:04:50'
+        'created_at'=>'2018-06-12 03:25:57',
+        'updated_at'=>'2018-06-12 04:04:50'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>37,
@@ -253,11 +217,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'PH887',
         'ART_CANT'=>2,
         'ART_PROD_COD'=>9,
-        'created_at'=>'2018-06-11 23:31:54',
-        'updated_at'=>'2018-06-11 23:31:54'
+        'created_at'=>'2018-06-12 03:31:54',
+        'updated_at'=>'2018-06-12 03:31:54'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>38,
@@ -266,11 +228,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'NP100',
         'ART_CANT'=>2,
         'ART_PROD_COD'=>8,
-        'created_at'=>'2018-06-11 23:33:46',
-        'updated_at'=>'2018-06-12 00:59:52'
+        'created_at'=>'2018-06-12 03:33:46',
+        'updated_at'=>'2018-06-12 04:59:52'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>39,
@@ -279,11 +239,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'LN132',
         'ART_CANT'=>3,
         'ART_PROD_COD'=>6,
-        'created_at'=>'2018-06-11 23:41:24',
-        'updated_at'=>'2018-06-11 23:41:24'
+        'created_at'=>'2018-06-12 03:41:24',
+        'updated_at'=>'2018-06-12 03:41:24'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>40,
@@ -292,11 +250,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'MP528',
         'ART_CANT'=>3,
         'ART_PROD_COD'=>5,
-        'created_at'=>'2018-06-11 23:42:45',
-        'updated_at'=>'2018-06-11 23:42:45'
+        'created_at'=>'2018-06-12 03:42:45',
+        'updated_at'=>'2018-06-12 03:42:45'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>41,
@@ -305,11 +261,9 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'MN963',
         'ART_CANT'=>2,
         'ART_PROD_COD'=>4,
-        'created_at'=>'2018-06-11 23:44:51',
-        'updated_at'=>'2018-06-11 23:46:01'
+        'created_at'=>'2018-06-12 03:44:51',
+        'updated_at'=>'2018-06-12 03:46:01'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>42,
@@ -318,38 +272,31 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'NL590',
         'ART_CANT'=>3,
         'ART_PROD_COD'=>3,
-        'created_at'=>'2018-06-11 23:55:07',
-        'updated_at'=>'2018-06-11 23:55:07'
+        'created_at'=>'2018-06-12 03:55:07',
+        'updated_at'=>'2018-06-12 03:55:07'
         ] );
-
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>43,
         'ART_UDI'=>'01076300317303811722062910NM926',
         'ART_FECHA_EXP'=>'2022-06-29',
         'ART_LOTE'=>'NM926',
-        'ART_CANT'=>4,
+        'ART_CANT'=>2,
         'ART_PROD_COD'=>18,
-        'created_at'=>'2018-06-12 00:29:44',
-        'updated_at'=>'2018-06-12 00:32:33'
+        'created_at'=>'2018-06-12 04:29:44',
+        'updated_at'=>'2018-06-12 04:32:33'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>44,
         'ART_UDI'=>'01076300317303501721121110MN943',
         'ART_FECHA_EXP'=>'2021-12-11',
         'ART_LOTE'=>'MN943',
-        'ART_CANT'=>4,
+        'ART_CANT'=>3,
         'ART_PROD_COD'=>2,
-        'created_at'=>'2018-06-12 00:34:09',
-        'updated_at'=>'2018-06-12 00:34:09'
+        'created_at'=>'2018-06-12 04:34:09',
+        'updated_at'=>'2018-06-12 04:34:09'
         ] );
-
-
 
         App\ART_ARTICULOS::create( [
         'ART_COD'=>45,
@@ -358,9 +305,41 @@ class ART_ARTICULOS extends Seeder
         'ART_LOTE'=>'MP525',
         'ART_CANT'=>3,
         'ART_PROD_COD'=>1,
-        'created_at'=>'2018-06-12 00:35:44',
-        'updated_at'=>'2018-06-12 00:35:44'
+        'created_at'=>'2018-06-12 04:35:44',
+        'updated_at'=>'2018-06-14 21:01:40'
         ] );
 
+        App\ART_ARTICULOS::create( [
+        'ART_COD'=>46,
+        'ART_UDI'=>'01076300317067201722080110NV677',
+        'ART_FECHA_EXP'=>'2022-08-01',
+        'ART_LOTE'=>'NV677',
+        'ART_CANT'=>1,
+        'ART_PROD_COD'=>10,
+        'created_at'=>'2018-06-18 19:04:55',
+        'updated_at'=>'2018-06-18 19:04:55'
+        ] );
+
+        App\ART_ARTICULOS::create( [
+        'ART_COD'=>47,
+        'ART_UDI'=>'01076300317071231722082310NX880',
+        'ART_FECHA_EXP'=>'2022-08-23',
+        'ART_LOTE'=>'NX880',
+        'ART_CANT'=>1,
+        'ART_PROD_COD'=>12,
+        'created_at'=>'2018-06-18 19:06:24',
+        'updated_at'=>'2018-06-18 19:06:24'
+        ] );
+
+        App\ART_ARTICULOS::create( [
+        'ART_COD'=>48,
+        'ART_UDI'=>'01076300317071231723032710RA965',
+        'ART_FECHA_EXP'=>'2023-03-27',
+        'ART_LOTE'=>'RA965',
+        'ART_CANT'=>1,
+        'ART_PROD_COD'=>12,
+        'created_at'=>'2018-06-20 00:24:30',
+        'updated_at'=>'2018-06-20 00:24:30'
+        ] );
     }
 }

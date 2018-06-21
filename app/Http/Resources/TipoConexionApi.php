@@ -15,7 +15,7 @@ class TipoConexionApi extends JsonResource
     public function toArray($request)
     {
       return [
-
+        'TC_COD' =>$this->TC_COD,
         'TC_DES' =>$this->TC_DES,
         'TC_DIAMETRO'=>$this->TC_DIAMETRO,
         'updated_at'=>$this->updated_at,

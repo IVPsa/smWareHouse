@@ -12,7 +12,8 @@ class PRO_PRODUCTOS extends Seeder
     public function run()
     {
         //
-        App\PRO_PRODUCTOS::create([
+        
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>1,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -24,11 +25,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>2,
         'PROD_TC_COD'=>5,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:34:56',
-        'updated_at'=>'2018-05-22 20:34:56'
+        'created_at'=>'2018-05-23 00:34:56',
+        'updated_at'=>'2018-05-23 00:34:56'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>2,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -40,11 +43,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>2,
         'PROD_TC_COD'=>5,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:41:34',
-        'updated_at'=>'2018-05-22 20:41:34'
+        'created_at'=>'2018-05-23 00:41:34',
+        'updated_at'=>'2018-05-23 00:41:34'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>3,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -56,11 +61,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:43:15',
-        'updated_at'=>'2018-05-22 20:43:15'
+        'created_at'=>'2018-05-23 00:43:15',
+        'updated_at'=>'2018-05-23 00:43:15'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>4,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -72,11 +79,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:46:42',
-        'updated_at'=>'2018-05-22 20:46:42'
+        'created_at'=>'2018-05-23 00:46:42',
+        'updated_at'=>'2018-05-23 00:46:42'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>5,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -88,11 +97,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>4,
         'PROD_TC_COD'=>7,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:50:13',
-        'updated_at'=>'2018-05-22 20:50:13'
+        'created_at'=>'2018-05-23 00:50:13',
+        'updated_at'=>'2018-05-23 00:50:13'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>6,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -104,11 +115,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>4,
         'PROD_TC_COD'=>7,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:51:29',
-        'updated_at'=>'2018-05-22 20:51:29'
+        'created_at'=>'2018-05-23 00:51:29',
+        'updated_at'=>'2018-05-23 00:51:29'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>7,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'implante Bone Level guiado',
@@ -120,11 +133,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 20:58:31',
-        'updated_at'=>'2018-05-22 20:58:31'
+        'created_at'=>'2018-05-23 00:58:31',
+        'updated_at'=>'2018-05-23 00:58:31'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>8,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -136,11 +151,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>1,
         'PROD_TC_COD'=>4,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:29:30',
-        'updated_at'=>'2018-05-22 23:29:30'
+        'created_at'=>'2018-05-23 03:29:30',
+        'updated_at'=>'2018-05-23 03:29:30'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>9,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -152,11 +169,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>1,
         'PROD_TC_COD'=>4,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:32:40',
-        'updated_at'=>'2018-05-22 23:32:40'
+        'created_at'=>'2018-05-23 03:32:40',
+        'updated_at'=>'2018-05-23 03:32:40'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>10,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -168,11 +187,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>2,
         'PROD_TC_COD'=>5,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:35:09',
-        'updated_at'=>'2018-05-22 23:35:09'
+        'created_at'=>'2018-05-23 03:35:09',
+        'updated_at'=>'2018-05-23 03:35:09'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>11,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -184,11 +205,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>2,
         'PROD_TC_COD'=>5,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:37:10',
-        'updated_at'=>'2018-05-22 23:37:10'
+        'created_at'=>'2018-05-23 03:37:10',
+        'updated_at'=>'2018-05-23 03:37:10'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>12,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -200,11 +223,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:38:27',
-        'updated_at'=>'2018-05-22 23:38:27'
+        'created_at'=>'2018-05-23 03:38:27',
+        'updated_at'=>'2018-05-23 03:38:27'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>13,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -216,11 +241,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:41:05',
-        'updated_at'=>'2018-05-22 23:41:05'
+        'created_at'=>'2018-05-23 03:41:05',
+        'updated_at'=>'2018-05-23 03:41:05'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>14,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -232,11 +259,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:43:07',
-        'updated_at'=>'2018-05-22 23:43:07'
+        'created_at'=>'2018-05-23 03:43:07',
+        'updated_at'=>'2018-05-23 03:43:07'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>15,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -248,11 +277,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>4,
         'PROD_TC_COD'=>7,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:45:06',
-        'updated_at'=>'2018-05-22 23:45:06'
+        'created_at'=>'2018-05-23 03:45:06',
+        'updated_at'=>'2018-05-23 03:45:06'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>16,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -264,11 +295,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>4,
         'PROD_TC_COD'=>7,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:47:26',
-        'updated_at'=>'2018-05-22 23:47:26'
+        'created_at'=>'2018-05-23 03:47:26',
+        'updated_at'=>'2018-05-23 03:47:26'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>17,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT',
         'PROD_DESCRIPCION'=>'implante Bone Level',
@@ -280,11 +313,13 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>4,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:49:14',
-        'updated_at'=>'2018-05-22 23:49:14'
+        'created_at'=>'2018-05-23 03:49:14',
+        'updated_at'=>'2018-05-23 03:49:14'
         ] );
 
-        App\PRO_PRODUCTOS::create([
+
+
+        App\PRO_PRODUCTOS::create( [
         'PROD_COD'=>18,
         'PROD_NOMBRE'=>'BONE LEVEL TAPERED IMPLANT, GUIDED',
         'PROD_DESCRIPCION'=>'Implante Guiado',
@@ -296,10 +331,9 @@ class PRO_PRODUCTOS extends Seeder
         'PROD_CLC_COD'=>3,
         'PROD_TC_COD'=>6,
         'PROD_TI_COD'=>5,
-        'created_at'=>'2018-05-22 23:49:14',
-        'updated_at'=>'2018-05-22 23:49:14'
+        'created_at'=>'2018-05-23 03:49:14',
+        'updated_at'=>'2018-05-23 03:49:14'
         ] );
-
 
     }
 }

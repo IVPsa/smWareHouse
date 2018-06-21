@@ -20,42 +20,56 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //ARTICULOS
 
-Route::get('/ListaDeArticulos', 'SMapiController@ListadoDeArticulos');
+  Route::get('/ListaDeArticulos', 'SMapiController@ListadoDeArticulos');
 
 
-Route::get('/FichaDeArticulo/{id}', 'SMapiController@FichaDeArticulo');
+  Route::get('/FichaDeArticulo/{id}', 'SMapiController@FichaDeArticulo');
 
 
-Route::post('/AgregarArticulo', 'SMapiController@AgregarArticulo');
+  Route::post('/AgregarArticulo', 'SMapiController@AgregarArticulo');
 
 
-Route::post('/ActualizarExistencias/{id}', 'SMapiController@ActualizarExistencias');
+  Route::post('/ActualizarExistencias/{id}', 'SMapiController@ActualizarExistencias');
 
 
-Route::get('/ListaGeneralDeImplantesUsados/{id}', 'SMapiController@ListaGeneralDeImplantesUsados');
+  Route::get('/ListaGeneralDeImplantesUsados/{id}', 'SMapiController@ListaGeneralDeImplantesUsados');
 
-Route::delete('/eliminarArticulo/{id}', 'SMapiController@eliminarArticulo');
+  Route::delete('/eliminarArticulo/{id}', 'SMapiController@eliminarArticulo');
 
 
 //PRODUCTOS
 
-Route::get('/ListaDeProducto', 'SMapiController@ListaDeProductos');
+  Route::get('/ListaDeProductos', 'SMapiController@ListaDeProductos');
 
 
-Route::get('/FichaDeProducto/{id}', 'SMapiController@FichaDeProducto');
+  Route::get('/FichaDeProducto/{id}', 'SMapiController@FichaDeProducto');
 
 
-Route::post('/CrearProducto', 'SMapiController@CrearProducto');
+  Route::post('/CrearProducto', 'SMapiController@CrearProducto');
 
 //Cirugias
 
-Route::get('ListaDeCirugias', 'SMapiController@ListaDeCirugias');
+  Route::get('/ListaDeCirugias', 'SMapiController@ListaDeCirugias');
 
-Route::post('CrearCirugia', 'SMapiController@CrearCirugia');
+  Route::post('/CrearCirugia', 'SMapiController@CrearCirugia');
 
-Route::get('fichaCirugia/{$id}', 'SMapiController@FichaDeCirugia');
+  Route::get('/fichaCirugia/{id}', 'SMapiController@fichaCirugia');
 
+//IUC
+  Route::get('/listaDeImplementosUsados', 'SMapiController@listaDeImplementosUsados');
 
-Route::get('ImplementosUsados/{$id}', 'SMapiController@FichaDeImplementosUsados');
+  Route::get('/FichaImplementosUsados/{id}', 'SMapiController@FichaImplementosUsados');
 
-Route::post('ImplementosUsados/{$id}', 'SMapiController@agregarImplemento');
+  Route::post('/agregarImplemento', 'SMapiController@agregarImplemento');
+
+  Route::delete('/QuitarImplementoImplementos', 'SMapiController@QuitarImplementoImplementos');
+
+  Route::get('/ListaGeneralDeImplantesUsados', 'SMapiController@ListaGeneralDeImplantesUsados');
+
+//API META DATOS
+
+  Route::get('colorCoding', 'SMapiController@colorCoding');
+
+  Route::get('tipoImplante', 'SMapiController@tipoImplante');
+
+  Route::get('tipoConexion', 'SMapiController@tipoConexion');

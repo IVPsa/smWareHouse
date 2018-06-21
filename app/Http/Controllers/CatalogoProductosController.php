@@ -36,6 +36,11 @@ class CatalogoProductosController extends Controller
     {
 
       $id = Auth::id();
+      
+      $udi01=$request->input('udi01');
+      $buscarUDI= PRO_PRODUCTOS::where('PROD_UDI_01',$udi01)->get();
+
+      if($buscarUDI=="[]"){
       $crearProducto= PRO_PRODUCTOS::create([
         'PROD_NOMBRE'=>$request->input('nompreProducto'),
         'PROD_DESCRIPCION'=>$request->input('descProducto'),
@@ -51,11 +56,20 @@ class CatalogoProductosController extends Controller
         'created_at'=> Carbon::now()
       ]);
 
+
+          return redirect()->route('catalogo')->with('success', "Se ha ingresado el articulo exitosamente.");
+
+      }
+
+      else{
+        return redirect()->route('catalogo')->with('error', "El udi01 ya esta registrado.");
+      }
+
       if (! $crearProducto) {
         return redirect()->route('catalogo')->with('error', "Hubo un problema al crear ingresado el articulo.");
       }
 
-        return redirect()->route('catalogo')->with('success', "Se ha ingresado el articulo exitosamente.");
+
 
     }
 
