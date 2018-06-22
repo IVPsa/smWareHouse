@@ -158,9 +158,13 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@listadoDeImplementosUsados',
              ])->name('ImplementosUtilizados');
 
-             Route::get('/BuscarImplementosUtilizados',[
-               'uses' => 'bodegaController@buscarImplementos',
-               ])->name('buscarImplementos');
+           Route::get('/BuscarImplementosUtilizados',[
+             'uses' => 'bodegaController@buscarImplementos',
+             ])->name('buscarImplementos');
+
+           Route::get('/buscarArticulo',[
+             'uses' => 'bodegaController@buscarArticulo',
+             ])->name('buscarArticulo');
 
 
      });
