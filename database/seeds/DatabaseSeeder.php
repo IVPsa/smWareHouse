@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PRO_PRODUCTOS::class);
         $this->call(PD_PIEZAS_DENTALES::class);
         $this->call(ART_ARTICULOS::class);
-
+        $this->call(CIR_CIRUGIA::class);
+        $this->call(IUC::class);
 
     }
 }
