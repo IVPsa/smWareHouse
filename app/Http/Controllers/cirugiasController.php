@@ -60,10 +60,10 @@ class cirugiasController extends Controller
       ]);
 
       if (!$registarCirugia) {
-        return redirect()->route('Cirugias')->with('error', "Hubo un problema al registar la cirugia.");
+        return redirect()->route('Cirugias')->with('error', "Hubo un problema al actualizar la cirugia.");
       }
 
-        return redirect()->route('Cirugias')->with('success', "Se ha registrado la cirugia exitosamente.");
+        return redirect()->route('Cirugias')->with('success', "Se ha actualizado la cirugia exitosamente.");
 
 
     }
