@@ -23,35 +23,39 @@ Route::view('/lector', 'pruebaLector')->name('pruebaLector');
 
 Route::prefix('CATALOGO')->group(function () {
 
- Route::view('/eliminarProducto/{id}', 'CATALOGO.eliminarProducto')->name('eliminarProducto');
- Route::view('/ModificarProducto/{id}', 'CATALOGO.modificarProducto')->name('modificarProducto');
+     Route::view('/eliminarProducto/{id}', 'CATALOGO.eliminarProducto')->name('eliminarProducto');
+     Route::view('/ModificarProducto/{id}', 'CATALOGO.modificarProducto')->name('modificarProducto');
 
- // Route::view('/ListadoDeProductos', 'CATALOGO.listaProductos')->name('listaProductos');
+   // Route::view('/ListadoDeProductos', 'CATALOGO.listaProductos')->name('listaProductos');
 
-   Route::get('/ListadoDeProductos', [
-     'uses' => 'CatalogoProductosController@listaProductos',
-   ])->name('listaProductos');
+     Route::get('/ListadoDeProductos', [
+       'uses' => 'CatalogoProductosController@listaProductos',
+     ])->name('listaProductos');
 
-   Route::get('/fichaDeProducto/{id}', [
-     'uses' => 'CatalogoProductosController@fichaDeProducto',
-   ])->name('fichaDeProducto');
+     Route::get('/buscarProducto', [
+       'uses' => 'CatalogoProductosController@buscarProducto',
+     ])->name('buscarProducto');
 
-   Route::get('/borrarPoducto/{id}', [
-     'uses' => 'CatalogoProductosController@borrarPoducto',
-   ])->name('borrarPoducto');
+     Route::get('/fichaDeProducto/{id}', [
+       'uses' => 'CatalogoProductosController@fichaDeProducto',
+     ])->name('fichaDeProducto');
 
- // Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto')->name('nuevoProducto');
+     Route::get('/borrarPoducto/{id}', [
+       'uses' => 'CatalogoProductosController@borrarPoducto',
+     ])->name('borrarPoducto');
 
- Route::get('/nuevoProducto', [
-   'uses' => 'CatalogoProductosController@showCrearProducto',
- ])->name('nuevoProducto');
+   // Route::view('/nuevoProducto', 'CATALOGO.nuevoProducto')->name('nuevoProducto');
 
- Route::post('/nuevoProducto', [
-   'uses' => 'CatalogoProductosController@createProducto',
-   'as' => 'createProducto',
- ])->name('nuevoProducto');
+     Route::get('/nuevoProducto', [
+       'uses' => 'CatalogoProductosController@showCrearProducto',
+     ])->name('nuevoProducto');
 
- Route::view('/index', 'CATALOGO.indexCatalogo')->name('catalogo');
+     Route::post('/nuevoProducto', [
+       'uses' => 'CatalogoProductosController@createProducto',
+       'as' => 'createProducto',
+     ])->name('nuevoProducto');
+
+     Route::view('/index', 'CATALOGO.indexCatalogo')->name('catalogo');
 
 });
 
@@ -119,6 +123,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
        Route::get('/ingresoDeArticulos',[
          'uses' => 'bodegaController@ShowFormularioArticulo',
          ])->name('ingresoDeArticulos');
+
+       Route::get('/fichaDeArticulo/{id}',[
+         'uses' => 'bodegaController@showFichaArticulo',
+         ])->name('fichaDeArticulo');
        //
        // Route::post('/',[
        //   'uses' => 'bodegaController@buscarProducto',
@@ -150,9 +158,13 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@listadoDeImplementosUsados',
              ])->name('ImplementosUtilizados');
 
-             Route::get('/BuscarImplementosUtilizados',[
-               'uses' => 'bodegaController@buscarImplementos',
-               ])->name('buscarImplementos');
+           Route::get('/BuscarImplementosUtilizados',[
+             'uses' => 'bodegaController@buscarImplementos',
+             ])->name('buscarImplementos');
+
+           Route::get('/buscarArticulo',[
+             'uses' => 'bodegaController@buscarArticulo',
+             ])->name('buscarArticulo');
 
 
      });

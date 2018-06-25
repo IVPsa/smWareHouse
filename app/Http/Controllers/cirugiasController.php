@@ -60,10 +60,10 @@ class cirugiasController extends Controller
       ]);
 
       if (!$registarCirugia) {
-        return redirect()->route('Cirugias')->with('error', "Hubo un problema al registar la cirugia.");
+        return redirect()->route('Cirugias')->with('error', "Hubo un problema al actualizar la cirugia.");
       }
 
-        return redirect()->route('Cirugias')->with('success', "Se ha registrado la cirugia exitosamente.");
+        return redirect()->route('Cirugias')->with('success', "Se ha actualizado la cirugia exitosamente.");
 
 
     }
@@ -131,6 +131,7 @@ class cirugiasController extends Controller
           ->select(
           'PD_PIEZAS_DENTALES.PD_N_DIENTE',
           'PD_PIEZAS_DENTALES.PD_NOMBRE',
+          'PRO_PRODUCTOS.PROD_COD',
           'PRO_PRODUCTOS.PROD_NOMBRE',
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
@@ -154,17 +155,29 @@ class cirugiasController extends Controller
 
       public function registrarImplementosAusar(Request $request, $id){
 
-          $fechaCirugia=DB::table('CIR_CIRUGIA')->select('CIR_FECHA')->where('CIR_COD',$id)->value('CIR_FECHA');
+        $fechaCirugia=DB::table('CIR_CIRUGIA')->select('CIR_FECHA')->where('CIR_COD',$id)->value('CIR_FECHA');
+
+        $diente=$request->input('piezaDental');
 
         $idArt=$request->input('implante');
-        $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
-          'IUC_ART_COD'=>$idArt,
-          'IUC_CIR_COD'=>$id,
-          'IUC_PD_COD'=>$request->input('piezaDental'),
-          'IUC_FECHA_DE_USO'=> $fechaCirugia,
-          'updated_at'=> Carbon::now(),
-          'created_at'=> Carbon::now()
-        ]);
+
+        $comprobarDienteRepetido=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->where('IUC_PD_COD', $diente)->count();
+
+        if ($comprobarDienteRepetido == 1){
+            return redirect()->route('showRegistarImplementos',$id)->with('error', "Ya hay un implante en el diente ingresado, por favor seleccione otro.");
+        }
+        else{
+
+          $registarImplementoUsado= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::create([
+            'IUC_ART_COD'=>$idArt,
+            'IUC_CIR_COD'=>$id,
+            'IUC_PD_COD'=>$diente,
+            'IUC_FECHA_DE_USO'=> $fechaCirugia,
+            'updated_at'=> Carbon::now(),
+            'created_at'=> Carbon::now()
+          ]);
+        }
+
 
 
 

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
-
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 <h3 class="text-center">PRODUCTO: {{$producto->PROD_NOMBRE}}   ID: {{$producto->PROD_COD}}</h3>
     <!-- <form action="{{route('nuevoProducto')}}" method="get"   class="form-group row"> -->
 
@@ -71,13 +75,32 @@
               <input type="text" readonly class="form-control" id="udi01" name="udi01" value="{{$producto->PROD_UDI_01}}">
           </div>
         </div>
+        @if ($conteoGeneral <= 5)
 
         <div class="form-group row">
           <label for="last_name" class="col-3 col-form-label text-right">EXISTENCIAS TOTALES EN BODEGA:</label>
-          <div class="col-9">
+          <div class="col-md-6">
               <input type="text" readonly class="form-control" id="udi01" name="udi01" value="{{$conteoGeneral}}">
           </div>
-        </div>
+          <div class="col-md-1">
+            <a href="{{route('showActualizarExistencias',$act)}}" >
+              <button class="btn btn-lg btn-success"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
+                <i class="material-icons" >library_add</i>
+              </button>
+            </a>
+          </div>
+          <div class="col-md-1">
+            <i class="fa fa-warning" style="font-size:48px;color:red" data-toggle="tooltip" data-placement="top" title="STOCK CRITICO"></i>
+          </div>
+
+          @else
+          <div class="form-group row">
+            <label for="last_name" class="col-3 col-form-label text-right">EXISTENCIAS TOTALES EN BODEGA:</label>
+            <div class="col-9">
+              <input type="text" readonly class="form-control" id="udi01" name="udi01" value="{{$conteoGeneral}}">
+            </div>
+          </div>
+        @endif
 
 
 

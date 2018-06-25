@@ -93,7 +93,7 @@
         <div class="form-group row">
           <label for="last_name" class=" col-3 col-form-label">UDI (01):</label>
           <div class="col-9">
-            <input type="text"   maxlength="17" class="form-control" id="udi01" name="udi01">
+            <input type="text"   maxlength="16" class="form-control" id="udi01" name="udi01">
           </div>
         </div>
 

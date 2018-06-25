@@ -9,7 +9,7 @@
       <div class="form-group row">
           <label for="last_name" class=" col-3 col-form-label text-right">NOMBRE DEL PACIENTE:</label>
           <div class="col-9">
-            <input type="text"   maxlength="16" class="form-control" id="nombrePaciente" name="nombrePaciente"   required>
+            <input type="text"   class="form-control" id="nombrePaciente" name="nombrePaciente"   required>
           </div>
           <!-- <div class="col-6">
           <input type="text"   maxlength="16" class="form-control" id="udi01" name="udi01">
