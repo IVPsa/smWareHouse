@@ -172,7 +172,16 @@ class bodegaController extends Controller
     public function IndexBodega(){
 
             $condicional= DB::table('ART_ARTICULOS')
-            ->select('ART_CANT')->where('ART_CANT', '<=', '5')->value('ART_CANT');
+            ->select('ART_CANT')->where('ART_CANT', '<=', '5')->distinct('ART_PROD_COD')->value('ART_CANT');
+
+            for ($i=1; $i < 19; $i++) {
+              // code...
+              $productos=DB::table('PRO_PRODUCTOS')->where('PROD_COD', $i)->get();
+              $conteoGeneral = DB::table('ART_ARTICULOS')
+
+                ->where('ART_ARTICULOS.ART_PROD_COD',$i)->sum('ART_ARTICULOS.ART_CANT');
+
+            }
 
 
             $stockCritico=DB::table('ART_ARTICULOS')
@@ -184,6 +193,7 @@ class bodegaController extends Controller
 
 
             ->select(
+            'PRO_PRODUCTOS.PROD_COD',
             'PRO_PRODUCTOS.PROD_UDI_01',
             'PRO_PRODUCTOS.PROD_NOMBRE',
             'PRO_PRODUCTOS.PROD_LONGITUD',
@@ -202,9 +212,18 @@ class bodegaController extends Controller
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
-            ->where('ART_CANT', '<=', '5')->paginate();
 
-            return view('BODEGA.indexBodega', compact('stockCritico', 'condicional'));
+            ->where('ART_CANT', '<=', '5')
+            ->get();
+
+            $productos=DB::table('PRO_PRODUCTOS')
+            ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+            ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+            ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+            ->orderBy('PRO_PRODUCTOS.PROD_COD', 'ASC')
+            ->get();
+
+            return view('BODEGA.indexBodega', compact('stockCritico', 'condicional','conteoGeneral','productos'));
     }
 
     public function buscarImplementos(Request $request){
