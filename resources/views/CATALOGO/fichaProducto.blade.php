@@ -83,9 +83,11 @@ $(document).ready(function(){
               <input type="text" readonly class="form-control" id="udi01" name="udi01" value="{{$conteoGeneral}}">
           </div>
           <div class="col-md-1">
-            <button class="btn btn-lg btn-success"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
-              <i class="material-icons" >library_add</i>
-            </button>
+            <a href="{{route('showActualizarExistencias',$act)}}" >
+              <button class="btn btn-lg btn-success"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
+                <i class="material-icons" >library_add</i>
+              </button>
+            </a>
           </div>
           <div class="col-md-1">
             <i class="fa fa-warning" style="font-size:48px;color:red" data-toggle="tooltip" data-placement="top" title="STOCK CRITICO"></i>

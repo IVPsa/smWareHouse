@@ -36,7 +36,7 @@ class CatalogoProductosController extends Controller
     {
 
       $id = Auth::id();
-      
+
       $udi01=$request->input('udi01');
       $buscarUDI= PRO_PRODUCTOS::where('PROD_UDI_01',$udi01)->get();
 
@@ -185,6 +185,7 @@ class CatalogoProductosController extends Controller
       'ART_ARTICULOS.ART_PROD_COD'
       )->where('ART_ARTICULOS.ART_PROD_COD',$id)->sum('ART_ARTICULOS.ART_CANT');
 
+      $act=DB::table('ART_ARTICULOS')->select('ART_COD')->value('ART_COD');
       //  $cantProd= DB::table('PRO_PRODUCTOS')->select('PROD_COD')->count()  ;
       // $datosDelImplante = DB::table('PRO_PRODUCTOS')
       // ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PROD_PRODUCTOS.PROD_CLC_COD')
@@ -210,7 +211,7 @@ class CatalogoProductosController extends Controller
 
 
 
-      return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro','datosDelImplante','conteoGeneral'));
+      return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro','datosDelImplante','conteoGeneral','act'));
 
     }
 
