@@ -11,8 +11,7 @@
         @method('patch')
 
 
-          @if ($comprobacionDeEstado== "REALIZADA")
-
+<!--
               <div class="form-group row">
                   <label for="last_name" class=" col-3 col-form-label text-right">NOMBRE DEL PACIENTE:</label>
                   <div class="col-9">
@@ -50,8 +49,7 @@
                     <input type="text" class="form-control" id="ESTADO" name="ESTADO" value="{{$fichaCirugia->CIR_ESTADO}}" readonly>
                   </div>
               </div>
-
-          @else
+ -->
 
               <div class="form-group row">
                   <label for="last_name" class=" col-3 col-form-label text-right">NOMBRE DEL PACIENTE:</label>
@@ -102,7 +100,7 @@
                 </div>
               </div>
 
-        @endif
+        
 
       </div>
 
