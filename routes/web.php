@@ -150,6 +150,10 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
              'uses' => 'bodegaController@showActualizarExistencias',
              ])->name('showActualizarExistencias');
 
+           Route::get('/agregarExistenciasPorCodigoDeProducto/{id}',[
+             'uses' => 'bodegaController@agregarExistenciasPorCodigoDeProducto',
+             ])->name('agregarExistenciasPorCodigoDeProducto');
+
            Route::patch('/actualizarExistencias/{id}',[
              'uses' => 'bodegaController@agrearExistencias',
              ])->name('agrearExistencias');

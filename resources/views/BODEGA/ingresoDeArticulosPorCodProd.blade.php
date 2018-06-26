@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('layouts.messages')
-<h1 class="text-center display-3">Ingresar Articulo por Codigo de Producto</h1>
+<h1 class="text-center display-3">Ingresar Articulo por codigo</h1>
 
 
     <form action="{{route('ingresarArticulo')}}" method="post"   class="form-group row">
@@ -11,7 +11,7 @@
         <div class="form-group row">
             <label for="last_name" class=" col-3 col-form-label text-right">UDI (01):</label>
             <div class="col-9">
-              <input type="text"  maxlength="16" class="form-control" id="udi01" name="udi01" required>
+              <input type="text"  value="{{$udi01}}"  maxlength="16" class="form-control" id="udi01" name="udi01" readonly>
             </div>
             <!-- <div class="col-6">
             <input type="text"   maxlength="16" class="form-control" id="udi01" name="udi01">
