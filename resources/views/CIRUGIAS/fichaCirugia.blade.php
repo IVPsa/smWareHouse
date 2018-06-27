@@ -4,14 +4,12 @@
 <h3 class="text-center display-3">CIRUGIA ID: {{$fichaCirugia->CIR_COD}}</h3>
 
 
-    <form action="{{route('actualizarCirugia', $fichaCirugia->CIR_COD )}}" method="post"   class="form-group row">
+@if($comprobacionDeEstado=="REALIZADA")
 
       <div class="container"  >
-        @csrf
-        @method('patch')
 
 
-<!--
+
               <div class="form-group row">
                   <label for="last_name" class=" col-3 col-form-label text-right">NOMBRE DEL PACIENTE:</label>
                   <div class="col-9">
@@ -49,8 +47,14 @@
                     <input type="text" class="form-control" id="ESTADO" name="ESTADO" value="{{$fichaCirugia->CIR_ESTADO}}" readonly>
                   </div>
               </div>
- -->
 
+          </div>
+@else
+ <form action="{{route('actualizarCirugia', $fichaCirugia->CIR_COD )}}" method="post"   class="form-group row">
+
+   <div class="container"  >
+     @csrf
+     @method('patch')
               <div class="form-group row">
                   <label for="last_name" class=" col-3 col-form-label text-right">NOMBRE DEL PACIENTE:</label>
                   <div class="col-9">
@@ -100,10 +104,10 @@
                 </div>
               </div>
 
-        
+
 
       </div>
 
     </form>
-
+@endif
 @endsection

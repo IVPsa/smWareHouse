@@ -40,7 +40,7 @@ class cirugiasController extends Controller
 
       $fichaCirugia = CIR_CIRUGIA::find($id);
 
-      $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->value('CIR_ESTADO');
+      $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->where('CIR_COD', $id)->value('CIR_ESTADO');
 
       return view('CIRUGIAS.fichaCirugia', compact('fichaCirugia','comprobacionDeEstado'));
 
@@ -207,7 +207,7 @@ class cirugiasController extends Controller
 
       }
 
-      public function quitarImplemento( Request $request, $id ){
+      public function quitarImplemento( Request $request, $id  ){
 
         // $idArt= CIR_CIRUGIA::where('CIR_COD',$id)->value('CIR_ART_COD');
 
@@ -223,9 +223,10 @@ class cirugiasController extends Controller
         $quitarImplemento= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_ART_COD',$id)->delete();
 
         $listaImplementosId=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
-        ->select('UIC_COD')
+        ->select('IUC_CIR_COD')
         ->where('IUC_ART_COD',$id)
-        ->value('UIC_COD');
+        ->value('IUC_CIR_COD');
+
 
         if($listaImplementosId==null){
             return redirect()->route('listaDeCirugias')->with('success', "Se elimino correctamente.");
@@ -235,8 +236,10 @@ class cirugiasController extends Controller
             return redirect()->route('listaDeCirugias')->with('error', "No se Pudo Eliminar.");
           }
           return redirect()->route('showRegistarImplementos',$listaImplementosId)->with('success', "Se ha eliminado correctamente.");
+
           // return redirect()->route('listaDeCirugias')->with('success', "Se ha eliminado correctamente.");
         }
+
 
       }
 

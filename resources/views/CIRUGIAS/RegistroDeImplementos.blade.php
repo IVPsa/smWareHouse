@@ -196,11 +196,9 @@ $(document).ready(function(){
 
                       <td>
                           <a href="{{route('quitarImplemento' , $listaImplementos->ART_COD)}}">
+                            <input hidden name="cir" value="{{$fichaCirugia->CIR_COD}}">
                             <button type="button"  class="btn btn-lg btn-danger" style="width:50px; height:50px;"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>
                           </a>
-
-
-
                       </td>
 
                       <td  >
