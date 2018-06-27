@@ -83,7 +83,8 @@ class bodegaController extends Controller
     }
 
     public function ListadoDeArticulos(){
-
+      $color=DB::table('CLC_COLOR_CODING')->select('CLC_COLOR','CLC_COD')->get();
+      $tipoImplante=DB::table('TI_TIPO_IMPLANTE')->select('TI_COD','TI_CLASE')->get();
       // $listadoDeArticulos=DB::table('ART_ARTICULOS')->paginate();
 
       $listadoDeArticulos = DB::table('ART_ARTICULOS')
@@ -117,7 +118,7 @@ class bodegaController extends Controller
 
 
 
-      return view('BODEGA.listadoDeArticulos',compact('listadoDeArticulos') );
+      return view('BODEGA.listadoDeArticulos',compact('listadoDeArticulos','color','tipoImplante') );
     }
 
     public function showActualizarExistencias($id){
@@ -338,6 +339,167 @@ class bodegaController extends Controller
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
             ->where('ART_FECHA_EXP', $fechaExp )->paginate();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+          break;
+
+          case 'DIAMETRO':
+            $diametro= $request->input('diametro');
+            $listadoDeArticulos  =DB::table('ART_ARTICULOS')
+            ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+            ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+            ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+            ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+
+
+            ->select(
+            'PRO_PRODUCTOS.PROD_UDI_01',
+            'PRO_PRODUCTOS.PROD_NOMBRE',
+            'PRO_PRODUCTOS.PROD_LONGITUD',
+            'PRO_PRODUCTOS.PROD_DIAMETRO',
+            'TC_TIPO_CONEXION.TC_DES',
+            'TI_TIPO_IMPLANTE.TI_CLASE',
+            'CLC_COLOR_CODING.CLC_COLOR',
+            'ART_ARTICULOS.ART_COD',
+            'ART_ARTICULOS.ART_UDI',
+            'ART_ARTICULOS.ART_LOTE',
+            'ART_ARTICULOS.ART_FECHA_EXP',
+            'ART_ARTICULOS.ART_CANT',
+            'ART_ARTICULOS.ART_PROD_COD'
+            )
+            ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+            ->where('PRO_PRODUCTOS.PROD_DIAMETRO', $diametro )->paginate();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+          break;
+
+          case 'LARGO':
+            $largo= $request->input('largo');
+            $listadoDeArticulos  =DB::table('ART_ARTICULOS')
+            ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+            ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+            ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+            ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+
+
+            ->select(
+            'PRO_PRODUCTOS.PROD_UDI_01',
+            'PRO_PRODUCTOS.PROD_NOMBRE',
+            'PRO_PRODUCTOS.PROD_LONGITUD',
+            'PRO_PRODUCTOS.PROD_DIAMETRO',
+            'TC_TIPO_CONEXION.TC_DES',
+            'TI_TIPO_IMPLANTE.TI_CLASE',
+            'CLC_COLOR_CODING.CLC_COLOR',
+            'ART_ARTICULOS.ART_COD',
+            'ART_ARTICULOS.ART_UDI',
+            'ART_ARTICULOS.ART_LOTE',
+            'ART_ARTICULOS.ART_FECHA_EXP',
+            'ART_ARTICULOS.ART_CANT',
+            'ART_ARTICULOS.ART_PROD_COD'
+            )
+            ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+            ->where('PRO_PRODUCTOS.PROD_LONGITUD', $largo )->paginate();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+          break;
+
+          case 'TIPO':
+            $TpImplante= $request->input('tipoImplante');
+            $listadoDeArticulos  =DB::table('ART_ARTICULOS')
+            ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+            ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+            ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+            ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+
+
+            ->select(
+            'PRO_PRODUCTOS.PROD_UDI_01',
+            'PRO_PRODUCTOS.PROD_NOMBRE',
+            'PRO_PRODUCTOS.PROD_LONGITUD',
+            'PRO_PRODUCTOS.PROD_DIAMETRO',
+            'TC_TIPO_CONEXION.TC_DES',
+            'TI_TIPO_IMPLANTE.TI_CLASE',
+            'CLC_COLOR_CODING.CLC_COLOR',
+            'ART_ARTICULOS.ART_COD',
+            'ART_ARTICULOS.ART_UDI',
+            'ART_ARTICULOS.ART_LOTE',
+            'ART_ARTICULOS.ART_FECHA_EXP',
+            'ART_ARTICULOS.ART_CANT',
+            'ART_ARTICULOS.ART_PROD_COD'
+            )
+            ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+            ->where('PRO_PRODUCTOS.PROD_TI_COD', $TpImplante )->paginate();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+          break;
+
+          case 'COLOR':
+            $codigoColor= $request->input('color');
+            $listadoDeArticulos  =DB::table('ART_ARTICULOS')
+            ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+            ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+            ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+            ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+
+
+            ->select(
+            'PRO_PRODUCTOS.PROD_UDI_01',
+            'PRO_PRODUCTOS.PROD_NOMBRE',
+            'PRO_PRODUCTOS.PROD_LONGITUD',
+            'PRO_PRODUCTOS.PROD_DIAMETRO',
+            'TC_TIPO_CONEXION.TC_DES',
+            'TI_TIPO_IMPLANTE.TI_CLASE',
+            'CLC_COLOR_CODING.CLC_COLOR',
+            'ART_ARTICULOS.ART_COD',
+            'ART_ARTICULOS.ART_UDI',
+            'ART_ARTICULOS.ART_LOTE',
+            'ART_ARTICULOS.ART_FECHA_EXP',
+            'ART_ARTICULOS.ART_CANT',
+            'ART_ARTICULOS.ART_PROD_COD'
+            )
+            ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+            ->where('PRO_PRODUCTOS.PROD_CLC_COD', $codigoColor )->paginate();
+
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+          break;
+
+          case 'UDI':
+            $udi01= $request->input('udi01');
+            $listadoDeArticulos  =DB::table('ART_ARTICULOS')
+            ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+            ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
+            ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
+            ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+
+
+            ->select(
+            'PRO_PRODUCTOS.PROD_UDI_01',
+            'PRO_PRODUCTOS.PROD_NOMBRE',
+            'PRO_PRODUCTOS.PROD_LONGITUD',
+            'PRO_PRODUCTOS.PROD_DIAMETRO',
+            'TC_TIPO_CONEXION.TC_DES',
+            'TI_TIPO_IMPLANTE.TI_CLASE',
+            'CLC_COLOR_CODING.CLC_COLOR',
+            'ART_ARTICULOS.ART_COD',
+            'ART_ARTICULOS.ART_UDI',
+            'ART_ARTICULOS.ART_LOTE',
+            'ART_ARTICULOS.ART_FECHA_EXP',
+            'ART_ARTICULOS.ART_CANT',
+            'ART_ARTICULOS.ART_PROD_COD'
+            )
+            ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
+            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+            ->where('PROD_UDI_01',$udi01 )->paginate();
             return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
           break;
 

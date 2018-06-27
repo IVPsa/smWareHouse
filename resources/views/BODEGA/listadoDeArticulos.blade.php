@@ -21,6 +21,11 @@ $(document).ready(function(){
           <option value="" selected >Seleccionar</option>
           <option value="LOTE">LOTE</option>
           <option value="FechaExp">FECHA EXP.</option>
+          <option value="DIAMETRO">DIAMETRO</option>
+          <option value="LARGO">LARGO</option>
+          <option value="TIPO">TIPO</option>
+          <option value="COLOR">COLOR</option>
+          <option value="UDI">UDI</option>
         </select>
       </form>
     </div>
@@ -51,6 +56,77 @@ $(document).ready(function(){
                   </div>
                 </form>
               </div>
+
+              <div ng-switch-when="DIAMETRO">
+                <form class="" action="{{route('buscarArticulo')}}" method="get">
+                  <input type="text" hidden value="DIAMETRO"  name="condicion"/>
+                  <div class="form-group row">
+
+                        <select class="form-control col-md-11 col-xs-12" name="diametro" required>
+                          <option value="">Seleccionar</option>
+                          <option value="2.9mm">2.9mm</option>
+                          <option value="3.3mm">3.3mm</option>
+                          <option value="4.1mm">4.1mm</option>
+                          <option value="4.8mm">4.8mm</option>
+                        </select>
+                        <button type="submit" class="btn btn-lg  btn-success col-md-1"> <i class="fa fa-search"></i></button>
+                    </div>
+                  </form>
+              </div>
+
+              <div ng-switch-when="LARGO">
+                <form class="" action="{{route('buscarArticulo')}}" method="get">
+                  <input type="text" hidden value="LARGO"  name="condicion"/>
+                  <div class="form-group row">
+                        <select class="form-control col-md-11 col-xs-12" name="largo">
+                          <option value="8mm">8mm</option>
+                          <option value="10mm">10mm</option>
+                          <option value="12mm">12mm</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-lg  btn-success col-md-1"> <i class="fa fa-search"></i></button>
+                  </div>
+                </form>
+              </div>
+
+              <div ng-switch-when="TIPO">
+                <form class="" action="{{route('buscarArticulo')}}" method="get">
+                  <input type="text" hidden value="TIPO"  name="condicion"/>
+                  <div class="form-group row">
+                        <select class="form-control col-md-11 col-xs-12" name="tipoImplante">
+                          @foreach ($tipoImplante as $tipoImplante)
+                          <option value="{{$tipoImplante->TI_COD}}">{{$tipoImplante->TI_CLASE}}</option>
+                          @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-lg  btn-success col-md-1"> <i class="fa fa-search"></i></button>
+                  </div>
+                </form>
+              </div>
+
+              <div ng-switch-when="COLOR">
+                <form class="" action="{{route('buscarArticulo')}}" method="get">
+                  <input type="text" hidden value="COLOR"  name="condicion"/>
+                  <div class="form-group row">
+                        <select  class="form-control col-md-11 col-xs-12" name="color">
+                          @foreach ($color as $color)
+                            <option value="{{$color->CLC_COD}}">{{$color->CLC_COLOR}}</option>
+                          @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-lg  btn-success col-md-1"> <i class="fa fa-search"></i></button>
+                  </div>
+                </form>
+              </div>
+              <div ng-switch-when="UDI">
+                <form class="" action="{{route('buscarArticulo')}}" method="get">
+                  <input type="text" hidden value="UDI"  name="condicion"/>
+                  <div class="form-group row">
+                      <input type="text"   maxlength="16" class="form-control col-md-11 col-xs-12" id="udi01" name="udi01">
+
+                      <button type="submit" class="btn btn-lg  btn-success col-md-1"> <i class="fa fa-search"></i></button>
+                  </div>
+               </form>
+              </div>
+
 
         </div>
     </div>
