@@ -105,6 +105,7 @@ class cirugiasController extends Controller
           'PRO_PRODUCTOS.PROD_DIAMETRO',
           'PRO_PRODUCTOS.PROD_LONGITUD',
           'ART_ARTICULOS.ART_COD',
+          'ART_ARTICULOS.ART_LOTE',
           'TC_TIPO_CONEXION.TC_DES',
           'TI_TIPO_IMPLANTE.TI_DES',
           'CLC_COLOR_CODING.CLC_COLOR'

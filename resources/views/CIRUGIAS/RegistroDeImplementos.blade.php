@@ -76,6 +76,7 @@ $(document).ready(function(){
                     {{$articulos->TC_DES}} -
 
                     {{$articulos->CLC_COLOR}}
+                    LOTE: {{$articulos->ART_LOTE}}
                   </option>
 
                 @endforeach
