@@ -108,6 +108,7 @@ $(document).ready(function(){
                               <th>TIPO CONEXION.</th>
                               <th>TIPO IMPLANTE.</th>
                               <th>COLOR CODING.</th>
+                              <th>LOTE</th>
                               <th colspan="2">ACCION</th>
 
 
@@ -125,6 +126,7 @@ $(document).ready(function(){
                               <td>{{$listaImplementos->TC_DES}}</td>
                               <td>{{$listaImplementos->TI_CLASE}}</td>
                               <td>{{$listaImplementos->CLC_COLOR}}</td>
+                              <td>{{$listaImplementos->ART_LOTE}}</td>
                               <td width="15px" >
                                 <a href="{{route('fichaDeProducto', $listaImplementos->PROD_COD)}}">
                                   <button class="btn btn-lg btn-info"  style="width:50px; height:50px;" data-toggle="tooltip" data-Placement="top" title="Ver Ficha De Producto" >
@@ -178,6 +180,7 @@ $(document).ready(function(){
                       <th>TIPO CONEXION.</th>
                       <th>TIPO IMPLANTE.</th>
                       <th>COLOR CODING.</th>
+                      <th>LOTE</th>
 
                       <th colspan="3">ACCION</th>
 
@@ -194,9 +197,9 @@ $(document).ready(function(){
                       <td>{{$listaImplementos->TC_DES}}</td>
                       <td>{{$listaImplementos->TI_CLASE}}</td>
                       <td>{{$listaImplementos->CLC_COLOR}}</td>
-
+                      <td>{{$listaImplementos->ART_LOTE}}</td>
                       <td>
-                          <a href="{{route('quitarImplemento' , $listaImplementos->ART_COD)}}">
+                          <a href="{{route('quitarImplemento' , $listaImplementos->PD_COD)}}">
                             <input hidden name="cir" value="{{$fichaCirugia->CIR_COD}}">
                             <button type="button"  class="btn btn-lg btn-danger" style="width:50px; height:50px;"  data-toggle="tooltip" data-Placement="top"  title=" Eliminar implante" ><i class="fa fa-remove"></i></button>
                           </a>

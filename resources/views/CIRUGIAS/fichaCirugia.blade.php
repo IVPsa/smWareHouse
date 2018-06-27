@@ -83,7 +83,7 @@
               <div class="form-group row">
                 <label  for="lote" class="col-3 col-form-label text-right">DESCRIPCION  :</label>
                 <div class="col-9 " >
-                  <textarea name="name" class="form-control">{{($fichaCirugia->CIR_DESCRIPCION)}}</textarea>
+                  <textarea name="descripcion" class="form-control">{{($fichaCirugia->CIR_DESCRIPCION)}}</textarea>
                 </div>
               </div>
 

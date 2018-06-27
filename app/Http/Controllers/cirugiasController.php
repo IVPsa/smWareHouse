@@ -75,7 +75,8 @@ class cirugiasController extends Controller
         'CIR_NOMBRE_PACIENTE'=>$request->input('nombrePaciente'),
         'CIR_RUT_PACIENTE'=>$request->input('rut'),
         'CIR_FECHA'=>$request->input('fecha'),
-        'CIR_ESTADO'=>$request->input('estado')
+        'CIR_ESTADO'=>$request->input('estado'),
+        'CIR_DESCRIPCION'=>$request->input('descripcion')
       ]);
 
 
@@ -130,6 +131,7 @@ class cirugiasController extends Controller
           ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
 
           ->select(
+          'PD_PIEZAS_DENTALES.PD_COD',
           'PD_PIEZAS_DENTALES.PD_N_DIENTE',
           'PD_PIEZAS_DENTALES.PD_NOMBRE',
           'PRO_PRODUCTOS.PROD_COD',
@@ -162,7 +164,7 @@ class cirugiasController extends Controller
 
         $idArt=$request->input('implante');
 
-        $comprobarDienteRepetido=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->where('IUC_PD_COD', $diente)->where('IUC_CIR_COD',$id)->count();
+        $comprobarDienteRepetido=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->select('IUC_PD_COD')->where('IUC_PD_COD', $diente)->where('IUC_CIR_COD',$id)->count();
 
         if ($comprobarDienteRepetido == 1){
             return redirect()->route('showRegistarImplementos',$id)->with('error', "Ya hay un implante en el diente ingresado, por favor seleccione otro.");
@@ -211,17 +213,18 @@ class cirugiasController extends Controller
       public function quitarImplemento( Request $request, $id  ){
 
         // $idArt= CIR_CIRUGIA::where('CIR_COD',$id)->value('CIR_ART_COD');
+        $artCod=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->select('IUC_ART_COD')->where('IUC_PD_COD',$id)->value('IUC_ART_COD');
 
-        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $id)->value('ART_CANT');
+        $valorActual=DB::table('ART_ARTICULOS')->select('ART_CANT')->where('ART_COD', $artCod)->value('ART_CANT');
 
         $valorFinal=$valorActual+1;
 
-        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$id)->update([
+        $actualizarRegistroEnBodega=ART_ARTICULOS::where('ART_COD',$artCod)->update([
 
           'ART_CANT'=>$valorFinal
         ]);
 
-        $quitarImplemento= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_ART_COD',$id)->delete();
+        $quitarImplemento= IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS::where('IUC_PD_COD',$id)->delete();
 
         $listaImplementosId=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
         ->select('IUC_CIR_COD')
