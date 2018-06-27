@@ -161,7 +161,7 @@ class cirugiasController extends Controller
 
         $idArt=$request->input('implante');
 
-        $comprobarDienteRepetido=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->where('IUC_PD_COD', $diente)->count();
+        $comprobarDienteRepetido=DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')->where('IUC_PD_COD', $diente)->where('IUC_CIR_COD',$id)->count();
 
         if ($comprobarDienteRepetido == 1){
             return redirect()->route('showRegistarImplementos',$id)->with('error', "Ya hay un implante en el diente ingresado, por favor seleccione otro.");
