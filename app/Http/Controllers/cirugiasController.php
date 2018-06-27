@@ -117,7 +117,7 @@ class cirugiasController extends Controller
 
           ->where('ART_ARTICULOS.ART_CANT', '>', 0)->get();
 
-          $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->value('CIR_ESTADO');
+          $comprobacionDeEstado=DB::table('CIR_CIRUGIA')->select('CIR_ESTADO')->where('CIR_COD',$id)->value('CIR_ESTADO');
 
           $listaImplementos = DB::table('IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS')
           ->Join('CIR_CIRUGIA', 'CIR_CIRUGIA.CIR_COD', '=', 'IUC_IMPLEMENTOS_USADOS_EN_CIRUGIAS.IUC_CIR_COD')
