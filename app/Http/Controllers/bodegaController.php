@@ -220,11 +220,11 @@ class bodegaController extends Controller
             ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
             ->Join('TI_TIPO_IMPLANTE', 'TI_TIPO_IMPLANTE.TI_COD', '=', 'PRO_PRODUCTOS.PROD_TI_COD')
             ->Join('CLC_COLOR_CODING', 'CLC_COLOR_CODING.CLC_COD', '=', 'PRO_PRODUCTOS.PROD_CLC_COD')
+            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
+            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderBy('PRO_PRODUCTOS.PROD_COD', 'ASC')
             ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
-            ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
-            ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->get();
 
             return view('BODEGA.indexBodega', compact('stockCritico', 'condicional','conteoGeneral','productos'));

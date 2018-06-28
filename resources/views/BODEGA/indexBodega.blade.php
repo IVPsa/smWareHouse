@@ -59,7 +59,55 @@ $(document).ready(function(){
   <i class="fa fa-warning" style="font-size:48px;color:red"></i>
 </h3>
 
-<table class="table table-bordered table-hover  table-striped" align="center"  id="table">
+<div class="row">
+  @foreach($productos as $productos)
+    <div class="col-md-4 col-xs-12">
+      <div class="card">
+        <div class="card-header bg-{{ $productos->CLC_COLOR}} text-white">
+          <b>{{ $productos->PROD_NOMBRE }}</b>
+          <br />
+          LONGITUD: {{ $productos->PROD_LONGITUD }}
+          <br />
+          DIAMETRO: {{ $productos->PROD_DIAMETRO }}∅
+        </div>
+        <div class="card-body">
+            <b>CANTIDAD:</b>
+            {{
+              $conteoGeneral = DB::table('ART_ARTICULOS')
+              ->where('ART_ARTICULOS.ART_PROD_COD', $productos->PROD_COD)->sum('ART_ARTICULOS.ART_CANT')
+            }}
+            <br >
+
+            <b>TIPO:</b>
+            <h5> {{ $productos->TI_CLASE}}</h5>
+            <br>
+
+            <b>NUMERO DE ARTICULO:</b>
+            <h5> {{ $productos->PROD_N_ARTICULO }}</h5>
+            <br>
+
+            <b>TIPO DE CONEXION:</b>
+            <h5> {{ $productos->TC_DES}}</h5>
+            <center>
+              <a href="{{route('agregarExistenciasPorCodigoDeProducto',  $productos->PROD_COD )}}" >
+                 <button class="btn btn-lg btn-success"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
+                   <i class="material-icons" >library_add</i>
+                 </button>
+              </a>
+
+              <a href="{{route('fichaDeProducto', $productos->PROD_COD)}}">
+                 <button class="btn btn-lg btn-info"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha De Producto">
+                   <i class="fa fa-clipboard" ></i>
+                  </button>
+               </a>
+            </center>
+        </div>
+      </div>
+    </div>
+  @endforeach
+</div>
+
+<!-- <table class="table table-bordered table-hover  table-striped" align="center"  id="table">
     <thead class="thead-dark">
         <tr>
           <th>ID</th>
@@ -77,7 +125,7 @@ $(document).ready(function(){
     </thead>
 
 
-    @foreach($productos as $productos)
+
       <tr>
         <td>{{ $productos->PROD_COD }}</td>
         <td>{{ $productos->PROD_NOMBRE }}</td>
@@ -113,10 +161,10 @@ $(document).ready(function(){
           </a>
         </td>
 
-        @endforeach
 
 
-</table>
+
+</table> -->
 
 
 

@@ -83,7 +83,7 @@ $(document).ready(function(){
               <input type="text" readonly class="form-control" id="udi01" name="udi01" value="{{$conteoGeneral}}">
           </div>
           <div class="col-md-1">
-            <a href="{{route('showActualizarExistencias',$act)}}" >
+            <a href="{{route('agregarExistenciasPorCodigoDeProducto',$producto->PROD_COD)}}" >
               <button class="btn btn-lg btn-success"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Agregar Existencias">
                 <i class="material-icons" >library_add</i>
               </button>
