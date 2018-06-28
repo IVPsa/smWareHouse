@@ -53,11 +53,11 @@ $(document).ready(function(){
   <br />
   <br />
 
-<h3 class="text-center">
-  <i class="fa fa-warning" style="font-size:48px;color:red"></i>
+<h2 class="text-center">
+  <!-- <i class="fa fa-warning" style="font-size:48px;color:red"></i> -->
     <b>CONTEO GENERAL DE STOCK</b>
-  <i class="fa fa-warning" style="font-size:48px;color:red"></i>
-</h3>
+  <!-- <i class="fa fa-warning" style="font-size:48px;color:red"></i> -->
+</h2>
 
 <div class="row">
   @foreach($productos as $productos)
@@ -72,10 +72,14 @@ $(document).ready(function(){
         </div>
         <div class="card-body">
             <b>CANTIDAD:</b>
-            {{
+            <h5>{{
               $conteoGeneral = DB::table('ART_ARTICULOS')
               ->where('ART_ARTICULOS.ART_PROD_COD', $productos->PROD_COD)->sum('ART_ARTICULOS.ART_CANT')
-            }}
+            }}@if ($conteoGeneral <=5)
+            <i class="fa fa-warning" style="font-size:24px;color:red" data-toggle="tooltip" data-placement="top" title="STOCK CRITICO"></i>
+            @else
+            @endif</h5>
+
             <br >
 
             <b>TIPO:</b>
