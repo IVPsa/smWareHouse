@@ -87,7 +87,7 @@ class bodegaController extends Controller
       $color=DB::table('CLC_COLOR_CODING')->select('CLC_COLOR','CLC_COD')->get();
       $tipoImplante=DB::table('TI_TIPO_IMPLANTE')->select('TI_COD','TI_CLASE')->get();
       // $listadoDeArticulos=DB::table('ART_ARTICULOS')->paginate();
-
+      $condicion='';
       $listadoDeArticulos = DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->Join('TC_TIPO_CONEXION', 'TC_TIPO_CONEXION.TC_COD', '=', 'PRO_PRODUCTOS.PROD_TC_COD')
@@ -119,7 +119,7 @@ class bodegaController extends Controller
 
 
 
-      return view('BODEGA.listadoDeArticulos',compact('listadoDeArticulos','color','tipoImplante') );
+      return view('BODEGA.listadoDeArticulos',compact('listadoDeArticulos','color','tipoImplante','condicion') );
     }
 
     public function showActualizarExistencias($id){

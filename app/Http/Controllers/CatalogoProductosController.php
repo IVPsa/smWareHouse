@@ -88,12 +88,12 @@ class CatalogoProductosController extends Controller
       //       ->select('PRO_PRODUCTOS.PROD_COD', 'CLC_COLOR_CODING.CLC_COLOR')
       //       ->get();
       $color=DB::table('CLC_COLOR_CODING')->select('CLC_COLOR','CLC_COD')->get();
-
+      $condicion='';
       $tipoImplante=DB::table('TI_TIPO_IMPLANTE')->select('TI_COD','TI_CLASE')->get();
 
       // $tipoConexion=TC_TIPO_CONEXION::where('TC_COD',$tpcId)->all();
 
-      return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color'));
+      return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
 
     }
 
@@ -109,31 +109,31 @@ class CatalogoProductosController extends Controller
         case 'DIAMETRO':
           $diametro= $request->input('diametro');
           $listaDeProductos  =DB::table('PRO_PRODUCTOS')->where('PROD_DIAMETRO', $diametro )->paginate();
-          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color'));
+          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
         break;
 
         case 'LARGO':
           $largo= $request->input('largo');
           $listaDeProductos  =DB::table('PRO_PRODUCTOS')->where('PROD_LONGITUD', $largo )->paginate();
-          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color'));
+          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
         break;
 
         case 'TIPO':
           $TpImplante= $request->input('tipoImplante');
           $listaDeProductos  =DB::table('PRO_PRODUCTOS')->where('PROD_TI_COD', $TpImplante )->paginate();
-          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color'));
+          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
         break;
 
         case 'COLOR':
           $codigoColor= $request->input('color');
           $listaDeProductos  =DB::table('PRO_PRODUCTOS')->where('PROD_CLC_COD', $codigoColor )->paginate();
-          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color'));
+          return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
         break;
 
         case 'UDI':
           $udi01= $request->input('udi01');
           $listaDeProductos  =DB::table('PRO_PRODUCTOS')->where('PROD_UDI_01', $udi01 )->paginate();
-        return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color'));
+        return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
         break;
 
         default:

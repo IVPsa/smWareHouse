@@ -144,10 +144,11 @@ $(document).ready(function(){
                 <th>NOMBRE</th>
                 <th>LONGITUD</th>
                 <th>DIAMETRO</th>
-                <th>FECHA EXP</th>
                 <th>TIPO CONEXION</th>
                 <th>TIPO DE IMPLANTE</th>
                 <th>COLOR</th>
+                <th>FECHA EXP</th>
+                <th>LOTE</th>
                 <th>CANT</th>
 
                 <th width="100px" colspan="3" >ACCION</th>
@@ -160,10 +161,11 @@ $(document).ready(function(){
 
             <td>{{ $lista->PROD_LONGITUD }}</td>
             <td>{{ $lista->PROD_DIAMETRO }}∅</td>
-            <td>{{ $lista->ART_FECHA_EXP }}</td>
             <td> {{ $lista->TC_DES}}</td>
             <td> {{ $lista->TI_CLASE}}</td>
             <td> {{ $lista->CLC_COLOR}}</td>
+            <td>{{ $lista->ART_FECHA_EXP }}</td>
+            <td> {{ $lista->ART_LOTE}}</td>
             <td>{{ $lista->ART_CANT }}</td>
 
 

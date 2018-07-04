@@ -156,7 +156,11 @@ $(document).ready(function(){
 
 </table>
 </div>
+@if ($condicion=='')
 {{ $listaDeProductos->links() }}
+
+@else
+@endif
 </div>
 </div>
 
