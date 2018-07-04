@@ -197,7 +197,10 @@ $(document).ready(function(){
 
       </table>
     </div>
+    @if ($condicion=='')
   {{ $listadoDeArticulos->links() }}
+  @else
+  @endif
   </div>
 </div>
 

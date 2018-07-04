@@ -14,6 +14,7 @@ use Exception;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 
 
 class bodegaController extends Controller
@@ -306,8 +307,8 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('ART_LOTE', $lote )->paginate();
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            ->where('ART_LOTE', $lote )->get();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
           case 'fechaExp':
@@ -338,8 +339,8 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('ART_FECHA_EXP', $fechaExp )->paginate();
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            ->where('ART_FECHA_EXP', $fechaExp )->get();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
           case 'DIAMETRO':
@@ -370,8 +371,8 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('PRO_PRODUCTOS.PROD_DIAMETRO', $diametro )->paginate();
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            ->where('PRO_PRODUCTOS.PROD_DIAMETRO', $diametro )->get();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
           case 'LARGO':
@@ -402,8 +403,8 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('PRO_PRODUCTOS.PROD_LONGITUD', $largo )->paginate();
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            ->where('PRO_PRODUCTOS.PROD_LONGITUD', $largo )->get();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
           case 'TIPO':
@@ -434,8 +435,8 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('PRO_PRODUCTOS.PROD_TI_COD', $TpImplante )->paginate();
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            ->where('PRO_PRODUCTOS.PROD_TI_COD', $TpImplante )->get();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
           case 'COLOR':
@@ -466,9 +467,9 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('PRO_PRODUCTOS.PROD_CLC_COD', $codigoColor )->paginate();
+            ->where('PRO_PRODUCTOS.PROD_CLC_COD', $codigoColor )->get();
 
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
           case 'UDI':
@@ -499,8 +500,8 @@ class bodegaController extends Controller
             ->orderBy('CLC_COLOR_CODING.CLC_COLOR', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_DIAMETRO', 'DESC')
             ->orderby('PRO_PRODUCTOS.PROD_LONGITUD', 'DESC')
-            ->where('PROD_UDI_01',$udi01 )->paginate();
-            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color'));
+            ->where('PROD_UDI_01',$udi01 )->get();
+            return view('BODEGA.listadoDeArticulos', compact('listadoDeArticulos' ,'tipoImplante','color','condicion'));
           break;
 
 
