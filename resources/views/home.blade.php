@@ -109,7 +109,7 @@
 
                       {{
                         $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',15)->orWhere('ART_ARTICULOS.ART_PROD_COD', '2')->sum('ART_ARTICULOS.ART_CANT')
+                        ->where('ART_ARTICULOS.ART_PROD_COD',15)->sum('ART_ARTICULOS.ART_CANT')
                       }}
 
                     </td>
