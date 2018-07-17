@@ -29,106 +29,86 @@ class HomeController extends Controller
      */
     public function index()
     {
-
       $implantesDe8x29=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '2.9mm')->where('PROD_LONGITUD', '8mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '2.9mm')->where('PROD_LONGITUD', '8mm')->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x33=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '3.3mm')->where('PROD_LONGITUD', '8mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '3.3mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
 
       $implantesDe8x41=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '4.1mm')->where('PROD_LONGITUD', '8mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '4.1mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x48=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '4.8mm')->where('PROD_LONGITUD', '8mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '4.8mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x29=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '2.9mm')->where('PROD_LONGITUD', '10mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '2.9mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x33=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
 
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '3.3mm')->where('PROD_LONGITUD', '10mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '3.3mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x41=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
 
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '4.1mm')->where('PROD_LONGITUD', '10mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '4.1mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x48=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->select(
       'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '4.8mm')->where('PROD_LONGITUD', '10mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '4.8mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
 
       $implantesDe12x29=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
 
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '2.9mm')->where('PROD_LONGITUD', '12mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '2.9mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x33=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '3.3mm')->where('PROD_LONGITUD', '12mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '3.3mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x41=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-
-      'PRO_PRODUCTOS.PROD_COD')
-      ->where('PROD_DIAMETRO', '4.1mm')->where('PROD_LONGITUD', '12mm')->value('PROD_COD');
+      ->where('PROD_DIAMETRO', '4.1mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x48=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-      ->select(
-      'PRO_PRODUCTOS.PROD_UDI_01')
-      ->where('PROD_DIAMETRO', '4.8mm')->where('PROD_LONGITUD', '12mm')->value('PROD_COD');
-
-
-//       $implantesde10=DB::table('ART_ARTICULOS')
-//       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
-//       ->select(
-//
-//       'PRO_PRODUCTOS.PROD_COD')
-//       ->where('PROD_LONGITUD', '8mm')->orderBy('PRO_PRODUCTOS.PROD_LONGITUD', 'ASC')->get();
-// // dd($implantesde10);
-
-
+      ->where('PROD_DIAMETRO', '4.8mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->sum('ART_ARTICULOS.ART_CANT');
 
         return view('home',compact(
           'implantesDe8x29',
           'implantesDe8x33',
-          'implantesDe8x41',
           'implantesDe8x41',
           'implantesDe8x48',
           'implantesDe10x29',

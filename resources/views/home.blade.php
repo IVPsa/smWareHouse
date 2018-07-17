@@ -33,85 +33,49 @@
                   <tr>
                     <td class="bg-blue">8</td>
                     <td>
-                    {{
-                      $conteoGeneral = DB::table('ART_ARTICULOS')
-                      ->where('ART_ARTICULOS.ART_PROD_COD',$implantesDe8x29)->sum('ART_ARTICULOS.ART_CANT')
-                    }}
+                      {{$implantesDe8x29}}
                     </td>
                     <td>
-                    {{
-                      $conteoGeneral = DB::table('ART_ARTICULOS')
-                      ->where('ART_ARTICULOS.ART_PROD_COD',$implantesDe8x33)->sum('ART_ARTICULOS.ART_CANT')
-                    }}
+                      {{$implantesDe8x33}}
                     </td>
+
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',12)->orwhere('ART_ARTICULOS.ART_PROD_COD',3)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe8x41}}
                     </td>
+
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',5)->orwhere('ART_ARTICULOS.ART_PROD_COD',17)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe8x48}}
                     </td>
                   </tr>
                   <tr>
                     <td class="bg-blue">10</td>
                     <td>
-                    {{
-                      $conteoGeneral = DB::table('ART_ARTICULOS')
-                      ->where('ART_ARTICULOS.ART_PROD_COD',8)->sum('ART_ARTICULOS.ART_CANT')
-                    }}
+                      {{$implantesDe10x29}}
                     </td>
                     <td>
-                    {{
-                      $conteoGeneral = DB::table('ART_ARTICULOS')
-                      ->where('ART_ARTICULOS.ART_PROD_COD',10)->orWhere('ART_ARTICULOS.ART_PROD_COD', 2)->sum('ART_ARTICULOS.ART_CANT')
-                    }}
+                      {{$implantesDe10x33}}
                     </td>
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',13)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe10x41}}
                     </td>
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',6)->orWhere('ART_ARTICULOS.ART_PROD_COD', 16)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe10x48}}
                     </td>
 
                   </tr>
                   <tr>
                     <td class="bg-blue">12</td>
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',9)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe12x29}}
                     </td>
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',1)->orWhere('ART_ARTICULOS.ART_PROD_COD',11)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe12x33}}
                     </td>
                     <td>
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',4)->orWhere('ART_ARTICULOS.ART_PROD_COD',7)->orWhere('ART_ARTICULOS.ART_PROD_COD',14)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
+                      {{$implantesDe12x41}}
                     </td>
                     <td>
-
-                      {{
-                        $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',15)->sum('ART_ARTICULOS.ART_CANT')
-                      }}
-
+                      {{$implantesDe12x48}}
                     </td>
                   </tr>
                   <tr>
