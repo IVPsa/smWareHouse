@@ -90,7 +90,7 @@
                     <td>
                       {{
                         $conteoGeneral = DB::table('ART_ARTICULOS')
-                        ->where('ART_ARTICULOS.ART_PROD_COD',12)->sum('ART_ARTICULOS.ART_CANT')
+                        ->where('ART_ARTICULOS.ART_PROD_COD',9)->sum('ART_ARTICULOS.ART_CANT')
                       }}
                     </td>
                     <td>
