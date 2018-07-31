@@ -30,7 +30,7 @@
         <div class="form-group row">
           <label  for="lote" class="col-3 col-form-label text-right">LOTE:</label>
           <div class="col-9 " >
-            <input type="text" class="form-control" id="lote" name="lote"  required>
+            <input type="text" class="form-control" id="lote" name="lote" maxlength="5"  required>
           </div>
         </div>
 

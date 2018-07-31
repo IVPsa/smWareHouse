@@ -43,7 +43,7 @@
         <div class="form-group row">
           <label  for="cantidad" class="col-3 col-form-label text-right">CANTIDAD:</label>
           <div class="col-9 " >
-            <input type="number" min="1" class="form-control" id="cantidad" name="cantidad"  value="{{$Articulo->ART_CANT}}" required>
+            <input type="number" min="0" class="form-control" id="cantidad" name="cantidad"  value="{{$Articulo->ART_CANT}}" required>
           </div>
         </div>
 
