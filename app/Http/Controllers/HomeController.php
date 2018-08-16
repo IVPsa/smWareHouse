@@ -33,7 +33,7 @@ class HomeController extends Controller
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '2.9mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x33Guiado=DB::table('ART_ARTICULOS')
@@ -48,35 +48,35 @@ class HomeController extends Controller
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.1mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x48Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.8mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x29Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '2.9mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x33Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '3.3mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x41Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.1mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x48Guiado=DB::table('ART_ARTICULOS')
@@ -85,7 +85,7 @@ class HomeController extends Controller
       'PRO_PRODUCTOS.PROD_COD')
       ->where('PROD_DIAMETRO', '4.8mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
 
@@ -93,42 +93,42 @@ class HomeController extends Controller
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '2.9mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x33Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '3.3mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x41Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.1mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x48Guiado=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.8mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x29=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '2.9mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x33=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '3.3mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
 
@@ -136,35 +136,35 @@ class HomeController extends Controller
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.1mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe8x48=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.8mm')
       ->where('PROD_LONGITUD', '8mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x29=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '2.9mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x33=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '3.3mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x41=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.1mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe10x48=DB::table('ART_ARTICULOS')
@@ -173,7 +173,7 @@ class HomeController extends Controller
       'PRO_PRODUCTOS.PROD_COD')
       ->where('PROD_DIAMETRO', '4.8mm')
       ->where('PROD_LONGITUD', '10mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
 
@@ -181,28 +181,28 @@ class HomeController extends Controller
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '2.9mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x33=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '3.3mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x41=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.1mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
       $implantesDe12x48=DB::table('ART_ARTICULOS')
       ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
       ->where('PROD_DIAMETRO', '4.8mm')
       ->where('PROD_LONGITUD', '12mm')
-      ->where('PROD_DESCRIPCION','<>', 'implante Bone Level guiado')
+      ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
         return view('home',compact(
