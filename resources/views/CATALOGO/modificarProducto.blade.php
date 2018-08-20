@@ -17,7 +17,10 @@
         <div class="form-group row">
           <label for="last_name" class="col-3 col-form-label">DESCRIPCION:</label>
           <div class="col-9">
-            <input type="text" class="form-control" id="descProducto" name="descProducto" required>
+            <select  class="form-control" id="descProducto" name="descProducto" required>
+                    <option value="Implante no Guiado">Implante Guiado</option>
+                    <option value="Implante no Guiado">Implante no Guiado</option>
+            </select>
           </div>
         </div>
 
