@@ -30,7 +30,7 @@ class cirugiasController extends Controller
 
     public function listaDeCirugias()
     {
-      $listadoDeCirugias=DB::table('CIR_CIRUGIA')->paginate();
+      $listadoDeCirugias=DB::table('CIR_CIRUGIA')->orderBy('CIR_FECHA','DESC')->paginate();
 
       return view('CIRUGIAS.listaCirugias',compact('listadoDeCirugias'));
 
