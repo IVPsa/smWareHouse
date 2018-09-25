@@ -58,7 +58,7 @@
                         <li class="nav-item  d-md-none d-xs-block">
                             <!-- <a class="nav-link" href="#">PERFIL</a> -->
                             <a class="nav-link" href="{{route('catalogo')}}">CATALOGO</a>
-                            <a class="nav-link" href="{{route('indexBodega')}}">BODEGA</a>
+                            <a class="nav-link" href="{{route('IndexBodega')}}">BODEGA</a>
                             <a class="nav-link" href="{{route('Cirugias')}}">CIRUGIAS</a>
                         </li>
                     </ul>
@@ -103,7 +103,7 @@
           <a href="{{ url('/home') }}">HOME</a>
 
           <a href="{{route('catalogo')}}">CATALOGO</a>
-          <a href="{{route('indexBodega')}}">BODEGA</a>
+          <a href="{{route('IndexBodega')}}">BODEGA</a>
           <a href="{{route('Cirugias')}}">CIRUGIAS</a>
         </div>
       </div>

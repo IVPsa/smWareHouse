@@ -179,7 +179,7 @@ class bodegaController extends Controller
         return view('BODEGA.listadoDeImplementosUsados', compact('listaDeUsados'));
     }
 
-    public function IndexBodega(){
+    public function indexBodegaImplantes(){
 
             // $condicional= DB::table('ART_ARTICULOS')
             // ->select('ART_CANT')->where('ART_CANT', '<=', '5')->distinct('ART_PROD_COD')->value('ART_CANT');
@@ -228,7 +228,7 @@ class bodegaController extends Controller
             ->orderBy('PRO_PRODUCTOS.PROD_NOMBRE', 'DESC')
             ->get();
 
-            return view('BODEGA.indexBodega', compact('stockCritico', 'condicional','conteoGeneral','productos'));
+            return view('BODEGA.indexBodegaImplantes', compact('stockCritico', 'condicional','conteoGeneral','productos'));
     }
 
     public function buscarImplementos(Request $request){

@@ -108,15 +108,24 @@ Route::group(['prefix' => 'CIRUGIAS'], function () {
 
   Route::group(['prefix' => 'BODEGA'], function () {
 
-    Route::get('/index',[
-      'uses' => 'bodegaController@IndexBodega',
-      ])->name('indexBodega');
+    Route::view('/IndexBodega', 'BODEGA.indexBodega')->name('IndexBodega');
 
-     Route::group(['prefix' => 'MERMAS'], function () {
+      Route::group(['prefix' => 'IMPLANTES'], function () {
+        Route::get('/indexBodegaImplantes',[
+          'uses' => 'bodegaController@indexBodegaImplantes',
+          ])->name('IndexBodegaImplantes');
 
-       Route::view('/registroDeMermas', 'BODEGA.registroDeMermas')->name('registroDeMermas');
 
      });
+      Route::group(['prefix' => 'PILARES'], function () {
+        Route::view('/IndexBodegaPilares', 'PILARES.IndexPilares')->name('IndexBodegaPilares');
+        Route::view('/fichaDePilares', 'PILARES.BODEGA.fichaDePilares')->name('fichaDePilares');
+        Route::view('/actualizarExistenciasPilares', 'PILARES.BODEGA.actualizarExistenciasPilares')->name('actualizarExistenciasPilares');
+        Route::view('/ingresoDePilaresPorCodProd', 'PILARES.BODEGA.ingresoDePilaresPorCodProd')->name('ingresoDePilaresPorCodProd');
+        Route::view('/listaDePilaresEnBodega', 'PILARES.BODEGA.listaDePilaresEnBodega')->name('listaDePilaresEnBodega');
+        Route::view('/listaDePilaresUsados', 'PILARES.BODEGA.listaDePilaresUsados')->name('listaDePilaresUsados');
+
+      });
 
      Route::group(['prefix' => 'INGRESOS'], function () {
 
