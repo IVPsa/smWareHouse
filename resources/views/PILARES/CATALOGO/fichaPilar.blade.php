@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-<h3 class="text-center">PRODUCTO: ID: </h3>
+<h3 class="text-center">PRODUCTO: {{$producto->PL_NOMBRE}} ID:{{$producto->PL_COD}} </h3>
     <!-- <form action="{{route('nuevoProducto')}}" method="get"   class="form-group row"> -->
 
       <div class="container"  >
@@ -15,39 +15,33 @@ $(document).ready(function(){
 
           <label  for="first_name" class="  col-3 col-form-label text-right">NOMBRE:</label>
           <div class="col-9">
-            <input type="text"  readonly class="form-control" id="nompreProducto" name="nompreProducto" value="{{$producto->PROD_NOMBRE}}">
+            <input type="text"  readonly class="form-control" id="nompreProducto" name="nompreProducto" value="{{$producto->PL_NOMBRE}}">
           </div>
         </div>
 
         <div class="form-group row">
           <label for="last_name" class="col-3 col-form-label text-right">DESCRIPCION:</label>
           <div class="col-9">
-            <input type="text" readonly class="form-control" id="descProducto" name="descProducto" value="{{$producto->PROD_DESCRIPCION}}">
+            <input type="text" readonly class="form-control" id="descProducto" name="descProducto" value="{{$producto->PL_DESCRIPCION}}">
           </div>
         </div>
 
         <div class="form-group row">
           <label for="last_name" class="col-3 col-form-label text-right">Nº ARTICULO:</label>
           <div class="col-9">
-            <input type="text" readonly class="form-control" id="nArticulo" name="nArticulo" value="{{$producto->PROD_N_ARTICULO}}">
+            <input type="text" readonly class="form-control" id="nArticulo" name="nArticulo" value="{{$producto->PL_N_ARTICULO}}">
           </div>
         </div>
 
 
-        <div class="form-group row">
-          <label for="last_name" class="col-3 col-form-label text-right">TIPO:</label>
-          <div class="col-9">
-            <input type="text" readonly class="form-control" id="tp" name="tp" value="{{$tipoImplante}}">
-          </div>
-        </div>
 
         <div class="form-group row">
           <label for="last_name" class="col-3 col-form-label text-right">UDI 01:</label>
           <div class="col-9">
-              <input type="text" readonly class="form-control" id="udi01" name="udi01" value="">
+              <input type="text" readonly class="form-control" id="udi01" name="udi01" value="{{$producto->PL_N_ARTICULO}}">
           </div>
         </div>
-        <!--if ($conteoGeneral <= 5) -->
+        <!--if ($conteoGeneral <= 5)
 
         <div class="form-group row">
           <label for="last_name" class="col-3 col-form-label text-right">EXISTENCIAS TOTALES EN BODEGA:</label>
@@ -65,14 +59,14 @@ $(document).ready(function(){
             <i class="fa fa-warning" style="font-size:48px;color:red" data-toggle="tooltip" data-placement="top" title="STOCK CRITICO"></i>
           </div>
 
-          <!-- else -->
+          else
           <div class="form-group row">
             <label for="last_name" class="col-3 col-form-label text-right">EXISTENCIAS TOTALES EN BODEGA:</label>
             <div class="col-9">
               <input type="text" readonly class="form-control" id="udi01" name="udi01" value="">
             </div>
           </div>
-        <!-- @endif -->
+         endif -->
 
 
 

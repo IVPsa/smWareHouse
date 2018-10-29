@@ -17,8 +17,10 @@ class PBPILARESENBODEGA extends Migration
         Schema::create('PB_PILARES_EN_BODEGA', function (Blueprint $table) {
           $table->increments('PB_COD');
           $table->string('PB_UDI_COMPLETO', 45);
-          $table->string('PB_LOTE' 45);
-          $table->integer('PB_CANT', 16);
+          $table->string('PB_LOTE', 45);
+          $table->integer('PB_CANT');
+          $table->integer('PB_PL_COD')->unsigned();
+          $table->foreign('PB_PL_COD')->references('PL_COD')->on('PL_PILARES');
           $table->timestamps();
         });
     }

@@ -8,6 +8,8 @@ use App\TI_TIPO_IMPLANTE;
 use App\CLC_COLOR_CODING;
 use App\PRO_PRODUCTOS;
 use App\User;
+use App\TP_TIPO_PILAR;
+use App\PL_PILARES;
 use App\Http\Controllers\Controller;
 use Exception;
 use Carbon\Carbon;
@@ -22,8 +24,7 @@ class CatalogoProductosController extends Controller
       $this->middleware('auth');
     }
 
-    public function showCrearProducto()
-    {
+    public function showCrearProducto(){
       $tipoConexion= TC_TIPO_CONEXION::all();
       $tipoImplante= TI_TIPO_IMPLANTE::all();
       $colorCoding= CLC_COLOR_CODING::all();
@@ -32,8 +33,7 @@ class CatalogoProductosController extends Controller
 
     }
 
-    public function createProducto(Request $request)
-    {
+    public function createProducto(Request $request){
 
       $id = Auth::id();
 
@@ -73,7 +73,41 @@ class CatalogoProductosController extends Controller
 
     }
 
+    public function createPilar(Request $request){
+
+      $id = Auth::id();
+
+      $udi01=$request->input('udi01Pilar');
+      $buscarUDI= PL_PILARES::where('PL_UDI01',$udi01)->get();
+
+      if($buscarUDI=="[]"){
+      $crearProducto= PL_PILARES::create([
+        'PL_NOMBRE'=>$request->input('nombrePilar'),
+        'PL_DESCRIPCION'=>$request->input('descPilar'),
+        'PL_N_ARTICULO'=>$request->input('nArtPilar'),
+        'PL_TP_COD'=>$request->input('tpPilar'),
+        'PL_UDI01'=>$request->input('udi01Pilar'),
+        'updated_at'=> Carbon::now(),
+        'created_at'=> Carbon::now()
+      ]);
+
+
+          return redirect()->route('catalogo')->with('success', "Se ha ingresado el articulo exitosamente.");
+
+      }
+
+      else{
+        return redirect()->route('catalogo')->with('error', "El udi01 ya esta registrado.");
+      }
+
+      if (! $crearProducto) {
+        return redirect()->route('catalogo')->with('error', "Hubo un problema al crear ingresado el articulo.");
+      }
+    }
+
     public function listaProductos(){
+
+      $listaDePilares=DB::table('PL_PILARES')->Join('TP_TIPO_PILAR', 'TP_TIPO_PILAR.TP_COD', '=', 'PL_PILARES.PL_TP_COD')->paginate();
 
       $listaDeProductos=
       DB::table('PRO_PRODUCTOS')->paginate();
@@ -93,7 +127,7 @@ class CatalogoProductosController extends Controller
 
       // $tipoConexion=TC_TIPO_CONEXION::where('TC_COD',$tpcId)->all();
 
-      return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion'));
+      return view('CATALOGO.listaProductos', compact('listaDeProductos' ,'tipoImplante','color','condicion','listaDePilares'));
 
     }
 
@@ -212,6 +246,15 @@ class CatalogoProductosController extends Controller
 
 
       return view('CATALOGO.fichaProducto', compact('producto','color', 'tipoImplante','tipoConexion','tipoConexionDiametro','datosDelImplante','conteoGeneral','act'));
+
+    }
+
+    public function fichaDePilar($id){
+
+        //$producto = DB::table('PL_PILARES')->Join('TP_TIPO_PILAR', 'TP_TIPO_PILAR.TP_COD', '=', 'PL_PILARES.PL_TP_COD')->select('PL_COD','PL_DESCRIPCION','PL_NOMBRE','PL_TP_COD','PL_N_ARTICULO')->where('PL_COD', $id);
+          $producto = PL_PILARES::find($id);
+
+        return view('PILARES.CATALOGO.fichaPilar', compact('producto'));
 
     }
 

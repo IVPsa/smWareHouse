@@ -9,12 +9,15 @@ class PB_PILARES_EN_BODEGA extends Model
     //
     protected $table ="PB_PILARES_EN_BODEGA";
 
-    protected $primaryKey = "TC_COD";
+    protected $primaryKey = "PB_COD";
 
     protected $fillable = [
 
-      'TC_DES',
-      'TC_DIAMETRO'
+
+      'PB_UDI_COMPLETO',
+      'PB_LOTE',
+      'PB_CANT',
+      'PB_PL_COD'
     ];
 
 }

@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ART_ARTICULOS::class);
         $this->call(CIR_CIRUGIA::class);
         $this->call(IUC::class);
-
+        $this->call(TP_TIPO_PILAR::class);
     }
 }

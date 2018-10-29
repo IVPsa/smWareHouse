@@ -8,6 +8,8 @@ use App\TI_TIPO_IMPLANTE;
 use App\CLC_COLOR_CODING;
 use App\PRO_PRODUCTOS;
 use App\ART_ARTICULOS;
+use App\PL_PILARES;
+use App\PB_PILARES_EN_BODEGA;
 use App\User;
 use App\Http\Controllers\Controller;
 use Exception;
@@ -74,12 +76,62 @@ class bodegaController extends Controller
             ]);
 
             if (!$ingresarArticulo) {
-              return redirect()->route('indexBodega')->with('error', "Hubo un problema al ingresar la existencia.");
+              return redirect()->route('IndexBodegaImplantes')->with('error', "Hubo un problema al ingresar la existencia.");
             }
 
         }
 
-        return redirect()->route('indexBodega')->with('success', "Se ha registrado la existencia exitosamente.");
+        return redirect()->route('IndexBodegaImplantes')->with('success', "Se ha registrado la existencia exitosamente.");
+
+    }
+
+    public function ingresarPilares(Request $request){
+      $udi01=$request->input('udi01');
+      $codReferencia=PL_PILARES::where('PL_UDI01',$udi01)->value('PL_COD');
+
+
+      if ($codReferencia==null){
+
+          return redirect()->route('ingresoDePilaresPorCodProd')->with('error', "El UDI01 no ha sido registrado, por favor registre el nuevo producto en catalogo para ingresar la existencia .");
+      }
+
+
+        $udiArt=$request->input('udi');
+        $Revisarlote=PB_PILARES_EN_BODEGA::where('PB_UDI_COMPLETO',$udiArt)->value('PB_LOTE');
+        $lote=$request->input('lote');
+
+        if($Revisarlote==$lote){
+
+
+            $valorActual=DB::table('PB_PILARES_EN_BODEGA')->select('PB_CANT')->where('PB_UDI_COMPLETO', $udiArt)->value('PB_CANT');
+
+            $nuevasExistencias=$request->input('cantidad');
+
+            $valorFinal=$valorActual+$nuevasExistencias;
+
+            $ingresarArticulo=PB_PILARES_EN_BODEGA::where('PB_LOTE',$lote)->update([
+
+              'PB_CANT'=>$valorFinal
+            ]);
+        }
+        else{
+
+            $ingresarArticulo= PB_PILARES_EN_BODEGA::create([
+              'PB_UDI_COMPLETO'=>$request->input('udi'),
+              'PB_LOTE'=>$lote,
+              'PB_PL_COD'=>$codReferencia,
+              'PB_CANT'=>$request->input('cantidad'),
+              'updated_at'=> Carbon::now(),
+              'created_at'=> Carbon::now()
+            ]);
+
+            if (!$ingresarArticulo) {
+              return redirect()->route('IndexBodegaPilares')->with('error', "Hubo un problema al ingresar la existencia.");
+            }
+
+        }
+
+        return redirect()->route('IndexBodegaPilares')->with('success', "Se ha registrado la existencia exitosamente.");
 
     }
 
@@ -120,6 +172,24 @@ class bodegaController extends Controller
 
 
       return view('BODEGA.listadoDeArticulos',compact('listadoDeArticulos','color','tipoImplante','condicion') );
+    }
+
+    public function ListadoDePilares(){
+        $listadoDePilares = DB::table('PB_PILARES_EN_BODEGA')
+        ->Join('PL_PILARES', 'PL_PILARES.PL_COD', '=', 'PB_PILARES_EN_BODEGA.PB_PL_COD')
+        ->Join('TP_TIPO_PILAR', 'TP_TIPO_PILAR.TP_COD', '=', 'PL_PILARES.PL_TP_COD')
+        ->select(
+        'PL_COD',
+        'PL_PILARES.PL_NOMBRE',
+        'TP_TIPO_PILAR.TP_DESC',
+        'PB_PILARES_EN_BODEGA.PB_COD',
+        'PB_PILARES_EN_BODEGA.PB_CANT',
+        'PB_PILARES_EN_BODEGA.PB_LOTE',
+        'PB_PILARES_EN_BODEGA.PB_UDI_COMPLETO')
+
+        ->paginate();
+
+        return view('PILARES.BODEGA.listaDePilaresEnBodega',compact('listadoDePilares'));
     }
 
     public function showActualizarExistencias($id){
@@ -269,6 +339,16 @@ class bodegaController extends Controller
 
         return view('BODEGA.fichaDeArticulo', compact('Articulo','prodCod','udiProd'));
 
+    }
+
+    public function showFichaPilar($id){
+
+      $pilar = PB_PILARES_EN_BODEGA::find($id);
+
+
+
+
+      return view('PILARES.BODEGA.fichaDePilares', compact('pilar'));
     }
 
     public function buscarArticulo(Request $request){

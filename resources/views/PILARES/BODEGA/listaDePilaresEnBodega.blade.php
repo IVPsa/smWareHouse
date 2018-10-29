@@ -98,31 +98,21 @@ $(document).ready(function(){
               <tr>
                 <th>ID</th>
                 <th>NOMBRE</th>
-                <th>LONGITUD</th>
-                <th>DIAMETRO</th>
-                <th>TIPO CONEXION</th>
-                <th>TIPO DE IMPLANTE</th>
-                <th>COLOR</th>
-                <th>FECHA EXP</th>
+                <th>TIPO</th>
                 <th>LOTE</th>
-                <th>CANT</th>
+                <th width="50px">CANT</th>
 
                 <th width="100px" colspan="3" >ACCION</th>
               </tr>
           </thead>
 
+          @foreach($listadoDePilares as $lista)
           <tr>
-            <td></td>
-            <td></td>
-
-            <td></td>
-            <td></td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td></td>
-            <td> </td>
-            <td></td>
+            <td>{{$lista->PB_COD}}</td>
+            <td>{{$lista->PL_NOMBRE}}</td>
+            <td>{{$lista->TP_DESC}}</td>
+            <td>{{$lista->PB_LOTE}}</td>
+            <td>{{$lista->PB_CANT}}</td>
 
 
             <td width="15px" >
@@ -133,14 +123,14 @@ $(document).ready(function(){
                </a>
             </td>
             <td width="15px" >
-              <a href="{{route('fichaDePilares')}}">
+              <a href="{{route('fichaDePilar',$lista->PL_COD)}}">
                 <button class="btn btn-lg btn-info"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha Del Pilar En Catalogo">
                   <i class="fa fa-clipboard" ></i>
                  </button>
               </a>
             </td>
             <td width="15px" >
-              <a href="">
+              <a href="{{route('fichaDePilarEnBodega',$lista->PB_COD)}}">
                 <button class="btn btn-lg btn-warning"  style="width:50px; height:50px;" data-toggle="tooltip" data-placement="top" title="Ver Ficha Del Pilar en Inventario">
                   <i class="material-icons">content_copy</i>
                  </button>
@@ -148,7 +138,7 @@ $(document).ready(function(){
             </td>
 
           </tr>
-
+          @endforeach
 
 
       </table>

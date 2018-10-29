@@ -17,9 +17,11 @@ class PLPILARES extends Migration
           Schema::create('PL_PILARES', function (Blueprint $table) {
             $table->increments('PL_COD');
             $table->string('PL_NOMBRE', 45);
-            $table->string('PL_DESCRIPCION');
+            $table->string('PL_DESCRIPCION', 45);
+            $table->string('PL_N_ARTICULO',10);
             $table->string('PL_UDI01', 16);
-            $table->date('PL_NOMBRE');
+            $table->integer('PL_TP_COD')->unsigned();
+            $table->foreign('PL_TP_COD')->references('TP_COD')->on('TP_TIPO_PILAR');
             $table->timestamps();
           });
     }

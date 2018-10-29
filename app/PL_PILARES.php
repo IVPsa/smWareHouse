@@ -9,11 +9,14 @@ class PL_PILARES extends Model
     //
     protected $table ="PL_PILARES";
 
-    protected $primaryKey = "TC_COD";
+    protected $primaryKey = "PL_COD";
 
     protected $fillable = [
 
-      'TC_DES',
-      'TC_DIAMETRO'
+        'PL_NOMBRE',
+        'PL_DESCRIPCION',
+        'PL_UDI01',
+        'PL_N_ARTICULO',
+        'PL_TP_COD'
     ];
 }
