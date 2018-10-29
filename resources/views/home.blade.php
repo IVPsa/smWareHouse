@@ -92,7 +92,7 @@
               <h4 class="text-center">CONTEO DE IMPLANTES SLA ACTIVE POR RADIO Y LONGITUD</h4>
               <div class="table-responsive">
 
-                <table class="table table-bordered" align="center"  id="table">
+              <table class="table table-bordered" align="center"  id="table">
                 <tr>
                   <td width="150">LONGITUD/RADIO</td>
                   <td class="bg-green">2.9</td>
@@ -162,7 +162,7 @@
               <h4 class="text-center">CONTEO DE GUIADOS POR RADIO Y LONGITUD</h4>
               <div class="table-responsive">
 
-                  <table class="table table-bordered" align="center"  id="table">
+                <table class="table table-bordered" align="center"  id="table">
                   <tr>
                     <td width="150">LONGITUD/RADIO</td>
                     <td class="bg-green">2.9</td>
