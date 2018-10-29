@@ -127,7 +127,7 @@ Route::group(['prefix' => 'BODEGA'], function () {
     });
 
     Route::group(['prefix' => 'PILARES'], function () {
-      Route::view('/IndexBodegaPilares', 'PILARES.IndexPilares')->name('IndexBodegaPilares');
+      Route::view('/IndexBodegaPilares', 'PILARES.indexPilares')->name('IndexBodegaPilares');
       Route::view('/actualizarExistenciasPilares', 'PILARES.BODEGA.actualizarExistenciasPilares')->name('actualizarExistenciasPilares');
       Route::view('/ingresoDePilaresPorCodProd', 'PILARES.BODEGA.ingresoDePilaresPorCodProd')->name('ingresoDePilaresPorCodProd');
       Route::view('/listaDePilaresUsados', 'PILARES.BODEGA.listaDePilaresUsados')->name('listaDePilaresUsados');
