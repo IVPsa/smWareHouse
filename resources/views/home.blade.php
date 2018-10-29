@@ -103,49 +103,49 @@
                 <tr>
                   <td class="bg-blue">8</td>
                   <td>
-                    {{implantesDe8x29SLA}}
+                    {{$implantesDe8x29SLA}}
                   </td>
                   <td>
-                    {{implantesDe8x33SLA}}
-                  </td>
-
-                  <td>
-                    {{implantesDe8x41SLA}}
+                    {{$implantesDe8x33SLA}}
                   </td>
 
                   <td>
-                    {{implantesDe8x48SLA}}
+                    {{$implantesDe8x41SLA}}
+                  </td>
+
+                  <td>
+                    {{$implantesDe8x48SLA}}
                   </td>
                 </tr>
                 <tr>
                   <td class="bg-blue">10</td>
                   <td>
-                    {{implantesDe10x29SLA}}
+                    {{$implantesDe10x29SLA}}
                   </td>
                   <td>
-                    {{implantesDe10x33SLA}}
+                    {{$implantesDe10x33SLA}}
                   </td>
                   <td>
-                    {{implantesDe10x41SLA}}
+                    {{$implantesDe10x41SLA}}
                   </td>
                   <td>
-                    {{implantesDe10x48SLA}}
+                    {{$implantesDe10x48SLA}}
                   </td>
 
                 </tr>
                 <tr>
                   <td class="bg-blue">12</td>
                   <td>
-                    {{implantesDe12x29SLA}}
+                    {{$implantesDe12x29SLA}}
                   </td>
                   <td>
-                    {{implantesDe12x33SLA}}
+                    {{$implantesDe12x33SLA}}
                   </td>
                   <td>
-                    {{implantesDe12x41SLA}}
+                    {{$implantesDe12x41SLA}}
                   </td>
                   <td>
-                    {{implantesDe12x48SLA}}
+                    {{$implantesDe12x48SLA}}
                   </td>
                 </tr>
                 <tr>
