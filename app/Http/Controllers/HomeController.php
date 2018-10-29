@@ -205,6 +205,95 @@ class HomeController extends Controller
       ->where('PROD_DESCRIPCION','<>', 'Implante Guiado')
       ->sum('ART_ARTICULOS.ART_CANT');
 
+      // SLA
+      //sla 8
+      $implantesDe8x29SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '2.9mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe8x33SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '3.3mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe8x41SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '4.1mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe8x48SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '4.8mm')
+      ->where('PROD_LONGITUD', '8mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      //sla 10
+      $implantesDe10x29SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '2.9mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe10x33SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '3.3mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe10x41SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '4.1mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe10x48SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '4.8mm')
+      ->where('PROD_LONGITUD', '10mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      //sla 12
+      $implantesDe12x29SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '2.9mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe12x33SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '3.3mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe12x41SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '4.1mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+      $implantesDe12x48SLA=DB::table('ART_ARTICULOS')
+      ->Join('PRO_PRODUCTOS', 'PRO_PRODUCTOS.PROD_COD', '=', 'ART_ARTICULOS.ART_PROD_COD')
+      ->where('PROD_DIAMETRO', '4.8mm')
+      ->where('PROD_LONGITUD', '12mm')
+      ->where('PROD_DESCRIPCION', 'Implante SLA active')
+      ->sum('ART_ARTICULOS.ART_CANT');
+
+
         return view('home',compact(
           'implantesDe8x29',
           'implantesDe8x33',
@@ -229,6 +318,18 @@ class HomeController extends Controller
           'implantesDe12x29Guiado',
           'implantesDe12x33Guiado',
           'implantesDe12x41Guiado',
-          'implantesDe12x48Guiado'     ));
+          'implantesDe12x48Guiado',
+          'implantesDe8x29SLA',
+          'implantesDe8x33SLA',
+          'implantesDe8x41SLA',
+          'implantesDe8x48SLA',
+          'implantesDe10x29SLA',
+          'implantesDe10x33SLA',
+          'implantesDe10x41SLA',
+          'implantesDe10x48SLA',
+          'implantesDe12x29SLA',
+          'implantesDe12x33SLA',
+          'implantesDe12x41SLA',
+          'implantesDe12x48SLA'    ));
     }
 }

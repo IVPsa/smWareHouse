@@ -8,8 +8,8 @@
     <div class="col-md-10 col-xs-12" >
       <form>
         <select  class="form-control"ng-model="myVar">
-          <option value="" selected >Seleccionar</option>
-          <option value="IMPLANTE">IMPLANTE</option>
+
+          <option value="IMPLANTE" selected>IMPLANTE</option>
           <option value="PILAR">PILAR</option>
         </select>
       </form>
@@ -19,58 +19,61 @@
   <div ng-switch="myVar">
 
     <div ng-switch-when="PILAR">
-      <form class="" action="" method="post">
-
-        <div class="form-group row">
-          <div class="container"  >
+      <form class="form-group row" action="{{route('createPilar')}}" method="post">
+        @csrf
+        <div class="container" >
             <div class="form-group row">
                 <label for="last_name" class=" col-3 col-form-label text-right">UDI (01):</label>
                 <div class="col-9">
-                  <input type="text"   maxlength="16" class="form-control" id="udi01" name="udi01"  value="">
+                  <input type="text"   maxlength="16" class="form-control" id="udi01Pilar" name="udi01Pilar"  value="">
                 </div>
                 <!-- <div class="col-6">
                 <input type="text"   maxlength="16" class="form-control" id="udi01" name="udi01">
               </div> -->
             </div>
 
-
-            <div class="form-group row">
-                <label  for="first_name" class="col-3 col-form-label text-right">UDI COMPLETA:</label>
-                <div class="col-9 " >
-                  <input type="text" class="form-control" id="udi" name="udi"  value="" >
-                </div>
-
-            </div>
-
             <div class="form-group row">
               <label for="last_name" class="col-3 col-form-label  text-right">TIPO:</label>
               <div class="col-9">
-                <select class="form-control" name="tp" >
+                <select class="form-control" name="tpPilar" >
                   <option value="" selected> Seleccione</option>
-                  <option value="Tissue Level NNC" >Tissue Level NNC</option>
-                  <option value="Tissue Level RN" >Tissue Level RN</option>
-                  <option value="Tissue Level WN" >Tissue Level WN</option>
-                  <option value="Bone Level NC" >Bone Level NC</option>
-                  <option value="Bone Level RC" >Bone Level RC</option>
+                  <option value="1" >Tissue Level NNC</option>
+                  <option value="2" >Tissue Level RN</option>
+                  <option value="3" >Tissue Level WN</option>
+                  <option value="4" >Bone Level SC</option>
+                  <option value="5" >Bone Level NC</option>
+                  <option value="6" >Bone Level RC</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="descPilar" class="col-3 col-form-label  text-right">DESCRIPCION:</label>
+              <label for="descPilar" class="col-3 col-form-label  text-right">NOMBRE:</label>
+              <div class="col-9">
+                <input type="text"   class="form-control" id="nombrePilar" name="nombrePilar"  value="">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="descPilar" class="col-3 col-form-label  text-right">DESCRIPCIÓN:</label>
               <div class="col-9">
                 <input type="text"   class="form-control" id="descPilar" name="descPilar"  value="">
               </div>
             </div>
 
             <div class="form-group row">
+              <label for="descPilar" class="col-3 col-form-label  text-right">Nº ARTICULO:</label>
+              <div class="col-9">
+                <input type="text" maxlength="10"  class="form-control" id="nArtPilar" name="nArtPilar"  value="">
+              </div>
+            </div>
+
+
+            <div class="form-group row">
               <div class="offset-3 col-9">
                 <button type="submit" class="btn btn-success btn-lg">CREAR</button>
               </div>
-
             </div>
-
-          </div>
         </div>
       </form>
     </div>
@@ -95,6 +98,7 @@
               <select  class="form-control" id="descProducto" name="descProducto" required>
                 <option value="Implante no Guiado">Implante Guiado</option>
                 <option value="Implante no Guiado">Implante no Guiado</option>
+                <option value="Implante SLA active">Implante SLA active</option>
               </select>
             </div>
           </div>
